@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Sortiq Solutions | CampusEdgePro</title>
+    <meta name="description" content="Learn why Sortiq Solutions built CampusEdgePro, a smart college ERP for Indian institutes.">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="topbar"><nav class="nav"><a class="brand" href="index.html"><span class="brand-mark">CE</span><span>CampusEdgePro</span></a><button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button><div class="nav-links" data-nav-links><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="demo.html">Demo</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="docs/index.html">Documentation</a><a class="button" href="demo.html">Book Demo</a></div></nav></header>
+    <main>
+      <section class="section page-hero">
+        <p class="eyebrow">CampusEdgePro - Smart College ERP by Sortiq Solutions</p>
+        <h1>About Sortiq Solutions Pvt Ltd</h1>
+        <p class="lead">Sortiq Solutions builds practical software for education teams that need reliable systems, clean workflows and support that understands college operations.</p>
+      </section>
+      <section class="band"><div class="section grid three">
+        <article class="card"><h3>Our vision</h3><p>To make college administration simpler, more transparent and more data-driven for every institute.</p></article>
+        <article class="card"><h3>Our mission</h3><p>To provide a complete ERP platform that connects admissions, academics, finance and reporting without operational complexity.</p></article>
+        <article class="card"><h3>Our expertise</h3><p>We combine product engineering, education workflows, data reporting and customer implementation support.</p></article>
+      </div></section>
+      <section class="section split">
+        <div><h2>Why we built CampusEdgePro</h2><p>Many colleges still manage admissions, fee collection, attendance and reports across spreadsheets, paper files and disconnected tools. CampusEdgePro was built to give principals, administrators, faculty and admission teams one dependable platform for daily work.</p></div>
+        <div class="card"><h3>What guides the product</h3><ul class="check-list"><li>Fast setup for college teams</li><li>Clear module ownership for each department</li><li>Reports that management can act on</li><li>Simple workflows for staff and students</li></ul></div>
+      </section>
+    </main>
+    <footer class="footer"><div class="footer-inner"><div><a class="brand" href="index.html"><span class="brand-mark">CE</span><span>CampusEdgePro</span></a><p>Smart College ERP by Sortiq Solutions.</p></div><div class="footer-links"><div><strong>Website</strong><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="pricing.html">Pricing</a></div><div><strong>Resources</strong><a href="blog.html">Blog</a><a href="docs/index.html">Documentation</a><a href="ads.html">Landing Page</a></div><div><strong>Modules</strong><a href="modules/student-management.html">Students</a><a href="modules/fees.html">Fees</a><a href="modules/attendance.html">Attendance</a></div><div><strong>Contact</strong><a href="contact.html">Book Demo</a><a href="mailto:hello@sortiqsolutions.com">Email</a></div></div></div></footer>
+    <script src="/assets/main.js"></script>
+  </body>
+</html>
+
