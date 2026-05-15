@@ -7,12 +7,10 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     libpq-dev \
-    libzip-dev \
-    zip \
     nodejs \
     npm
 
-RUN docker-php-ext-install pdo pdo_pgsql zip
+RUN docker-php-ext-install pdo pdo_pgsql
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -20,10 +18,12 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-RUN npm install && npm run build
+RUN npm install
 
-RUN chmod -R 775 storage bootstrap/cache
+RUN npm run build
+
+RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan migrate --force && exec php -S 0.0.0.0:${PORT:-10000} -t public"]
+CMD php -S 0.0.0.0:${PORT:-10000} -t public
