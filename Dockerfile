@@ -15,7 +15,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY . /app
+COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
@@ -23,8 +23,6 @@ RUN npm install && npm run build
 
 RUN chmod -R 775 storage bootstrap/cache
 
-
-
 EXPOSE 8080
 
-CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
+CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan migrate --force && exec php artisan serve --host=0.0.0.0 --port=$PORT"]
