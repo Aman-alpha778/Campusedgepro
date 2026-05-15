@@ -2359,7 +2359,7 @@ h3 {
   border-radius: 28px;
   background:
     linear-gradient(180deg, rgba(34, 47, 76, 0.5), rgba(20, 27, 38, 0.56)),
-    url("assets/hero-section-img2.png") center/cover no-repeat;
+    url("hero-section-img2.png") center/cover no-repeat;
   box-shadow: 0 26px 54px rgba(19, 32, 34, 0.14);
 }
 
