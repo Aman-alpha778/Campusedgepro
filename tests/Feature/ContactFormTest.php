@@ -44,4 +44,37 @@ class ContactFormTest extends TestCase
             'wants_updates' => true,
         ]);
     }
+
+    public function test_contact_form_handles_mail_failures_gracefully(): void
+    {
+        Mail::partialMock()
+            ->shouldReceive('to')
+            ->once()
+            ->andReturnSelf();
+
+        Mail::shouldReceive('send')
+            ->once()
+            ->andThrow(new \RuntimeException('SMTP transport failed.'));
+
+        $response = $this->from('/contact.html')->post('/contact', [
+            'first_name' => 'Aman',
+            'last_name' => 'Sharma',
+            'country' => 'India',
+            'phone' => '9876543210',
+            'email' => 'aman@example.com',
+            'inquiry_type' => 'Pricing',
+            'message' => 'Please share full pricing details.',
+            'updates' => '1',
+        ]);
+
+        $response->assertRedirect('/contact.html');
+        $response->assertSessionHas('contact_error');
+
+        $this->assertDatabaseHas(Inquiry::class, [
+            'first_name' => 'Aman',
+            'email' => 'aman@example.com',
+            'inquiry_type' => 'Pricing',
+            'wants_updates' => true,
+        ]);
+    }
 }

@@ -7,7 +7,6 @@ use App\Models\Inquiry;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Throwable;
 
 class ContactController extends Controller
 {
@@ -43,16 +42,16 @@ class ContactController extends Controller
         $recipientAddress = config('mail.to.address');
         $recipientName = config('mail.to.name');
 
-     try {
+        try {
+            Mail::to($recipientAddress, $recipientName)
+                ->send(new ContactInquirySubmitted($payload));
+        } catch (\Throwable $e) {
+            report($e);
 
-    Mail::to($recipientAddress)
-        ->send(new ContactInquirySubmitted($payload));
-
-} catch (\Throwable $e) {
-
-    dd($e->getMessage());
-
-}
+            return back()
+                ->withInput()
+                ->with('contact_error', 'Your inquiry was saved, but we could not send the email right now. Please try again in a few minutes.');
+        }
 
         return back()->with('contact_success', 'Thanks. Your inquiry has been sent successfully.');
     }

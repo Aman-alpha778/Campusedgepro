@@ -19,6 +19,17 @@
         </div>
       </div>
     @endif
+    @if (session('contact_error'))
+      <div class="site-notice is-visible" data-site-notice role="alert" aria-live="assertive">
+        <div class="site-notice-card">
+          <div class="site-notice-copy">
+            <strong>We Couldn't Send The Email</strong>
+            <p>{{ session('contact_error') }}</p>
+          </div>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">×</button>
+        </div>
+      </div>
+    @endif
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="index.html"><span class="brand-mark">CE</span><span>CampusEdgePro</span></a>
@@ -67,7 +78,7 @@
             </div>
           </div>
 
-          <form class="contact-form-shell" action="{{ route('contact.submit') }}" method="post">
+          <form class="contact-form-shell" action="{{ route('contact.submit', [], false) }}" method="post">
           @csrf
           <div class="contact-form-head">
             <h2>Tell us what you need</h2>
@@ -78,11 +89,11 @@
           </div>
 
           <div class="contact-form-grid">
-            <label class="field"><span>First Name</span><input name="first_name" value="{{ old('first_name') }}" required></label>
-            <label class="field"><span>Last Name</span><input name="last_name" value="{{ old('last_name') }}"></label>
-            <label class="field"><span>Country</span><input name="country" value="{{ old('country') }}"></label>
-            <label class="field"><span>Phone Number</span><input name="phone" value="{{ old('phone') }}" required></label>
-            <label class="field full"><span>Email Address</span><input name="email" type="email" value="{{ old('email') }}" required></label>
+            <label class="field"><span>First Name</span><input name="first_name" autocomplete="given-name" value="{{ old('first_name') }}" required></label>
+            <label class="field"><span>Last Name</span><input name="last_name" autocomplete="family-name" value="{{ old('last_name') }}"></label>
+            <label class="field"><span>Country</span><input name="country" autocomplete="country-name" value="{{ old('country') }}"></label>
+            <label class="field"><span>Phone Number</span><input name="phone" type="tel" autocomplete="tel" value="{{ old('phone') }}" required></label>
+            <label class="field full"><span>Email Address</span><input name="email" type="email" autocomplete="email" value="{{ old('email') }}" required></label>
           </div>
 
           <div class="contact-inquiry-type">
