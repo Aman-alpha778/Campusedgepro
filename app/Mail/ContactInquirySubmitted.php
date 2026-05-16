@@ -37,8 +37,11 @@ class ContactInquirySubmitted extends Mailable
 
     public function content(): Content
     {
-        return new Content(
-            view: 'emails.contact-inquiry-submitted',
-        );
+       return new Content(
+    view: 'emails.contact-inquiry-submitted',
+    with: [
+        'contactData' => $this->contactData,
+    ],
+);
     }
 }

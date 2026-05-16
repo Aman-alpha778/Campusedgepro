@@ -43,13 +43,16 @@ class ContactController extends Controller
         $recipientAddress = config('mail.to.address');
         $recipientName = config('mail.to.name');
 
-        try {
-            Mail::to($recipientAddress, $recipientName)->send(new ContactInquirySubmitted($payload));
-        } catch (Throwable) {
-            return back()
-                ->withInput()
-                ->withErrors(['contact' => 'We could not send your inquiry right now. Please try again in a moment.']);
-        }
+     try {
+
+    Mail::to($recipientAddress)
+        ->send(new ContactInquirySubmitted($payload));
+
+} catch (\Throwable $e) {
+
+    dd($e->getMessage());
+
+}
 
         return back()->with('contact_success', 'Thanks. Your inquiry has been sent successfully.');
     }
