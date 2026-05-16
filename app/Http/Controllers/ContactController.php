@@ -6,7 +6,9 @@ use App\Mail\ContactInquirySubmitted;
 use App\Models\Inquiry;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class ContactController extends Controller
 {
@@ -46,11 +48,22 @@ class ContactController extends Controller
             Mail::to($recipientAddress, $recipientName)
                 ->send(new ContactInquirySubmitted($payload));
         } catch (\Throwable $e) {
-            report($e);
+            $failureId = 'mail-'.Str::lower(Str::random(12));
+
+            Log::error('Contact inquiry email send failed.', [
+                'failure_id' => $failureId,
+                'exception' => $e::class,
+                'message' => $e->getMessage(),
+                'recipient_address' => $recipientAddress,
+                'recipient_name' => $recipientName,
+                'contact_email' => $payload['email'],
+                'inquiry_type' => $payload['inquiry_type'],
+            ]);
 
             return back()
                 ->withInput()
-                ->with('contact_error', 'Your inquiry was saved, but we could not send the email right now. Please try again in a few minutes.');
+                ->with('contact_error', 'Your inquiry was saved, but we could not send the email right now. Reference ID: '.$failureId)
+                ->with('contact_error_details', config('mail.show_error_details') ? $e->getMessage() : null);
         }
 
         return back()->with('contact_success', 'Thanks. Your inquiry has been sent successfully.');

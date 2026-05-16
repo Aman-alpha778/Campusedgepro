@@ -69,6 +69,7 @@ class ContactFormTest extends TestCase
 
         $response->assertRedirect('/contact.html');
         $response->assertSessionHas('contact_error');
+        $response->assertSessionMissing('contact_error_details');
 
         $this->assertDatabaseHas(Inquiry::class, [
             'first_name' => 'Aman',
@@ -76,5 +77,33 @@ class ContactFormTest extends TestCase
             'inquiry_type' => 'Pricing',
             'wants_updates' => true,
         ]);
+    }
+
+    public function test_contact_form_can_expose_mail_failure_details_when_enabled(): void
+    {
+        config(['mail.show_error_details' => true]);
+
+        Mail::partialMock()
+            ->shouldReceive('to')
+            ->once()
+            ->andReturnSelf();
+
+        Mail::shouldReceive('send')
+            ->once()
+            ->andThrow(new \RuntimeException('SMTP authentication failed.'));
+
+        $response = $this->from('/contact.html')->post('/contact', [
+            'first_name' => 'Aman',
+            'last_name' => 'Sharma',
+            'country' => 'India',
+            'phone' => '9876543210',
+            'email' => 'aman@example.com',
+            'inquiry_type' => 'Pricing',
+            'message' => 'Please share full pricing details.',
+            'updates' => '1',
+        ]);
+
+        $response->assertRedirect('/contact.html');
+        $response->assertSessionHas('contact_error_details', 'SMTP authentication failed.');
     }
 }

@@ -25,6 +25,9 @@
           <div class="site-notice-copy">
             <strong>We Couldn't Send The Email</strong>
             <p>{{ session('contact_error') }}</p>
+            @if (session('contact_error_details'))
+              <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
+            @endif
           </div>
           <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">×</button>
         </div>

@@ -120,4 +120,6 @@ return [
         'name' => env('MAIL_TO_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    'show_error_details' => env('MAIL_SHOW_ERROR_DETAILS', false),
+
 ];
