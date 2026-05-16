@@ -52,6 +52,7 @@ class ContactController extends Controller
 
             Log::error('Contact inquiry email send failed.', [
                 'failure_id' => $failureId,
+                'mailer' => config('mail.default'),
                 'exception' => $e::class,
                 'message' => $e->getMessage(),
                 'recipient_address' => $recipientAddress,
