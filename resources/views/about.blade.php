@@ -46,20 +46,50 @@
       <section class="band">
         <div class="section about-overview-grid">
           <article class="about-overview-card about-overview-card-large">
-            <p class="eyebrow">Who We Are</p>
-            <h2>A software company focused on practical transformation, not vanity tech.</h2>
-            <p>At Sortiq Solutions, innovation matters only when it improves how organizations operate. We design and deliver systems that reduce friction, improve visibility, and support scalable growth. For college teams, that means better admissions handling, stronger fee control, cleaner academic coordination, and management reporting that is easy to trust.</p>
-            <p>Our work is grounded in understanding how real institutions function. That is why our approach goes beyond implementation. We care about adoption, usability, and whether the final system genuinely helps administrators, faculty, and leadership teams make better decisions.</p>
+            <div class="about-overview-media about-overview-media-company">
+              <div class="about-overview-orbit">
+                <span class="about-overview-node node-center">Sortiq</span>
+                <span class="about-overview-node node-admissions">Admissions</span>
+                <span class="about-overview-node node-academics">Academics</span>
+                <span class="about-overview-node node-finance">Finance</span>
+                <span class="about-overview-node node-reporting">Reporting</span>
+              </div>
+            </div>
+            <div class="about-overview-content">
+              <p class="eyebrow">Who We Are</p>
+              <h2>A software company focused on practical transformation, not vanity tech.</h2>
+              <p>At Sortiq Solutions, innovation matters only when it improves how organizations operate. We design and deliver systems that reduce friction, improve visibility, and support scalable growth. For college teams, that means better admissions handling, stronger fee control, cleaner academic coordination, and management reporting that is easy to trust.</p>
+              <p>Our work is grounded in understanding how real institutions function. That is why our approach goes beyond implementation. We care about adoption, usability, and whether the final system genuinely helps administrators, faculty, and leadership teams make better decisions.</p>
+            </div>
           </article>
-          <article class="about-overview-card">
-            <p class="eyebrow">Our Vision</p>
-            <h3>To become a trusted technology partner for organizations navigating digital change.</h3>
-            <p>We want teams to embrace transformation with confidence by giving them systems that feel dependable, intuitive, and built for where they are going next.</p>
+          <article class="about-overview-card about-overview-card-vision">
+            <div class="about-overview-media about-overview-media-vision">
+              <div class="about-vision-skyline">
+                <span class="about-vision-sun"></span>
+                <span class="about-vision-line line-one"></span>
+                <span class="about-vision-line line-two"></span>
+                <span class="about-vision-line line-three"></span>
+              </div>
+            </div>
+            <div class="about-overview-content">
+              <p class="eyebrow">Our Vision</p>
+              <h3>To become a trusted technology partner for organizations navigating digital change.</h3>
+              <p>We want teams to embrace transformation with confidence by giving them systems that feel dependable, intuitive, and built for where they are going next.</p>
+            </div>
           </article>
-          <article class="about-overview-card">
-            <p class="eyebrow">Our Mission</p>
-            <h3>Deliver scalable, value-driven solutions that improve performance and long-term outcomes.</h3>
-            <p>We focus on systems that simplify complexity, improve productivity, and create lasting operational value instead of short-term fixes.</p>
+          <article class="about-overview-card about-overview-card-mission">
+            <div class="about-overview-media about-overview-media-mission">
+              <div class="about-mission-track">
+                <span class="about-mission-step">Plan</span>
+                <span class="about-mission-step">Build</span>
+                <span class="about-mission-step">Scale</span>
+              </div>
+            </div>
+            <div class="about-overview-content">
+              <p class="eyebrow">Our Mission</p>
+              <h3>Deliver scalable, value-driven solutions that improve performance and long-term outcomes.</h3>
+              <p>We focus on systems that simplify complexity, improve productivity, and create lasting operational value instead of short-term fixes.</p>
+            </div>
           </article>
         </div>
       </section>
