@@ -293,7 +293,7 @@
     </main>
     <footer class="footer">
       <div class="footer-inner">
-        <div><a class="brand" href="index.html"><span class="brand-mark">CE</span><span>CampusEdgePro</span></a><p>Smart College ERP by Sortiq Solutions.</p></div>
+        <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p></div>
         <div class="footer-links">
           <div><strong>Website</strong><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="pricing.html">Pricing</a></div>
           <div><strong>Resources</strong><a href="blog.html">Blog</a><a href="docs/index.html">Documentation</a><a href="ads.html">Landing Page</a></div>
