@@ -92,6 +92,13 @@ img {
   gap: 1rem;
 }
 
+.nav .btn,
+.nav .btn-secondary,
+.nav .btn-outline,
+.nav .button {
+  margin-left: auto;
+}
+
 .nav a {
   color: var(--muted);
   font-weight: 600;

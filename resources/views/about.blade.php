@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
   <body>
-    <header class="topbar"><nav class="nav"><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><button class="menu-toggle" data-menu-toggle aria-label="Open menu">â˜°</button><div class="nav-links" data-nav-links><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="demo.html">Demo</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="docs/index.html">Documentation</a><a class="button" href="demo.html">Book Demo</a></div></nav></header>
+    <header class="topbar"><nav class="nav"><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><button class="menu-toggle" data-menu-toggle aria-label="Open menu">ÃƒÂ¢Ã‹Å“Ã‚Â°</button><div class="nav-links" data-nav-links><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="demo.html">Demo</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="docs/index.html">Documentation</a></div><a class="button nav-cta" href="demo.html">Book Demo</a></nav></header>
     <main>
       <section class="section page-hero">
         <p class="eyebrow">CampusEdgePro - Smart College ERP by Sortiq Solutions</p>

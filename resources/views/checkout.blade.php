@@ -11,7 +11,7 @@
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="/index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">Ã¢ËœÂ°</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">ÃƒÂ¢Ã‹Å“Ã‚Â°</button>
         <div class="nav-links" data-nav-links>
           <a href="/features.html">Features</a>
           <a href="/modules.html">Modules</a>
@@ -91,7 +91,7 @@
               </div>
 
               <div class="checkout-pay-actions">
-                <button class="button checkout-pay-button" type="button">Pay Ã¢â€šÂ¹{{ $plan['price'] }} Securely</button>
+                <button class="button checkout-pay-button" type="button">Pay ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹{{ $plan['price'] }} Securely</button>
                 <p>Your payment is protected and your implementation team is notified immediately after confirmation.</p>
               </div>
             </form>
@@ -101,7 +101,7 @@
             <div class="checkout-summary-top">
               <span class="checkout-summary-label">Selected Plan</span>
               <h2>{{ $plan['name'] }}</h2>
-              <div class="checkout-price">Ã¢â€šÂ¹{{ $plan['price'] }} <span>/ month</span></div>
+              <div class="checkout-price">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹{{ $plan['price'] }} <span>/ month</span></div>
               <p>{{ $plan['summary'] }}</p>
             </div>
 

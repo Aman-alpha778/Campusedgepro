@@ -52,9 +52,9 @@ img {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   min-height: 76px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: flex-start;
   gap: 28px;
 }
 
@@ -88,7 +88,6 @@ img {
 
 .nav-links {
   display: flex;
-  flex: 1;
   align-items: center;
   justify-content: center;
   gap: 22px;
@@ -132,14 +131,14 @@ img {
   transform: scaleX(1);
 }
 
-.nav-links .button {
+.nav-cta {
   min-height: 42px;
-  margin-left: 2px;
   padding: 0 16px;
   border-radius: 6px;
+  justify-self: end;
 }
 
-.nav-links .button:hover {
+.nav-cta:hover {
   color: var(--white);
 }
 
@@ -3482,6 +3481,7 @@ h3 {
 
 @media (max-width: 760px) {
   .nav {
+    display: flex;
     min-height: 64px;
     justify-content: space-between;
   }
@@ -3497,7 +3497,6 @@ h3 {
     right: 16px;
     top: 68px;
     display: none;
-    flex: none;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
@@ -3524,6 +3523,10 @@ h3 {
 
   .nav-links .button {
     width: 100%;
+  }
+
+  .nav-cta {
+    display: none;
   }
 
   .hero {

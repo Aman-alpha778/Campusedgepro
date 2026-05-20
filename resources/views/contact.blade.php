@@ -15,7 +15,7 @@
             <strong>Email Sent Successfully</strong>
             <p>{{ session('contact_success') }}</p>
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ã—</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
         </div>
       </div>
     @endif
@@ -29,14 +29,14 @@
               <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
             @endif
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ã—</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
         </div>
       </div>
     @endif
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">â˜°</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">Ã¢ËœÂ°</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>
           <a href="modules.html">Modules</a>
@@ -115,7 +115,7 @@
 
           <label class="contact-check">
             <input type="checkbox" name="updates" value="1" {{ old('updates') ? 'checked' : '' }}>
-            <span>Iâ€™d like to receive exclusive updates and product offers.</span>
+            <span>IÃ¢â‚¬â„¢d like to receive exclusive updates and product offers.</span>
           </label>
 
           <button class="contact-submit" type="submit">Submit</button>

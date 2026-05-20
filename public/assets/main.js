@@ -8,6 +8,30 @@ if (toggle && links) {
   });
 }
 
+const normalizeNavLayout = () => {
+  document.querySelectorAll(".nav").forEach((nav) => {
+    const navLinks = nav.querySelector("[data-nav-links]");
+    if (!navLinks) {
+      return;
+    }
+
+    const inlineCta = navLinks.querySelector("a.button");
+    const existingCta = nav.querySelector(".nav-cta");
+
+    if (inlineCta) {
+      inlineCta.classList.add("nav-cta");
+      nav.appendChild(inlineCta);
+      return;
+    }
+
+    if (existingCta && existingCta.parentElement !== nav) {
+      nav.appendChild(existingCta);
+    }
+  });
+};
+
+normalizeNavLayout();
+
 const renderSharedFooter = () => {
   const path = window.location.pathname.replace(/\\/g, "/");
   const nested = ["/blog/", "/modules/", "/docs/"].some((segment) => path.includes(segment));
@@ -18,12 +42,11 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
+            <img class="brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
           </a>
-          <h3>Sortiq </h3>
+          <h3>CampusEdgePro</h3>
           <p>Sortiq ERP System is a powerful digital platform designed to simplify management for schools, colleges, and businesses. 
-          It streamlines attendance, exams, fees, staff, and student records in one secure system. With smart automation and real-time
-           access, Sortiq ERP improves efficiency and productivity.
+        
 </p>
           <div class="footer-socials" aria-label="Social links">
             <a href="https://www.facebook.com/SortiqSolutions" aria-label="Facebook">f</a>
