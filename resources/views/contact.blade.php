@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -35,7 +35,7 @@
     @endif
     <header class="topbar">
       <nav class="nav">
-        <a class="brand" href="index.html"><span class="brand-mark">CE</span><span>CampusEdgePro</span></a>
+        <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
         <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>

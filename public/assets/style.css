@@ -62,9 +62,14 @@ img {
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 50px;
 }
 
 .brand-mark {

@@ -12,11 +12,7 @@
     <header class="topbar docs-topbar">
       <nav class="nav">
         <a class="brand" href="index.html">
-          <span class="brand-mark">CE</span>
-          <span class="brand-copy">
-            <strong>CampusEdgePro Docs</strong>
-            <span>Support knowledge base</span>
-          </span>
+          <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
         </a>
         <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
         <div class="nav-links" data-nav-links>

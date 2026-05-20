@@ -11,8 +11,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <span class="brand-mark">CampusEdgePro</span>
-        <span class="brand-tagline">Smart College ERP by Sortiq Solutions</span>
+        <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
       </a>
       <nav class="nav">
         <a href="index.html">Home</a>

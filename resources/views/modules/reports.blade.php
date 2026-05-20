@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -10,10 +10,7 @@
     <body class="module-detail-page">
         <header class="topbar">
             <nav class="nav">
-                <a class="brand" href="../index.html">
-                    <span class="brand-mark">CE</span>
-                    <span>CampusEdgePro</span>
-                </a>
+                <a class="brand" href="../index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
                 <div class="nav-links open">
                     <a href="../features.html">Features</a>
                     <a href="../modules.html">Modules</a>
