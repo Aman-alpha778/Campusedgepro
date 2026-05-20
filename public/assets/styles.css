@@ -2748,6 +2748,249 @@ h3 {
   padding: 76px 0 44px;
 }
 
+.about-page {
+  background:
+    radial-gradient(circle at top left, rgba(242, 140, 27, 0.1), transparent 26%),
+    linear-gradient(180deg, #f7fafc 0%, #eef3f8 48%, #f8fbfd 100%);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 28px;
+  align-items: stretch;
+  padding-top: 54px;
+  padding-bottom: 58px;
+}
+
+.about-hero-copy,
+.about-hero-panel-inner,
+.about-overview-card,
+.about-value-card,
+.about-why-item,
+.about-expertise-card,
+.about-cta-card {
+  border: 1px solid rgba(20, 35, 48, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(17, 31, 44, 0.08);
+}
+
+.about-hero-copy {
+  padding: 42px;
+  background: linear-gradient(155deg, #ffffff 0%, #f4f8fb 100%);
+}
+
+.about-hero-copy h1 {
+  max-width: 720px;
+  margin-bottom: 20px;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 0.98;
+}
+
+.about-hero-copy .lead {
+  max-width: 640px;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.about-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.about-hero-panel {
+  display: flex;
+}
+
+.about-hero-panel-inner {
+  width: 100%;
+  padding: 32px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at top right, rgba(242, 140, 27, 0.34), transparent 28%),
+    linear-gradient(160deg, #0c2036 0%, #153d66 58%, #1d6f57 100%);
+}
+
+.about-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-hero-panel-inner h2 {
+  margin: 22px 0 14px;
+  color: var(--white);
+  font-size: clamp(1.8rem, 2.8vw, 2.75rem);
+}
+
+.about-hero-panel-inner p {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.about-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.about-stat {
+  min-height: 132px;
+  padding: 18px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.about-stat strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.about-stat span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.about-overview-grid,
+.about-values-grid,
+.about-expertise-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.about-overview-grid {
+  grid-template-columns: 1.15fr 0.85fr 0.85fr;
+}
+
+.about-overview-card {
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.about-overview-card-large {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 252, 0.96));
+}
+
+.about-overview-card h2,
+.about-overview-card h3 {
+  margin-bottom: 14px;
+}
+
+.about-overview-card p:last-child,
+.about-value-card p:last-child,
+.about-why-item p:last-child,
+.about-expertise-card p:last-child,
+.about-cta-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-values-section {
+  padding-top: 62px;
+}
+
+.about-values-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.about-value-card {
+  padding: 26px 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+}
+
+.about-value-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #f28c1b;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.about-value-card h3 {
+  margin-bottom: 10px;
+}
+
+.about-why-grid {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-why-copy {
+  padding-right: 10px;
+}
+
+.about-why-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-why-item {
+  padding: 24px 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fb 100%);
+}
+
+.about-why-item h3,
+.about-expertise-card h3 {
+  margin-bottom: 10px;
+}
+
+.about-expertise-section {
+  padding-top: 64px;
+}
+
+.about-expertise-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.about-expertise-card {
+  padding: 24px 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 246, 251, 0.95));
+}
+
+.about-cta {
+  padding-top: 18px;
+}
+
+.about-cta-card {
+  padding: 42px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at top left, rgba(242, 140, 27, 0.28), transparent 24%),
+    linear-gradient(135deg, #0b223d 0%, #12355d 54%, #1f6a56 100%);
+}
+
+.about-cta-card h2 {
+  max-width: 700px;
+  color: var(--white);
+}
+
+.about-cta-card p {
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
 .student-module-hero {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
@@ -3372,6 +3615,8 @@ h3 {
 
 @media (max-width: 980px) {
   .hero,
+  .about-hero,
+  .about-why-grid,
   .student-module-hero,
   .split,
   .doc-layout,
@@ -3387,6 +3632,10 @@ h3 {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .about-overview-grid,
+  .about-values-grid,
+  .about-expertise-grid,
+  .about-why-list,
   .grid.four,
   .grid.three,
   .logos,
@@ -3401,6 +3650,10 @@ h3 {
 
   .section-head {
     display: block;
+  }
+
+  .about-stat-grid {
+    grid-template-columns: 1fr;
   }
 
   .modules-hero-graphic {
@@ -3605,6 +3858,11 @@ h3 {
   .grid.two,
   .grid.three,
   .grid.four,
+  .about-overview-grid,
+  .about-values-grid,
+  .about-expertise-grid,
+  .about-why-list,
+  .about-stat-grid,
   .student-module-card-row,
   .module-tile-grid,
   .module-detail-grid,
@@ -3657,6 +3915,20 @@ h3 {
   .contact-form-grid,
   .contact-scene-meta {
     grid-template-columns: 1fr;
+  }
+
+  .about-hero-copy,
+  .about-hero-panel-inner,
+  .about-overview-card,
+  .about-value-card,
+  .about-why-item,
+  .about-expertise-card,
+  .about-cta-card {
+    padding: 24px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 
   .checkout-grid,
