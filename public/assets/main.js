@@ -18,16 +18,18 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <span class="brand-mark">CE</span>
-            <span>CampusEdgePro</span>
+            <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
           </a>
-          <h3>Sortiq Management System</h3>
-          <p>Simplifying administrative management for institutes of all sizes. Transform your operations with our powerful platform.</p>
+          <h3>Sortiq </h3>
+          <p>Sortiq ERP System is a powerful digital platform designed to simplify management for schools, colleges, and businesses. 
+          It streamlines attendance, exams, fees, staff, and student records in one secure system. With smart automation and real-time
+           access, Sortiq ERP improves efficiency and productivity.
+</p>
           <div class="footer-socials" aria-label="Social links">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="X">x</a>
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="mailto:hello@sortiqsolutions.com" aria-label="Email">@</a>
+            <a href="https://www.facebook.com/SortiqSolutions" aria-label="Facebook">f</a>
+            <a href="https://twitter.com/SortiqSolutions" aria-label="X">x</a>
+            <a href="https://www.linkedin.com/company/sortiqsolutions" aria-label="LinkedIn">in</a>
+            <a href="sortiqsolutions@gmail.com" aria-label="Email">@</a>
           </div>
         </div>
         <div class="footer-columns">
@@ -64,7 +66,7 @@ const renderSharedFooter = () => {
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p>&copy; <span data-year></span> Sortiq Management System. All rights reserved.</p>
+          <p>&copy; <span data-year></span>sortiqsolutions. All rights reserved.</p>
           <div class="footer-bottom-actions">
             <span class="footer-badge">Secure</span>
             <span class="footer-badge">SOC 2 Certified</span>

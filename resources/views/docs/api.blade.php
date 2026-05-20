@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,6 +20,7 @@
           <a href="admin-guide.html">Admin Guide</a>
           <a href="faq.html">FAQ</a>
           <a class="active" href="api.html">API Docs</a>
+          <a href="../about.html">About Us</a>
           <a class="button" href="../contact.html">Talk to Team</a>
         </div>
       </nav>

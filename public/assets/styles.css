@@ -54,7 +54,7 @@ img {
   min-height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 28px;
 }
 
@@ -71,7 +71,7 @@ img {
 .brand-logo {
   display: block;
   width: auto;
-  height: 100px;
+  height: 120px;
 }
 
 .brand-mark {
@@ -88,7 +88,9 @@ img {
 
 .nav-links {
   display: flex;
+  flex: 1;
   align-items: center;
+  justify-content: center;
   gap: 22px;
   font-size: 0.88rem;
   color: var(--muted);
@@ -2364,8 +2366,12 @@ h3 {
   padding: 28px;
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(34, 47, 76, 0.5), rgba(20, 27, 38, 0.56)),
-    url("hero-section-img2.png") center/cover no-repeat;
+    radial-gradient(circle at 18% 18%, rgba(242, 140, 27, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(61, 101, 176, 0.22), transparent 28%),
+    linear-gradient(135deg, rgba(8, 14, 23, 0.94), rgba(16, 27, 36, 0.98)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Crect width='360' height='360' fill='%230b1219'/%3E%3Cg opacity='.24'%3E%3Cpath d='M0 46h360M0 138h360M0 230h360M0 322h360' stroke='%23f28c1b' stroke-width='.8'/%3E%3Cpath d='M46 0v360M138 0v360M230 0v360M322 0v360' stroke='%233d65b0' stroke-width='.8'/%3E%3C/g%3E%3Cg opacity='.14'%3E%3Ccircle cx='58' cy='62' r='2' fill='%23ffffff'/%3E%3Ccircle cx='144' cy='208' r='1.6' fill='%23ffffff'/%3E%3Ccircle cx='256' cy='94' r='1.8' fill='%23ffffff'/%3E%3Ccircle cx='312' cy='278' r='2' fill='%23ffffff'/%3E%3Ccircle cx='98' cy='314' r='1.4' fill='%23ffffff'/%3E%3C/g%3E%3Cg opacity='.1'%3E%3Cpath d='M-20 284c74-44 132-47 190-12s118 39 210-14' stroke='%23ffffff' stroke-width='18' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, auto, auto, 360px 360px;
+  background-position: center;
   box-shadow: 0 26px 54px rgba(19, 32, 34, 0.14);
 }
 
@@ -3477,6 +3483,7 @@ h3 {
 @media (max-width: 760px) {
   .nav {
     min-height: 64px;
+    justify-content: space-between;
   }
 
   .menu-toggle {
@@ -3490,8 +3497,10 @@ h3 {
     right: 16px;
     top: 68px;
     display: none;
+    flex: none;
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
     gap: 4px;
     padding: 16px;
     border: 1px solid var(--line);

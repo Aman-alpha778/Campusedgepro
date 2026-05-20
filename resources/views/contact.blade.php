@@ -15,7 +15,7 @@
             <strong>Email Sent Successfully</strong>
             <p>{{ session('contact_success') }}</p>
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">×</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ã—</button>
         </div>
       </div>
     @endif
@@ -29,21 +29,21 @@
               <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
             @endif
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">×</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ã—</button>
         </div>
       </div>
     @endif
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">â˜°</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>
           <a href="modules.html">Modules</a>
           <a href="demo.html">Demo</a>
           <a href="pricing.html">Pricing</a>
           <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a href="about.html">About Us</a><a href="contact.html">Contact</a>
           <a href="docs/index.html">Documentation</a>
           <a class="button" href="demo.html">Book Demo</a>
         </div>
@@ -115,7 +115,7 @@
 
           <label class="contact-check">
             <input type="checkbox" name="updates" value="1" {{ old('updates') ? 'checked' : '' }}>
-            <span>I’d like to receive exclusive updates and product offers.</span>
+            <span>Iâ€™d like to receive exclusive updates and product offers.</span>
           </label>
 
           <button class="contact-submit" type="submit">Submit</button>

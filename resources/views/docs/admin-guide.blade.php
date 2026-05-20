@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
           <a href="student-module.html">Student Module</a>
           <a href="fee-management.html">Fees</a>
           <a href="api.html">API Docs</a>
-          <a class="button" href="../demo.html">Book Demo</a>
+          <a href="../about.html">About Us</a><a class="button" href="../demo.html">Book Demo</a>
         </div>
       </nav>
     </header>
