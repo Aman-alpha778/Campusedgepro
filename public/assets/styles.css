@@ -2874,18 +2874,22 @@ h3 {
 }
 
 .about-overview-grid {
-  grid-template-columns: 1.15fr 0.85fr 0.85fr;
+  grid-template-columns: 1fr;
 }
 
 .about-overview-card {
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
   padding: 28px;
   background: rgba(255, 255, 255, 0.94);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
 .about-overview-card-large {
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 1.15fr);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 252, 0.96));
 }
@@ -2899,18 +2903,21 @@ h3 {
 .about-overview-content {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 26px;
 }
 
 .about-overview-media {
   position: relative;
-  min-height: 180px;
-  margin-bottom: 22px;
+  min-height: 220px;
   border-radius: 22px;
   overflow: hidden;
 }
 
 .about-overview-media-company {
-  min-height: 250px;
+  min-height: 260px;
   background:
     radial-gradient(circle at center, rgba(255, 255, 255, 0.86), rgba(244, 249, 252, 0.72) 45%, transparent 46%),
     linear-gradient(145deg, #f7fbff 0%, #e7f0f8 100%);
@@ -3075,7 +3082,7 @@ h3 {
 
 .about-overview-card-vision h3,
 .about-overview-card-mission h3 {
-  min-height: 84px;
+  min-height: 0;
 }
 
 .about-overview-card h2,
@@ -3851,6 +3858,16 @@ h3 {
     min-height: 220px;
   }
 
+  .about-overview-card,
+  .about-overview-card-large {
+    grid-template-columns: 1fr;
+  }
+
+  .about-overview-content {
+    padding-left: 0;
+    padding-top: 22px;
+  }
+
   .modules-hero-graphic {
     min-height: 340px;
   }
@@ -4128,7 +4145,6 @@ h3 {
 
   .about-overview-media {
     min-height: 150px;
-    margin-bottom: 18px;
   }
 
   .about-overview-media-company {
