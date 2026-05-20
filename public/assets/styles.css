@@ -2909,6 +2909,14 @@ h3 {
   padding-left: 26px;
 }
 
+.about-overview-content h2,
+.about-overview-content h3 {
+  color: #10273e;
+  font-size: clamp(1.65rem, 2.4vw, 2.45rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
 .about-overview-media {
   position: relative;
   min-height: 220px;
@@ -2916,168 +2924,19 @@ h3 {
   overflow: hidden;
 }
 
-.about-overview-media-company {
-  min-height: 260px;
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.86), rgba(244, 249, 252, 0.72) 45%, transparent 46%),
-    linear-gradient(145deg, #f7fbff 0%, #e7f0f8 100%);
-}
-
-.about-overview-orbit {
-  position: relative;
+.about-overview-media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.about-overview-orbit::before,
-.about-overview-orbit::after {
-  content: "";
-  position: absolute;
-  inset: 28px;
-  border: 1px dashed rgba(16, 63, 98, 0.14);
-  border-radius: 999px;
-}
-
-.about-overview-orbit::after {
-  inset: 54px;
-}
-
-.about-overview-node {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 14px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  box-shadow: 0 14px 26px rgba(16, 43, 78, 0.12);
-}
-
-.node-center {
-  left: 50%;
-  top: 50%;
-  min-width: 108px;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, #0f3154 0%, #1a5f89 100%);
-  color: var(--white);
-}
-
-.node-admissions,
-.node-academics,
-.node-finance,
-.node-reporting {
-  background: rgba(255, 255, 255, 0.95);
-  color: #16324a;
-}
-
-.node-admissions {
-  left: 12%;
-  top: 28%;
-}
-
-.node-academics {
-  right: 12%;
-  top: 26%;
-}
-
-.node-finance {
-  left: 18%;
-  bottom: 18%;
-}
-
-.node-reporting {
-  right: 12%;
-  bottom: 20%;
+.about-overview-media-company {
+  min-height: 260px;
 }
 
 .about-overview-media-vision {
-  background:
-    radial-gradient(circle at top center, rgba(242, 140, 27, 0.62), transparent 24%),
-    linear-gradient(180deg, #102a46 0%, #173f67 58%, #225f78 100%);
-}
-
-.about-vision-skyline {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.about-vision-sun {
-  position: absolute;
-  left: 50%;
-  top: 24%;
-  width: 62px;
-  height: 62px;
-  border-radius: 999px;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, #ffcb76 0%, #f28c1b 70%, rgba(242, 140, 27, 0.1) 100%);
-  box-shadow: 0 0 34px rgba(242, 140, 27, 0.42);
-}
-
-.about-vision-line {
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.24);
-}
-
-.line-one { bottom: 62px; }
-.line-two { bottom: 46px; opacity: 0.74; }
-.line-three { bottom: 30px; opacity: 0.5; }
-
-.about-overview-media-mission {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(61, 101, 176, 0.34), transparent 22%),
-    linear-gradient(160deg, #0d243d 0%, #153453 100%);
-}
-
-.about-mission-track {
-  position: absolute;
-  inset: 24px;
-  display: grid;
-  gap: 14px;
-  align-content: center;
-}
-
-.about-mission-track::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  bottom: 20px;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(242, 140, 27, 0.92), rgba(61, 101, 176, 0.82));
-}
-
-.about-mission-step {
-  position: relative;
-  margin-left: 34px;
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  min-height: 42px;
-  padding: 0 16px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.96);
-  color: #17344f;
-  font-size: 0.82rem;
-  font-weight: 800;
-  box-shadow: 0 14px 24px rgba(6, 15, 29, 0.18);
-}
-
-.about-mission-step::before {
-  content: "";
-  position: absolute;
-  left: -24px;
-  width: 12px;
-  height: 12px;
-  border: 3px solid #f28c1b;
-  border-radius: 999px;
-  background: #fff;
+  background: #e9eff5;
 }
 
 .about-overview-card-vision h3,
