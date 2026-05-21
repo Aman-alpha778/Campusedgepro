@@ -2017,13 +2017,14 @@ h3 {
 }
 
 .demo-section {
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 42px;
   align-items: start;
 }
 
 .demo-copy {
-  max-width: 760px;
+  max-width: 520px;
+  align-self: start;
 }
 
 .demo-copy .eyebrow {
@@ -2072,7 +2073,7 @@ h3 {
 .demo-form-card {
   position: relative;
   overflow: hidden;
-  width: min(100%, 760px);
+  width: 100%;
   padding: 0;
   border: 1px solid var(--line);
   background: var(--white);
