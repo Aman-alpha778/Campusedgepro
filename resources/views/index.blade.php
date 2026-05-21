@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <header class="topbar">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">Ã¢ËœÂ°</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">&#9776;</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>
           <a href="modules.html">Modules</a>
@@ -102,13 +102,13 @@
                   <rect x="12" y="16" width="40" height="32" rx="4" fill="#0f3154"/>
                   <rect x="17" y="22" width="30" height="6" fill="#fff"/>
                   <rect x="17" y="34" width="9" height="8" fill="#f28c1b"/>
-                  <rect x="30" y="34" width="9" height="8" fill="#45af57"/><
-                  path d="M14 16h36v-4H14z" fill="#f28c1b"/></svg></span>
+                  <rect x="30" y="34" width="9" height="8" fill="#45af57"/>
+                  <path d="M14 16h36v-4H14z" fill="#f28c1b"/></svg></span>
                   <span>Batches</span></a>
               <a class="module-tile" href="modules/fees.html">
                 <span class="module-tile-icon">
                   <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <rect x="18" y="13" width="32" height="42" rx="4" fill="#0f3154"/><rect x="23" y="18" width="22" height="26" fill="#fff"/><circle cx="19" cy="22" r="8" fill="#45af57"/><text x="15" y="27" font-size="14" font-family="Arial" fill="#fff">Ã¢â€šÂ¹</text><path d="M28 25h12M28 32h12M28 39h8" stroke="#f28c1b" stroke-width="3"/></svg></span><span>Fees</span></a>
+                    <rect x="18" y="13" width="32" height="42" rx="4" fill="#0f3154"/><rect x="23" y="18" width="22" height="26" fill="#fff"/><circle cx="19" cy="22" r="8" fill="#45af57"/><text x="15" y="27" font-size="14" font-family="Arial" fill="#fff">&#8377;</text><path d="M28 25h12M28 32h12M28 39h8" stroke="#f28c1b" stroke-width="3"/></svg></span><span>Fees</span></a>
               <a class="module-tile" href="modules/exams.html">
                 <span class="module-tile-icon">
                   <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -370,18 +370,11 @@
         </form>
       </section>
     </main>
-    <footer class="footer">
-      <div class="footer-inner">
-        <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p></div>
-        <div class="footer-links">
-          <div><strong>Website</strong><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="pricing.html">Pricing</a></div>
-          <div><strong>Resources</strong><a href="blog.html">Blog</a><a href="docs/index.html">Documentation</a><a href="ads.html">Landing Page</a></div>
-          <div><strong>Modules</strong><a href="modules/student-management.html">Students</a><a href="modules/fees.html">Fees</a><a href="modules/attendance.html">Attendance</a></div>
-          <div><strong>Contact</strong><a href="contact.html">Book Demo</a><a href="mailto:hello@sortiqsolutions.com">Email</a></div>
-        </div>
-      </div>
-    </footer>
+    <footer class="footer"></footer>
     <script src="/assets/main.js"></script>
   </body>
 </html>
+
+
+
 
