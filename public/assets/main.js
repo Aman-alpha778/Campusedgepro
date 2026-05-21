@@ -42,58 +42,55 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
+            <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
           </a>
-          <h3>CampusEdgePro</h3>
-          <p>ERP System is a powerful digital platform designed to simplify management for schools, colleges, and businesses. 
-        
-</p>
-          <div class="footer-socials" aria-label="Social links">
-            <a href="https://www.facebook.com/SortiqSolutions" aria-label="Facebook">f</a>
-            <a href="https://twitter.com/SortiqSolutions" aria-label="X">x</a>
-            <a href="https://www.linkedin.com/company/sortiqsolutions" aria-label="LinkedIn">in</a>
-            <a href="sortiqsolutions@gmail.com" aria-label="Email">@</a>
+          <p class="footer-kicker">CampusEdgePro by Sortiq Solutions</p>
+          <h3>Professional ERP for modern colleges that want clarity across admissions, academics, finance, and reporting.</h3>
+          <p>Built to help institutes replace scattered spreadsheets with one dependable operating system for teams, students, and leadership.</p>
+          <div class="footer-socials" aria-label="Sortiq Solutions links">
+            <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Facebook</a>
+            <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+            <a href="mailto:hello@sortiqsolutions.com" aria-label="Email">Email us</a>
           </div>
         </div>
         <div class="footer-columns">
           <div class="footer-column">
-            <strong>Product</strong>
+            <strong>Platform</strong>
             <a href="${prefix}features.html">Features</a>
-            <a href="${prefix}pricing.html">Pricing</a>
             <a href="${prefix}modules.html">Modules</a>
-            <a href="${prefix}demo.html">Roadmap</a>
-            <a href="${prefix}blog.html">Updates</a>
+            <a href="${prefix}pricing.html">Pricing</a>
+            <a href="${prefix}demo.html">Book Demo</a>
           </div>
           <div class="footer-column">
             <strong>Company</strong>
             <a href="${prefix}about.html">About Us</a>
             <a href="${prefix}blog.html">Blog</a>
             <a href="${prefix}contact.html">Contact</a>
-            <a href="${prefix}modules.html">Partners</a>
+            <a href="${prefix}ads.html">Campaign Page</a>
           </div>
           <div class="footer-column">
             <strong>Resources</strong>
             <a href="${prefix}docs/index.html">Documentation</a>
             <a href="${prefix}docs/faq.html">Help Center</a>
-            <a href="${prefix}blog.html">Community</a>
+            <a href="${prefix}modules/student-management.html">Student Module</a>
+            <a href="${prefix}modules/fees.html">Fee Module</a>
           </div>
-          <div class="footer-column footer-subscribe">
-            <strong>Stay Updated</strong>
-            <p>Get the latest news and updates from the world of EdTech.</p>
-            <form class="footer-subscribe-form">
-              <input type="email" placeholder="Email Address" aria-label="Email address">
-              <button type="button">Subscribe</button>
-            </form>
+          <div class="footer-column footer-contact-card">
+            <strong>Talk to our team</strong>
+            <p>Planning a rollout, module upgrade, or new implementation? We can help map the right setup for your institute.</p>
+            <a class="footer-primary-link" href="${prefix}contact.html">Request a consultation</a>
+            <a class="footer-secondary-link" href="mailto:hello@sortiqsolutions.com">hello@sortiqsolutions.com</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p>&copy; <span data-year></span>sortiqsolutions. All rights reserved.</p>
+          <p>&copy; <span data-year></span> CampusEdgePro by Sortiq Solutions. All rights reserved.</p>
           <div class="footer-bottom-actions">
-            <span class="footer-badge">Secure</span>
-            <span class="footer-badge">SOC 2 Certified</span>
-            <a class="footer-chat" href="${prefix}contact.html" aria-label="Contact us">?</a>
+            <span class="footer-badge">Admissions CRM</span>
+            <span class="footer-badge">Fee Management</span>
+            <span class="footer-badge">Attendance Tracking</span>
+            <a class="footer-chat" href="${prefix}demo.html" aria-label="Book a demo">Book Demo</a>
           </div>
         </div>
       </div>
