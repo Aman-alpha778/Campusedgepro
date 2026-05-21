@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --ink: #132022;
   --muted: #566568;
   --line: #dbe4e2;
@@ -752,7 +752,7 @@ h3 {
 }
 
 .compact-checks li::before {
-  content: "âœ“";
+  content: "\2713";
   margin-right: 6px;
   color: #d97400;
   font-weight: 900;
@@ -4396,3 +4396,4 @@ h3 {
 .module-detail-page .student-module-feature-band {
   background: #f3f9ff;
 }
+
