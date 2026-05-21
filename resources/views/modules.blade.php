@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main>
-      <section class="section page-hero modules-hero modules-hero-simple">
+      <section class="section page-hero modules-hero modules-hero-simple modules-hero-with-preview">
         <div class="modules-hero-copy">
           <p class="eyebrow">ERP modules</p>
           <h1>Focused modules for every college department.</h1>
@@ -41,6 +41,11 @@
           <div class="feature-hero-actions">
             <a class="button" href="demo.html">Book Live Demo</a>
             <a class="button secondary" href="features.html">View Features</a>
+          </div>
+        </div>
+        <div class="modules-hero-preview">
+          <div class="modules-hero-preview-frame">
+            <img src="/assets/modules-hero.png" alt="CampusEdgePro modules dashboard preview">
           </div>
         </div>
       </section>
