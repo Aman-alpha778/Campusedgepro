@@ -42,11 +42,11 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
+            <img class="brand-logo footer-logo" src="/assets/footer-logo.png" alt="CampusEdgePro">
           </a>
           <p class="footer-kicker">CampusEdgePro by Sortiq Solutions</p>
-          <h3>Professional ERP for modern colleges that want clarity across admissions, academics, finance, and reporting.</h3>
-          <p>Built to help institutes replace scattered spreadsheets with one dependable operating system for teams, students, and leadership.</p>
+          <h3>Professional ERP for colleges that want clarity across admissions, academics, finance, and reporting.</h3>
+          <p>One connected platform for student operations, institutional teams, and leadership visibility.</p>
           <div class="footer-socials" aria-label="Sortiq Solutions links">
             <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Facebook</a>
             <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
@@ -76,9 +76,9 @@ const renderSharedFooter = () => {
             <a href="${prefix}modules/fees.html">Fee Module</a>
           </div>
           <div class="footer-column footer-contact-card">
-            <strong>Talk to our team</strong>
-            <p>Planning a rollout, module upgrade, or new implementation? We can help map the right setup for your institute.</p>
-            <a class="footer-primary-link" href="${prefix}contact.html">Request a consultation</a>
+            <strong>Get started</strong>
+            <p>Need setup help or a quick product walkthrough?</p>
+            <a class="footer-primary-link" href="${prefix}contact.html">Register your interest</a>
             <a class="footer-secondary-link" href="mailto:hello@sortiqsolutions.com">hello@sortiqsolutions.com</a>
           </div>
         </div>
