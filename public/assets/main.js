@@ -66,16 +66,9 @@ const renderSharedFooter = () => {
     <footer class="footer footer-reference">
       <div class="footer-subscribe-band">
         <div class="footer-subscribe-inner">
-          <div class="footer-address-card">
-            <div class="footer-address-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-                <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="currentColor"></path>
-              </svg>
-            </div>
-            <div class="footer-address-copy">
-              <strong>Address</strong>
-              <p>E-51, Second Floor, Phase - 8, Industrial Area, S.A.S. Nagar, Mohali, Punjab 160071</p>
-            </div>
+          <div class="footer-address-copy">
+            <strong>Address</strong>
+            <p>E-51, Second Floor, Phase - 8, Industrial Area, S.A.S. Nagar, Mohali, Punjab 160071</p>
           </div>
           <form class="footer-subscribe-form" aria-label="Subscribe form">
             <input type="email" placeholder="Enter email address" aria-label="Email address">

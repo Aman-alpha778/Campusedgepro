@@ -2017,8 +2017,23 @@ h3 {
 }
 
 .demo-section {
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.demo-copy {
+  max-width: 760px;
+}
+
+.demo-copy .eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.demo-copy h2,
+.demo-copy .lead {
+  max-width: 760px;
 }
 
 .demo-video-card,
@@ -2057,6 +2072,7 @@ h3 {
 .demo-form-card {
   position: relative;
   overflow: hidden;
+  width: min(100%, 760px);
   padding: 0;
   border: 1px solid var(--line);
   background: var(--white);
@@ -3128,33 +3144,6 @@ h3 {
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 430px);
   align-items: center;
   gap: 24px;
-}
-
-.footer-address-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 22px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-}
-
-.footer-address-icon {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
-  border-radius: 50%;
-  background: rgba(205, 181, 143, 0.18);
-  color: #f4d9af;
-}
-
-.footer-address-icon svg {
-  width: 24px;
-  height: 24px;
 }
 
 .footer-address-copy strong {
@@ -4810,10 +4799,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .footer-address-card {
-    padding: 16px 18px;
-  }
-
   .footer-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4884,16 +4869,6 @@ h3 {
 
   .footer-subscribe-form {
     width: 100%;
-  }
-
-  .footer-address-card {
-    align-items: flex-start;
-  }
-
-  .footer-address-icon {
-    width: 46px;
-    height: 46px;
-    flex-basis: 46px;
   }
 
   .footer-subscribe-form button {

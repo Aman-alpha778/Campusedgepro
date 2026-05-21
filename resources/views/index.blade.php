@@ -362,6 +362,7 @@
           </div>
           <div class="demo-form-body">
             <label class="field"><span>Name</span><input name="name" placeholder="Your name" required></label>
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
             <label class="field"><span>Phone</span><input name="phone" placeholder="+91" required></label>
             <label class="field"><span>Institute</span><input name="institute" placeholder="College / institute name" required></label>
             <label class="field"><span>Priority module</span><select name="module"><option>Complete ERP walkthrough</option><option>Admissions CRM</option><option>Student management</option><option>Fee management</option><option>Attendance and reports</option></select></label>
