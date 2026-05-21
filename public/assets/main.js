@@ -44,15 +44,22 @@ const renderSharedFooter = () => {
           <a class="brand footer-brand" href="${prefix}index.html">
             <img class="brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
           </a>
+          <span class="footer-kicker">Campus Management, Simplified</span>
           <h3>CampusEdgePro</h3>
-          <p>Sortiq ERP System is a powerful digital platform designed to simplify management for schools, colleges, and businesses. 
-        
-</p>
+          <p>CampusEdgePro helps institutions run admissions, academics, finance, and communication from one dependable ERP platform.</p>
+          <div class="footer-highlights" aria-label="Platform highlights">
+            <span>Admissions to alumni in one system</span>
+            <span>Built for schools, colleges, and training institutes</span>
+          </div>
+          <div class="footer-cta-row">
+            <a class="footer-primary-cta" href="${prefix}contact.html">Book a demo</a>
+            <a class="footer-secondary-link" href="${prefix}docs/index.html">View documentation</a>
+          </div>
           <div class="footer-socials" aria-label="Social links">
-            <a href="https://www.facebook.com/SortiqSolutions" aria-label="Facebook">f</a>
-            <a href="https://twitter.com/SortiqSolutions" aria-label="X">x</a>
-            <a href="https://www.linkedin.com/company/sortiqsolutions" aria-label="LinkedIn">in</a>
-            <a href="sortiqsolutions@gmail.com" aria-label="Email">@</a>
+            <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
+            <a href="https://twitter.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="X">X</a>
+            <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">In</a>
+            <a href="mailto:sortiqsolutions@gmail.com" aria-label="Email">Mail</a>
           </div>
         </div>
         <div class="footer-columns">
@@ -61,26 +68,32 @@ const renderSharedFooter = () => {
             <a href="${prefix}features.html">Features</a>
             <a href="${prefix}pricing.html">Pricing</a>
             <a href="${prefix}modules.html">Modules</a>
-            <a href="${prefix}demo.html">Roadmap</a>
-            <a href="${prefix}blog.html">Updates</a>
+            <a href="${prefix}demo.html">Book Demo</a>
+            <a href="${prefix}blog.html">Product Updates</a>
           </div>
           <div class="footer-column">
             <strong>Company</strong>
             <a href="${prefix}about.html">About Us</a>
             <a href="${prefix}blog.html">Blog</a>
             <a href="${prefix}contact.html">Contact</a>
-            <a href="${prefix}modules.html">Partners</a>
+            <a href="${prefix}ads.html">Campaigns</a>
           </div>
           <div class="footer-column">
             <strong>Resources</strong>
             <a href="${prefix}docs/index.html">Documentation</a>
             <a href="${prefix}docs/faq.html">Help Center</a>
-            <a href="${prefix}blog.html">Community</a>
+            <a href="${prefix}docs/admin-guide.html">Admin Guide</a>
+            <a href="${prefix}docs/api.html">API Reference</a>
           </div>
           <div class="footer-column footer-subscribe">
-            <strong>Stay Updated</strong>
-            <p>Get the latest news and updates from the world of EdTech.</p>
-            <form class="footer-subscribe-form">
+            <strong>Talk to our team</strong>
+            <p>Need help choosing modules or planning rollout for your institution? We are happy to guide you.</p>
+            <div class="footer-contact-list" aria-label="Contact information">
+              <a href="mailto:sortiqsolutions@gmail.com">sortiqsolutions@gmail.com</a>
+              <a href="${prefix}contact.html">Request a consultation</a>
+              <a href="${prefix}demo.html">Schedule a live walkthrough</a>
+            </div>
+            <form class="footer-subscribe-form" action="#" method="post">
               <input type="email" placeholder="Email Address" aria-label="Email address">
               <button type="button">Subscribe</button>
             </form>
@@ -89,11 +102,11 @@ const renderSharedFooter = () => {
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p>&copy; <span data-year></span>sortiqsolutions. All rights reserved.</p>
+          <p>&copy; <span data-year></span> Sortiq Solutions. All rights reserved.</p>
           <div class="footer-bottom-actions">
-            <span class="footer-badge">Secure</span>
-            <span class="footer-badge">SOC 2 Certified</span>
-            <a class="footer-chat" href="${prefix}contact.html" aria-label="Contact us">?</a>
+            <span class="footer-badge">Cloud Ready</span>
+            <span class="footer-badge">Role-Based Access</span>
+            <a class="footer-chat" href="${prefix}contact.html" aria-label="Contact us">Talk</a>
           </div>
         </div>
       </div>
