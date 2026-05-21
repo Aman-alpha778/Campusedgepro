@@ -476,7 +476,7 @@ textarea {
 .footer-subscribe-band {
   display: flex;
   justify-content: center;
-  transform: translateY(-22px);
+  transform: translateY(18px);
 }
 
 .footer-subscribe-form {
