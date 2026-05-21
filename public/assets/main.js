@@ -15,6 +15,31 @@ const normalizeNavLayout = () => {
       return;
     }
 
+    const navOrder = [
+      "about.html",
+      "contact.html",
+      "features.html",
+      "blog.html",
+      "modules.html",
+      "demo.html",
+      "pricing.html",
+      "/docs/index.html",
+    ];
+
+    const navAnchors = Array.from(navLinks.querySelectorAll("a:not(.button)"));
+    const orderedAnchors = navOrder
+      .map((target) =>
+        navAnchors.find((anchor) => {
+          const href = anchor.getAttribute("href") || "";
+          return href === target || href.endsWith(`/${target}`) || href.endsWith(target.replace(/^\//, ""));
+        })
+      )
+      .filter(Boolean);
+
+    if (orderedAnchors.length > 0) {
+      orderedAnchors.forEach((anchor) => navLinks.appendChild(anchor));
+    }
+
     const inlineCta = navLinks.querySelector("a.button");
     const existingCta = nav.querySelector(".nav-cta");
 
@@ -40,17 +65,29 @@ const renderSharedFooter = () => {
   const footerMarkup = `
     <footer class="footer footer-reference">
       <div class="footer-subscribe-band">
-        <form class="footer-subscribe-form" aria-label="Subscribe form">
-          <input type="email" placeholder="Enter email address" aria-label="Email address">
-          <button type="button">Subscribe</button>
-        </form>
+        <div class="footer-subscribe-inner">
+          <div class="footer-address-card">
+            <div class="footer-address-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <div class="footer-address-copy">
+              <strong>Address</strong>
+              <p>E-51, Second Floor, Phase - 8, Industrial Area, S.A.S. Nagar, Mohali, Punjab 160071</p>
+            </div>
+          </div>
+          <form class="footer-subscribe-form" aria-label="Subscribe form">
+            <input type="email" placeholder="Enter email address" aria-label="Email address">
+            <button type="button">Subscribe</button>
+          </form>
+        </div>
       </div>
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
             <img class="brand-logo footer-logo" src="/assets/footer-logo.png" alt="CampusEdgePro">
           </a>
-          <p class="footer-kicker">CampusEdgePro by Sortiq Solutions</p>
           <h3>CampusEdgePro</h3>
           <p>A modern college ERP for admissions, academics, attendance, fees, and reporting in one connected platform.</p>
           <a class="footer-readmore" href="${prefix}about.html">Read more</a>
