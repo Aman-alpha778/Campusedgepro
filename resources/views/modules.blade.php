@@ -57,7 +57,7 @@
               <p class="eyebrow">Module library</p>
               <h2>Choose the workspace your team needs.</h2>
             </div>
-            <p>Each module is designed as a clear operating area, with connected reports and role-based access across the ERP.</p>
+           
           </div>
           <div class="modules-page-grid">
             <a class="module-page-card students" data-index="1" href="modules/student-management.html">
