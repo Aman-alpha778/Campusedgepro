@@ -30,13 +30,13 @@
         <div class="feature-carousel" data-slider aria-label="CampusEdgePro feature screenshots">
           <div class="hero-track" data-slider-track>
             <div class="hero-slide feature-carousel-slide">
-              <article class="feature-image-card"><img src="/assets/feature-card-students.png" alt="Student management dashboard preview"><span>Student Management</span></article>
-              <article class="feature-image-card"><img src="/assets/feature-card-attendance.png" alt="Attendance dashboard preview"><span>Attendance Tracking</span></article>
-              <article class="feature-image-card"><img src="/assets/feature-card-fees.png" alt="Fee management dashboard preview"><span>Fee Management</span></article>
+              <article class="feature-image-card"><img src="/assets/student management.png" alt="Student management dashboard preview"><span>Student Management</span></article>
+              <article class="feature-image-card"><img src="/assets/addmission erm.png" alt="Admissions CRM dashboard preview"><span>Admissions CRM</span></article>
+              <article class="feature-image-card"><img src="/assets/report dashboard.png" alt="Reports dashboard preview"><span>Reports Dashboard</span></article>
             </div>
             <div class="hero-slide feature-carousel-slide">
-              <article class="feature-image-card"><img src="/assets/feature-card-crm.png" alt="Admissions CRM dashboard preview"><span>Admissions CRM</span></article>
-              <article class="feature-image-card"><img src="/assets/feature-card-reports.png" alt="Reports dashboard preview"><span>Reports Dashboard</span></article>
+              <article class="feature-image-card"><img src="/assets/feature-card-attendance.png" alt="Attendance dashboard preview"><span>Attendance Tracking</span></article>
+              <article class="feature-image-card"><img src="/assets/feature-card-fees.png" alt="Fee management dashboard preview"><span>Fee Management</span></article>
               <article class="feature-image-card"><img src="/assets/feature-card-staff.png" alt="Staff management dashboard preview"><span>Staff Management</span></article>
             </div>
           </div>
