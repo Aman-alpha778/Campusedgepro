@@ -30,9 +30,6 @@
       <section class="section blog-layout blog-index-layout">
         <div class="blog-main-column blog-post-list">
           <article class="blog-list-card">
-            <a class="blog-list-media" href="blog/best-erp-for-colleges-in-india.html">
-              <img src="/assets/student management.png" alt="Student management dashboard preview">
-            </a>
             <div class="blog-list-content">
               <span class="blog-list-meta">ERP Strategy</span>
               <h2><a href="blog/best-erp-for-colleges-in-india.html">Best ERP for colleges in India</a></h2>
@@ -42,9 +39,6 @@
           </article>
 
           <article class="blog-list-card">
-            <a class="blog-list-media" href="blog/manage-attendance-digitally.html">
-              <img src="/assets/hero-section-img3.png" alt="Attendance tracking dashboard preview">
-            </a>
             <div class="blog-list-content">
               <span class="blog-list-meta">Operations</span>
               <h2><a href="blog/manage-attendance-digitally.html">How to manage attendance digitally</a></h2>
@@ -54,14 +48,38 @@
           </article>
 
           <article class="blog-list-card">
-            <a class="blog-list-media" href="blog/benefits-of-college-erp.html">
-              <img src="/assets/report dashboard.png" alt="Reports dashboard preview">
-            </a>
             <div class="blog-list-content">
               <span class="blog-list-meta">Leadership</span>
               <h2><a href="blog/benefits-of-college-erp.html">Benefits of college ERP</a></h2>
               <p>How an ERP improves transparency, speed, and coordination across academics, administration, finance, and admissions.</p>
               <a class="blog-read-link" href="blog/benefits-of-college-erp.html">Read More</a>
+            </div>
+          </article>
+
+          <article class="blog-list-card">
+            <div class="blog-list-content">
+              <span class="blog-list-meta">Admissions</span>
+              <h2><a href="modules.html">Why admissions follow-up should not live in spreadsheets</a></h2>
+              <p>Missed follow-ups slow down conversions. A structured admissions CRM helps teams track every inquiry with less manual effort.</p>
+              <a class="blog-read-link" href="modules.html">Read More</a>
+            </div>
+          </article>
+
+          <article class="blog-list-card">
+            <div class="blog-list-content">
+              <span class="blog-list-meta">Finance</span>
+              <h2><a href="modules/fees.html">How colleges can improve fee visibility with one connected dashboard</a></h2>
+              <p>From dues to receipts and payment trends, connected finance workflows help institutes make faster and more accurate decisions.</p>
+              <a class="blog-read-link" href="modules/fees.html">Read More</a>
+            </div>
+          </article>
+
+          <article class="blog-list-card">
+            <div class="blog-list-content">
+              <span class="blog-list-meta">Reporting</span>
+              <h2><a href="modules/reports.html">Why connected reports matter in daily college operations</a></h2>
+              <p>Useful reporting is not just about exports. It is about giving leadership, admin, and academic teams one trusted source of truth.</p>
+              <a class="blog-read-link" href="modules/reports.html">Read More</a>
             </div>
           </article>
         </div>

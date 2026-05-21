@@ -1,17 +1,17 @@
 :root {
-  --docs-bg: #eef4fb;
-  --docs-surface: rgba(255, 255, 255, 0.88);
-  --docs-panel: #ffffff;
-  --docs-panel-soft: #f5f9ff;
-  --docs-text: #15263f;
-  --docs-muted: #62748b;
-  --docs-line: #d6e3f1;
-  --docs-brand: #1d4ed8;
-  --docs-brand-deep: #153e75;
-  --docs-accent: #0ea5e9;
-  --docs-success: #059669;
-  --docs-shadow: 0 24px 50px rgba(20, 63, 120, 0.10);
-  --docs-shadow-soft: 0 18px 36px rgba(20, 63, 120, 0.08);
+  --docs-bg: #060d19;
+  --docs-surface: rgba(10, 18, 34, 0.88);
+  --docs-panel: rgba(12, 21, 38, 0.94);
+  --docs-panel-soft: rgba(16, 29, 52, 0.96);
+  --docs-text: #eef4ff;
+  --docs-muted: #9cb0cb;
+  --docs-line: rgba(110, 139, 185, 0.2);
+  --docs-brand: #59a6ff;
+  --docs-brand-deep: #d7e9ff;
+  --docs-accent: #4de3ff;
+  --docs-success: #34d399;
+  --docs-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  --docs-shadow-soft: 0 20px 48px rgba(0, 0, 0, 0.34);
   --docs-radius-xl: 34px;
   --docs-radius-lg: 26px;
   --docs-radius-md: 20px;
@@ -32,9 +32,10 @@ body.docs-page {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--docs-text);
   background:
-    radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 30%),
-    radial-gradient(circle at top right, rgba(29, 78, 216, 0.14), transparent 28%),
-    linear-gradient(180deg, #f7fbff 0%, var(--docs-bg) 48%, #f7fbff 100%);
+    radial-gradient(circle at top left, rgba(77, 227, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 85% 10%, rgba(89, 166, 255, 0.22), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(124, 58, 237, 0.14), transparent 26%),
+    linear-gradient(180deg, #081120 0%, var(--docs-bg) 48%, #091425 100%);
 }
 
 .docs-page a {
@@ -51,9 +52,9 @@ body.docs-page {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(247, 251, 255, 0.86);
+  background: rgba(7, 14, 28, 0.82);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(214, 227, 241, 0.8);
+  border-bottom: 1px solid rgba(110, 139, 185, 0.16);
 }
 
 .docs-topbar .nav {
@@ -110,11 +111,12 @@ body.docs-page {
   grid-template-columns: minmax(0, 1.04fr) minmax(460px, 0.96fr);
   gap: 30px;
   padding: 34px;
-  border: 1px solid rgba(214, 227, 241, 0.9);
+  border: 1px solid rgba(110, 139, 185, 0.22);
   border-radius: var(--docs-radius-xl);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 250, 255, 0.94)),
-    #fff;
+    radial-gradient(circle at top right, rgba(77, 227, 255, 0.08), transparent 28%),
+    linear-gradient(135deg, rgba(11, 21, 40, 0.96), rgba(14, 27, 48, 0.94)),
+    #0d1729;
   box-shadow: var(--docs-shadow);
 }
 
@@ -125,7 +127,7 @@ body.docs-page {
   margin-bottom: 18px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(29, 78, 216, 0.08);
+  background: rgba(89, 166, 255, 0.12);
   color: var(--docs-brand);
   font-size: 0.82rem;
   font-weight: 700;
@@ -195,10 +197,10 @@ body.docs-page {
 }
 
 .docs-btn.secondary {
-  border-color: rgba(29, 78, 216, 0.14);
-  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(89, 166, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--docs-brand-deep);
-  box-shadow: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 .docs-metrics {
@@ -212,7 +214,8 @@ body.docs-page {
   padding: 18px;
   border: 1px solid var(--docs-line);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .docs-metric strong {
@@ -242,9 +245,9 @@ body.docs-page {
 .docs-code-card,
 .docs-faq details,
 .docs-summary-card {
-  border: 1px solid rgba(214, 227, 241, 0.95);
+  border: 1px solid rgba(110, 139, 185, 0.18);
   border-radius: var(--docs-radius-lg);
-  background: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(180deg, rgba(13, 23, 41, 0.94), rgba(9, 17, 31, 0.96));
   box-shadow: var(--docs-shadow-soft);
 }
 
@@ -259,7 +262,7 @@ body.docs-page {
   justify-content: space-between;
   gap: 14px;
   padding: 18px 22px;
-  border-bottom: 1px solid rgba(214, 227, 241, 0.85);
+  border-bottom: 1px solid rgba(110, 139, 185, 0.18);
 }
 
 .docs-slider-header strong {
@@ -292,8 +295,8 @@ body.docs-page {
   display: grid;
   align-items: end;
   background:
-    radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 32%),
-    linear-gradient(180deg, #f8fbff 0%, #edf5ff 100%);
+    radial-gradient(circle at top left, rgba(77, 227, 255, 0.16), transparent 32%),
+    linear-gradient(180deg, #10213b 0%, #0b1628 100%);
 }
 
 .docs-slide img {
@@ -312,9 +315,9 @@ body.docs-page {
   bottom: 18px;
   padding: 18px 20px;
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(9, 20, 38, 0.12), rgba(9, 20, 38, 0.82));
+  background: linear-gradient(180deg, rgba(9, 20, 38, 0.1), rgba(6, 13, 24, 0.88));
   color: #fff;
-  box-shadow: 0 12px 24px rgba(9, 20, 38, 0.18);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.34);
 }
 
 .docs-slide-caption strong {
@@ -342,7 +345,7 @@ body.docs-page {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(29, 78, 216, 0.2);
+  background: rgba(89, 166, 255, 0.24);
   cursor: pointer;
   transition: transform 160ms ease, background 160ms ease;
 }
@@ -419,8 +422,11 @@ body.docs-page {
 .docs-quick-card:hover,
 .docs-summary-card:hover {
   transform: translateY(-8px);
-  border-color: #bbd3f0;
-  box-shadow: 0 26px 46px rgba(20, 63, 120, 0.13);
+  border-color: rgba(77, 227, 255, 0.34);
+  box-shadow:
+    0 28px 54px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(77, 227, 255, 0.08),
+    0 0 42px rgba(77, 227, 255, 0.12);
 }
 
 .docs-card-image,
@@ -458,7 +464,7 @@ body.docs-page {
   margin-bottom: 12px;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(29, 78, 216, 0.09);
+  background: rgba(89, 166, 255, 0.12);
   color: var(--docs-brand);
   font-size: 0.8rem;
   font-weight: 700;
@@ -481,10 +487,20 @@ body.docs-page {
   margin-top: 18px;
   color: var(--docs-brand);
   font-weight: 700;
+  transition: gap 160ms ease, color 160ms ease;
 }
 
 .docs-link-row::after {
   content: "→";
+}
+
+.docs-link-row:hover {
+  gap: 14px;
+  color: var(--docs-accent);
+}
+
+.docs-link-row::after {
+  content: "\2192";
 }
 
 .docs-overview {
@@ -525,14 +541,35 @@ body.docs-page {
 
 .docs-sidebar-nav a:hover,
 .docs-sidebar-nav a.active {
-  background: rgba(29, 78, 216, 0.09);
-  color: var(--docs-brand);
+  background: linear-gradient(135deg, rgba(89, 166, 255, 0.14), rgba(77, 227, 255, 0.08));
+  color: var(--docs-text);
   transform: translateX(4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 .docs-main-stack {
   display: grid;
   gap: 22px;
+}
+
+.docs-panel,
+.docs-mini-card,
+.docs-sidebar-card,
+.docs-code-card,
+.docs-faq details {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.docs-panel:hover,
+.docs-mini-card:hover,
+.docs-sidebar-card:hover,
+.docs-code-card:hover,
+.docs-faq details:hover {
+  transform: translateY(-6px);
+  border-color: rgba(89, 166, 255, 0.24);
+  box-shadow:
+    0 24px 46px rgba(0, 0, 0, 0.34),
+    0 0 36px rgba(89, 166, 255, 0.08);
 }
 
 .docs-panel,
@@ -565,9 +602,9 @@ body.docs-page {
   grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
   gap: 24px;
   padding: 30px;
-  border: 1px solid rgba(214, 227, 241, 0.95);
+  border: 1px solid rgba(110, 139, 185, 0.18);
   border-radius: var(--docs-radius-xl);
-  background: rgba(255, 255, 255, 0.94);
+  background: linear-gradient(135deg, rgba(11, 21, 40, 0.96), rgba(14, 27, 48, 0.94));
   box-shadow: var(--docs-shadow);
 }
 
@@ -600,7 +637,7 @@ body.docs-page {
   border-radius: 28px;
   overflow: hidden;
   position: relative;
-  background: #d9e8f8;
+  background: #13223b;
 }
 
 .docs-page-hero-art img {
@@ -686,7 +723,16 @@ body.docs-page {
   padding: 18px;
   border: 1px solid var(--docs-line);
   border-radius: 18px;
-  background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(77, 227, 255, 0.03) 100%);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.docs-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(89, 166, 255, 0.28);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 36px rgba(89, 166, 255, 0.1);
 }
 
 .docs-step-index {
@@ -755,7 +801,10 @@ body.docs-page {
 }
 
 .docs-faq details[open] {
-  border-color: #bdd4f0;
+  border-color: rgba(77, 227, 255, 0.34);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.28),
+    0 0 34px rgba(77, 227, 255, 0.08);
 }
 
 .docs-faq details p {
@@ -771,7 +820,9 @@ body.docs-page {
   border-radius: 28px;
   background: linear-gradient(135deg, #153e75 0%, #1d4ed8 52%, #0ea5e9 100%);
   color: #fff;
-  box-shadow: 0 24px 44px rgba(21, 62, 117, 0.22);
+  box-shadow:
+    0 28px 54px rgba(0, 0, 0, 0.34),
+    0 0 42px rgba(77, 227, 255, 0.12);
 }
 
 .docs-support-banner h3,

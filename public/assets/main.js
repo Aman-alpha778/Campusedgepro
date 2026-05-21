@@ -88,7 +88,7 @@ const renderSharedFooter = () => {
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p>&copy; <span data-year></span> CampusEdgePro. All rights reserved.</p>
+          <p>&copy; <span data-year></span> Sortiq Solutions Pvt. Ltd. All rights reserved.</p>
           <div class="footer-bottom-actions">
             <a href="${prefix}docs/index.html">Terms</a>
             <a href="${prefix}docs/faq.html">Privacy</a>

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
             <strong>Email Sent Successfully</strong>
             <p>{{ session('contact_success') }}</p>
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">ÃƒÆ’Ã¢â‚¬â€</button>
         </div>
       </div>
     @endif
@@ -29,14 +29,14 @@
               <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
             @endif
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">ÃƒÆ’Ã¢â‚¬â€</button>
         </div>
       </div>
     @endif
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">Ã¢ËœÂ°</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">ÃƒÂ¢Ã‹Å“Ã‚Â°</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>
           <a href="modules.html">Modules</a>
@@ -60,8 +60,9 @@
               <div class="contact-info-box">
                 <h3>Location</h3>
                 <p>Sortiq Solutions Pvt Ltd</p>
-                <p>India</p>
-                <small>Monday - Saturday | 09:00 - 18:00</small>
+                <p>E-51, Second Floor , Phase - 8, Industrial Area,
+                    S.A.S. Nagar, Mohali, Punjab 160071 </p>
+                <small>Monday - Saturday | 10:00 - 19:00</small>
               </div>
               <div class="contact-info-box">
                 <h3>Social Media</h3>
@@ -82,11 +83,11 @@
               </div>
               <div class="contact-info-box">
                 <h3>Email</h3>
-                <p>hello@sortiqsolutions.com</p>
+                <p>sortiqsolutions@gmail.com</p>
               </div>
               <div class="contact-info-box">
                 <h3>Contact</h3>
-                <p>+91 90000 00000</p>
+                <p>+91 9646522110</p>
               </div>
             </div>
           </div>
@@ -125,7 +126,7 @@
 
           <label class="contact-check">
             <input type="checkbox" name="updates" value="1" {{ old('updates') ? 'checked' : '' }}>
-            <span>IÃ¢â‚¬â„¢d like to receive exclusive updates and product offers.</span>
+            <span>I'd like to receive exclusive updates and product offers.</span>
           </label>
 
           <button class="contact-submit" type="submit">Submit</button>
@@ -137,4 +138,5 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
+
 
