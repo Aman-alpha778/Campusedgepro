@@ -2,7 +2,7 @@
 <html lang="en">
   <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,
    initial-scale=1"><title>Book Demo | CampusEdgePro</title><meta name="description" content="Book a live demo or explore CampusEdgePro screenshots for college ERP workflows."><link rel="stylesheet" href="/assets/styles.css"></head>
-  <body><header class="topbar"><nav class="nav"><a class="brand" href="index.html">
+  <body class="demo-page"><header class="topbar"><nav class="nav"><a class="brand" href="index.html">
     <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
     <button class="menu-toggle" data-menu-toggle aria-label="Open menu">ÃƒÂ¢Ã‹Å“Ã‚Â°</button>
     <div class="nav-links" data-nav-links><a href="features.html">Features</a>
@@ -13,7 +13,7 @@
   </div><a class="button nav-cta" href="demo.html">Book Demo</a>
 </nav>
 </header>
-    <main><section class="section page-hero">
+    <main><section class="section page-hero demo-page-hero">
       <p class="eyebrow">Demo</p>
       <h1>Book a live CampusEdgePro demo.</h1>
       <p class="lead">See student management, attendance, fees, exams, reports and admissions CRM in one guided walkthrough.</p>
@@ -112,4 +112,3 @@
 
 </body>
 </html>
-

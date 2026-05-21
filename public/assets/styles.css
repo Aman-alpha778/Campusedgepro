@@ -250,7 +250,7 @@ h3 {
 .lead {
   color: var(--muted);
   font-size: clamp(0.96rem, 1.5vw, 1.08rem);
-  max-width: 720px;
+  max-width:900px;
 }
 
 .hero-actions,
@@ -2362,6 +2362,7 @@ h3 {
 
 .checkout-plan-links a {
   min-height: 40px;
+
   padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -3039,6 +3040,20 @@ h3 {
 
 .page-hero {
   padding: 76px 0 44px;
+}
+
+.demo-page-hero {
+  padding: 48px 0 24px;
+}
+
+.demo-page-hero h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+}
+
+.demo-page-hero .lead {
+  max-width: 680px;
+  font-size: 0.98rem;
 }
 
 .about-page {
