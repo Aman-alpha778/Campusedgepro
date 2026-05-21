@@ -81,11 +81,23 @@ const renderSharedFooter = () => {
               </div>
             </div>
             <div class="footer-newsletter">
-              <h6>Newsletter</h6>
+              <h6>Profiles</h6>
               <div class="social" aria-label="Social links">
-                <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">Ig</a>
-                <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">In</a>
+                <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.2 0-1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8v3h2.6v7h2.9Z"></path>
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9Zm9.4 1.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3Zm0 1.8A2.9 2.9 0 1 0 14.9 12 2.9 2.9 0 0 0 12 9.1Z"></path>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.2 8.3A1.8 1.8 0 1 1 6.1 4.7a1.8 1.8 0 0 1 .1 3.6ZM4.8 9.8h2.8V19H4.8V9.8Zm4.6 0H12v1.3h.1c.4-.7 1.4-1.6 2.9-1.6 3 0 3.5 1.9 3.5 4.5V19h-2.8v-4.3c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3V19H9.4V9.8Z"></path>
+                  </svg>
+                </a>
               </div>
               <form class="form-footer my-3" action="#" method="post">
                 <input type="text" placeholder="Enter your email" name="search" aria-label="Email address">
