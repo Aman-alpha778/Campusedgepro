@@ -351,6 +351,15 @@
           <p class="eyebrow">Demo</p>
           <h2>See CampusEdgePro before your team changes anything.</h2>
           <p class="lead">Book a guided walkthrough for your institute and get a module-by-module view of students, fees, attendance, admissions and reports.</p>
+          <div class="card demo-info-card">
+            <h3>What the live demo covers</h3>
+            <p>We tailor the walkthrough around your daily institute workflows, so your team can see the platform in the context that matters most.</p>
+            <ul class="check-list">
+              <li>Student lifecycle, admissions, and staff workflows</li>
+              <li>Fees, attendance, reports, and role-based dashboards</li>
+              <li>Questions, implementation fit, and next rollout steps</li>
+            </ul>
+          </div>
         </div>
         <form class="form card demo-form-card" action="mailto:hello@sortiqsolutions.com" method="post" enctype="text/plain">
           <div class="demo-form-head">
