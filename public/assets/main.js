@@ -40,63 +40,59 @@ const renderSharedFooter = () => {
   const footerMarkup = `
     <footer class="footer footer-reference">
       <div class="footer-inner footer-reference-inner">
-        <div class="footer-brand-block">
-          <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
-          </a>
-          <span class="footer-kicker">Campus Management, Simplified</span>
-          <h3>CampusEdgePro</h3>
-          <p>CampusEdgePro helps institutions run admissions, academics, finance, and communication from one dependable ERP platform.</p>
-          <div class="footer-highlights" aria-label="Platform highlights">
-            <span>Admissions to alumni in one system</span>
-            <span>Built for schools, colleges, and training institutes</span>
-          </div>
-          <div class="footer-cta-row">
-            <a class="footer-primary-cta" href="${prefix}contact.html">Book a demo</a>
-            <a class="footer-secondary-link" href="${prefix}docs/index.html">View documentation</a>
-          </div>
-          <div class="footer-socials" aria-label="Social links">
-            <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
-            <a href="https://twitter.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="X">X</a>
-            <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">In</a>
-            <a href="mailto:sortiqsolutions@gmail.com" aria-label="Email">Mail</a>
+        <div class="footer-panel footer-panel-main">
+          <div class="footer-split">
+            <div class="footer-logo-part">
+              <a class="brand footer-brand" href="${prefix}index.html">
+                <img class="brand-logo logo-footer" src="/assets/cmpus.png" alt="CampusEdgePro">
+              </a>
+              <p>Sortiq Solutions, CampusEdgePro</p>
+              <p>Unified ERP for admissions, academics, attendance, fees, and communication across schools and colleges.</p>
+            </div>
+            <div class="footer-about">
+              <h6>About Company</h6>
+              <p>CampusEdgePro helps institutions replace disconnected manual work with a streamlined digital campus workflow.</p>
+              <a href="${prefix}about.html" class="btn-footer">More Info</a><br>
+              <a href="${prefix}contact.html" class="btn-footer">Contact Us</a>
+            </div>
           </div>
         </div>
-        <div class="footer-columns">
-          <div class="footer-column">
-            <strong>Product</strong>
-            <a href="${prefix}features.html">Features</a>
-            <a href="${prefix}pricing.html">Pricing</a>
-            <a href="${prefix}modules.html">Modules</a>
-            <a href="${prefix}demo.html">Book Demo</a>
-            <a href="${prefix}blog.html">Product Updates</a>
-          </div>
-          <div class="footer-column">
-            <strong>Company</strong>
-            <a href="${prefix}about.html">About Us</a>
-            <a href="${prefix}blog.html">Blog</a>
-            <a href="${prefix}contact.html">Contact</a>
-            <a href="${prefix}ads.html">Campaigns</a>
-          </div>
-          <div class="footer-column">
-            <strong>Resources</strong>
-            <a href="${prefix}docs/index.html">Documentation</a>
-            <a href="${prefix}docs/faq.html">Help Center</a>
-            <a href="${prefix}docs/admin-guide.html">Admin Guide</a>
-            <a href="${prefix}docs/api.html">API Reference</a>
-          </div>
-          <div class="footer-column footer-subscribe">
-            <strong>Talk to our team</strong>
-            <p>Need help choosing modules or planning rollout for your institution? We are happy to guide you.</p>
-            <div class="footer-contact-list" aria-label="Contact information">
-              <a href="mailto:sortiqsolutions@gmail.com">sortiqsolutions@gmail.com</a>
-              <a href="${prefix}contact.html">Request a consultation</a>
-              <a href="${prefix}demo.html">Schedule a live walkthrough</a>
+        <div class="footer-panel footer-panel-links">
+          <div class="footer-split">
+            <div class="footer-help">
+              <h6>Help Us</h6>
+              <div class="footer-link-columns">
+                <ul>
+                  <li><a href="${prefix}index.html">Home</a></li>
+                  <li><a href="${prefix}about.html">About</a></li>
+                  <li><a href="${prefix}features.html">Features</a></li>
+                  <li><a href="${prefix}modules.html">Modules</a></li>
+                  <li><a href="${prefix}docs/index.html">Docs</a></li>
+                  <li><a href="${prefix}contact.html">Contact</a></li>
+                </ul>
+                <ul>
+                  <li><a href="${prefix}pricing.html">Pricing</a></li>
+                  <li><a href="${prefix}demo.html">Book Demo</a></li>
+                  <li><a href="${prefix}blog.html">Blog</a></li>
+                  <li><a href="${prefix}docs/faq.html">Support</a></li>
+                  <li><a href="${prefix}docs/api.html">API</a></li>
+                  <li><a href="mailto:sortiqsolutions@gmail.com">Email</a></li>
+                </ul>
+              </div>
             </div>
-            <form class="footer-subscribe-form" action="#" method="post">
-              <input type="email" placeholder="Email Address" aria-label="Email address">
-              <button type="button">Subscribe</button>
-            </form>
+            <div class="footer-newsletter">
+              <h6>Newsletter</h6>
+              <div class="social" aria-label="Social links">
+                <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">Ig</a>
+                <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">In</a>
+              </div>
+              <form class="form-footer my-3" action="#" method="post">
+                <input type="text" placeholder="Enter your email" name="search" aria-label="Email address">
+                <input type="button" value="Go">
+              </form>
+              <p>Get product updates, implementation tips, and campus digitization insights from the Sortiq team.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -105,8 +101,8 @@ const renderSharedFooter = () => {
           <p>&copy; <span data-year></span> Sortiq Solutions. All rights reserved.</p>
           <div class="footer-bottom-actions">
             <span class="footer-badge">Cloud Ready</span>
-            <span class="footer-badge">Role-Based Access</span>
-            <a class="footer-chat" href="${prefix}contact.html" aria-label="Contact us">Talk</a>
+            <span class="footer-badge">Campus ERP</span>
+            <a class="footer-chat" href="${prefix}contact.html" aria-label="Contact us">Talk to Us</a>
           </div>
         </div>
       </div>
