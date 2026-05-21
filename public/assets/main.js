@@ -75,12 +75,6 @@ const renderSharedFooter = () => {
             <a href="${prefix}modules/student-management.html">Student Module</a>
             <a href="${prefix}modules/fees.html">Fee Module</a>
           </div>
-          <div class="footer-column footer-contact-card">
-            <strong>Get started</strong>
-            <p>Need setup help or a quick product walkthrough?</p>
-            <a class="footer-primary-link" href="${prefix}contact.html">Register your interest</a>
-            <a class="footer-secondary-link" href="mailto:hello@sortiqsolutions.com">hello@sortiqsolutions.com</a>
-          </div>
         </div>
       </div>
       <div class="footer-bottom">
