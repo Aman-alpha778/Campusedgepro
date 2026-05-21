@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/favicon-192.png">
   <meta name="description" content="High-conversion CampusEdgePro ads landing page for college ERP campaigns.">
   <title>Landing Page | CampusEdgePro</title>
   <link rel="stylesheet" href="/assets/style.css">

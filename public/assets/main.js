@@ -72,8 +72,8 @@ const renderSharedFooter = () => {
           </div>
           <div class="footer-column">
             <strong>Resources</strong>
-            <a href="/docs">Documentation</a>
-            <a href="/docs/faq">Help Center</a>
+            <a href="/docs/index.html">Documentation</a>
+            <a href="/docs/faq.html">Help Center</a>
             <a href="${prefix}blog.html">Insights</a>
             <a href="${prefix}pricing.html">Plans</a>
           </div>
@@ -90,8 +90,8 @@ const renderSharedFooter = () => {
         <div class="footer-bottom-inner">
           <p>&copy; <span data-year></span> Sortiq Solutions Pvt. Ltd. All rights reserved.</p>
           <div class="footer-bottom-actions">
-            <a href="/docs">Terms</a>
-            <a href="/docs/faq">Privacy</a>
+            <a href="/docs/index.html">Terms</a>
+            <a href="/docs/faq.html">Privacy</a>
             <a href="${prefix}contact.html">Compliances</a>
           </div>
         </div>

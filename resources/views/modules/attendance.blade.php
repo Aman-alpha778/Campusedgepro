@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+        <link rel="apple-touch-icon" href="/favicon-192.png">
         <title>Attendance Module | CampusEdgePro</title>
         <meta name="description" content="Track student and staff attendance digitally with CampusEdgePro.">
         <link rel="stylesheet" href="/assets/styles.css">

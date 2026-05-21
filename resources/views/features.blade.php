@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>College ERP Features | CampusEdgePro</title>
     <meta name="description" content="Explore CampusEdgePro features for academic management, administration, finance and admissions CRM.">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -13,7 +15,7 @@
       <div class="nav-links" data-nav-links><a href="features.html">Features</a>
         <a href="modules.html">Modules</a><a href="demo.html">Demo</a>
         <a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
-        <a href="/docs">Documentation</a></div><a class="button nav-cta" href="demo.html">Book Demo</a>
+        <a href="/docs/index.html">Documentation</a></div><a class="button nav-cta" href="demo.html">Book Demo</a>
       </nav></header>
     <main>
       <section class="section page-hero feature-hero">
@@ -90,7 +92,7 @@
       <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p>
       </div><div class="footer-links"><div><strong>Website</strong><a href="features.html">Features</a>
         <a href="modules.html">Modules</a><a href="pricing.html">Pricing</a>
-      </div><div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs">Documentation</a>
+      </div><div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs/index.html">Documentation</a>
         <a href="ads.html">Landing Page</a></div><div><strong>Modules</strong>
           <a href="modules/student-management.html">Students</a><a href="modules/fees.html">Fees</a>
           <a href="modules/attendance.html">Attendance</a></div><div><strong>Contact</strong>

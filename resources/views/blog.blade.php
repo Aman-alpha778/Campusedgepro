@@ -22,7 +22,7 @@
           <a href="blog.html">Blog</a>
           <a href="about.html">About Us</a>
           <a href="contact.html">Contact</a>
-          <a href="/docs">Documentation</a>
+          <a href="/docs/index.html">Documentation</a>
           <a class="button" href="demo.html">Book Demo</a>
         </div>
       </nav>

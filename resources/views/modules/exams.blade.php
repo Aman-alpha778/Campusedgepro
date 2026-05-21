@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+        <link rel="apple-touch-icon" href="/favicon-192.png">
         <title>Exams Module | CampusEdgePro</title>
         <meta name="description" content="Manage exams, marks, results and academic performance reports with CampusEdgePro.">
         <link rel="stylesheet" href="/assets/styles.css">

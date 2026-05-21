@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+        <link rel="apple-touch-icon" href="/favicon-192.png">
         <title>Staff Management Module | CampusEdgePro</title>
         <meta name="description" content="Manage faculty and staff profiles, roles, departments and workload in CampusEdgePro.">
         <link rel="stylesheet" href="/assets/styles.css">

@@ -21,7 +21,7 @@
           <a href="/pricing.html">Pricing</a>
           <a href="/blog.html">Blog</a>
           <a href="/contact.html">Contact</a>
-          <a href="/docs">Documentation</a>
+          <a href="/docs/index.html">Documentation</a>
           <a class="button" href="/demo.html">Book Demo</a>
         </div>
       </nav>
