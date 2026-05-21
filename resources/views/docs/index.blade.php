@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>CampusEdgePro Documentation</title>
     <meta name="description" content="CampusEdgePro documentation for getting started, admin guide, students, fees, CRM admissions, FAQ and API integrations.">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -21,7 +23,7 @@
           <a href="admin-guide.html">Admin Guide</a>
           <a href="fee-management.html">Fees</a>
           <a href="api.html">API Docs</a>
-          <a href="../about.html">About Us</a><a class="button" href="../demo.html">Book Demo</a>
+          <a href="../contact.html">Contact</a><a class="button" href="../demo.html">Book Demo</a>
         </div>
       </nav>
     </header>

@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>Fee Management | CampusEdgePro Docs</title>
     <meta name="description" content="Documentation for fee structure, collections and finance reports in CampusEdgePro.">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -11,7 +13,7 @@
   <body class="docs-page">
     <header class="topbar docs-topbar">
       <nav class="nav">
-        <a class="brand" href="index.html">
+        <a class="brand" href="../index.html">
           <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
         </a>
         <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
@@ -20,7 +22,7 @@
           <a href="student-module.html">Student Module</a>
           <a class="active" href="fee-management.html">Fees</a>
           <a href="crm-admissions.html">CRM</a>
-          <a href="../about.html">About Us</a><a class="button" href="../demo.html">Book Demo</a>
+          <a href="../contact.html">Contact</a><a class="button" href="../demo.html">Book Demo</a>
         </div>
       </nav>
     </header>

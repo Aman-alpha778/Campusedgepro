@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>College ERP Blog | CampusEdgePro</title>
     <meta name="description" content="CampusEdgePro blog articles about college ERP, digital attendance and ERP benefits.">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -20,7 +22,7 @@
           <a href="blog.html">Blog</a>
           <a href="about.html">About Us</a>
           <a href="contact.html">Contact</a>
-          <a href="docs/index.html">Documentation</a>
+          <a href="/docs">Documentation</a>
           <a class="button" href="demo.html">Book Demo</a>
         </div>
       </nav>

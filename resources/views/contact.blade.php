@@ -1,8 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>Contact | CampusEdgePro</title>
     <meta name="description" content="Contact Sortiq Solutions to request a CampusEdgePro demo, quote or free trial.">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -15,7 +17,7 @@
             <strong>Email Sent Successfully</strong>
             <p>{{ session('contact_success') }}</p>
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">ÃƒÆ’Ã¢â‚¬â€</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
         </div>
       </div>
     @endif
@@ -29,14 +31,14 @@
               <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
             @endif
           </div>
-          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">ÃƒÆ’Ã¢â‚¬â€</button>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">Ãƒâ€”</button>
         </div>
       </div>
     @endif
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">ÃƒÂ¢Ã‹Å“Ã‚Â°</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">Ã¢ËœÂ°</button>
         <div class="nav-links" data-nav-links>
           <a href="features.html">Features</a>
           <a href="modules.html">Modules</a>
@@ -44,7 +46,7 @@
           <a href="pricing.html">Pricing</a>
           <a href="blog.html">Blog</a>
           <a href="about.html">About Us</a><a href="contact.html">Contact</a>
-          <a href="docs/index.html">Documentation</a>
+          <a href="/docs">Documentation</a>
           <a class="button" href="demo.html">Book Demo</a>
         </div>
       </nav>
