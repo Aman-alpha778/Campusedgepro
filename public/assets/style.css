@@ -470,7 +470,7 @@ textarea {
   display: grid;
   grid-template-columns: minmax(220px, 1.1fr) minmax(0, 2fr);
   gap: 2rem;
-  padding: 1.6rem 0 1.4rem;
+  padding: 2.6rem 0 1.4rem;
 }
 
 .footer-subscribe-band {
@@ -576,43 +576,6 @@ textarea {
 .footer-column a {
   font-size: 0.95rem;
   color: rgba(214, 214, 214, 0.54);
-}
-
-.footer-partner-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: min(var(--max-width), calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 1.1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.footer-partner-label,
-.footer-partner-link {
-  color: rgba(241, 241, 241, 0.72);
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-
-.footer-partner-list {
-  display: flex;
-  flex: 1 1 420px;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-}
-
-.footer-partner-list span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 0 0.7rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(213, 213, 213, 0.62);
-  font-size: 0.8rem;
 }
 
 .footer-bottom {

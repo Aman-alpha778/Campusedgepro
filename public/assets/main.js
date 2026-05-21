@@ -86,18 +86,6 @@ const renderSharedFooter = () => {
           </div>
         </div>
       </div>
-      <div class="footer-partner-row">
-        <div class="footer-partner-label">Our Partners:</div>
-        <div class="footer-partner-list">
-          <span>Admissions</span>
-          <span>Academics</span>
-          <span>Finance</span>
-          <span>Attendance</span>
-          <span>Exams</span>
-          <span>Reports</span>
-        </div>
-        <a class="footer-partner-link" href="${prefix}modules.html">See All</a>
-      </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
           <p>&copy; <span data-year></span> CampusEdgePro. All rights reserved.</p>

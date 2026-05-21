@@ -2847,7 +2847,7 @@ h3 {
 .footer-reference .footer-reference-inner {
   grid-template-columns: minmax(220px, 1.1fr) minmax(0, 2fr);
   gap: 36px;
-  padding: 26px 0 22px;
+  padding: 42px 0 22px;
 }
 
 .footer-subscribe-band {
@@ -2963,43 +2963,6 @@ h3 {
 .footer-readmore:hover,
 .footer-readmore:focus-visible {
   color: #ffffff;
-}
-
-.footer-partner-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 18px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.footer-partner-label,
-.footer-partner-link {
-  color: rgba(241, 241, 241, 0.72);
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-
-.footer-partner-list {
-  display: flex;
-  flex: 1 1 420px;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.footer-partner-list span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(213, 213, 213, 0.62);
-  font-size: 0.8rem;
 }
 
 .footer-reference .footer-bottom {
