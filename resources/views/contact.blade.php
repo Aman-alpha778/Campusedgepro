@@ -53,7 +53,6 @@
       <section class="section contact-scene">
         <div class="contact-scene-inner">
           <div class="contact-scene-copy">
-            <p class="eyebrow">Contact</p>
             <h1>You have questions,<br>We have answers</h1>
             <p class="lead">Discover the right CampusEdgePro setup for your institute. Thoughtfully designed workflows, practical guidance, and implementation support are ready for your team.</p>
 
@@ -66,9 +65,20 @@
               </div>
               <div class="contact-info-box">
                 <h3>Social Media</h3>
-                <p>Instagram</p>
-                <p>LinkedIn</p>
-                <p>Facebook</p>
+                <div class="contact-social-links">
+                  <a href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5H3.56V20h3.38zm.22-3.69A1.97 1.97 0 1 0 3.22 4.8a1.97 1.97 0 0 0 3.94 0M20.44 20h-3.38v-5.59c0-1.33-.03-3.05-1.86-3.05s-2.15 1.45-2.15 2.95V20H9.67V8.5h3.24v1.57h.05c.45-.85 1.55-1.74 3.19-1.74 3.41 0 4.04 2.24 4.04 5.16z"/></svg>
+                    <span>LinkedIn</span>
+                  </a>
+                  <a href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7h2.35l.35-2.73H13.5V9.53c0-.79.22-1.33 1.35-1.33h1.45V5.76c-.25-.03-1.1-.1-2.1-.1-2.08 0-3.5 1.27-3.5 3.6v2.01H8.35V14h2.35v7z"/></svg>
+                    <span>Facebook</span>
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2m0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2M12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85m0 1.8A3.35 3.35 0 1 0 15.35 12 3.35 3.35 0 0 0 12 8.65"/></svg>
+                    <span>Instagram</span>
+                  </a>
+                </div>
               </div>
               <div class="contact-info-box">
                 <h3>Email</h3>

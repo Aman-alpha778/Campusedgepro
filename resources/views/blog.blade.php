@@ -27,12 +27,6 @@
     </header>
 
     <main class="blog-page-shell">
-      <section class="section blog-hero blog-index-hero">
-        <p class="eyebrow">Insights & Articles</p>
-        <h1>Blog Page</h1>
-        <p class="lead">Practical reads on college ERP, digital operations, admissions workflows, and smarter institute reporting.</p>
-      </section>
-
       <section class="section blog-layout blog-index-layout">
         <div class="blog-main-column blog-post-list">
           <article class="blog-list-card">
