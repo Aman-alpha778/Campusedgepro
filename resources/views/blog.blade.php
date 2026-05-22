@@ -32,6 +32,9 @@
       <section class="section blog-layout blog-index-layout">
         <div class="blog-main-column blog-post-list">
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/modules-hero.png" alt="College ERP dashboard interface for strategy and planning">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">ERP Strategy</span>
               <h2><a href="blog/best-erp-for-colleges-in-india.html">Best ERP for colleges in India</a></h2>
@@ -41,6 +44,9 @@
           </article>
 
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/hero-section-img3.png" alt="Attendance tracking dashboard for digital attendance workflows">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Operations</span>
               <h2><a href="blog/manage-attendance-digitally.html">How to manage attendance digitally</a></h2>
@@ -50,6 +56,9 @@
           </article>
 
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/hero-section-img2.png" alt="College ERP overview dashboard showing connected operations">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Leadership</span>
               <h2><a href="blog/benefits-of-college-erp.html">Benefits of college ERP</a></h2>
@@ -59,6 +68,9 @@
           </article>
 
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/addmission erm.png" alt="Admissions management interface for tracking inquiry follow-ups">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Admissions</span>
               <h2><a href="modules.html">Why admissions follow-up should not live in spreadsheets</a></h2>
@@ -68,6 +80,9 @@
           </article>
 
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/feature-card-fees.png" alt="Fee management visual for connected finance workflows">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Finance</span>
               <h2><a href="modules/fees.html">How colleges can improve fee visibility with one connected dashboard</a></h2>
@@ -77,6 +92,9 @@
           </article>
 
           <article class="blog-list-card">
+            <div class="blog-list-media">
+              <img src="/assets/report dashboard.png" alt="Reporting dashboard for connected college management insights">
+            </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Reporting</span>
               <h2><a href="modules/reports.html">Why connected reports matter in daily college operations</a></h2>

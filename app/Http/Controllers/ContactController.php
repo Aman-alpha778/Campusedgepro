@@ -21,6 +21,7 @@ class ContactController extends Controller
             'phone' => ['required', 'string', 'max:50'],
             'email' => ['required', 'email', 'max:255'],
             'inquiry_type' => ['required', 'string', 'in:General,Booking,Pricing,Modules,Others'],
+            'subject' => ['nullable', 'string', 'max:255'],
             'message' => ['nullable', 'string', 'max:5000'],
             'institute' => ['nullable', 'string', 'max:255'],
             'module' => ['nullable', 'string', 'max:255'],
@@ -31,6 +32,10 @@ class ContactController extends Controller
 
         if (!empty($validated['message'])) {
             $messageParts[] = $validated['message'];
+        }
+
+        if (!empty($validated['subject'])) {
+            array_unshift($messageParts, 'Subject: '.$validated['subject']);
         }
 
         if (!empty($validated['institute'])) {

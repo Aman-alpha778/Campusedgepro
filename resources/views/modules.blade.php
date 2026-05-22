@@ -9,7 +9,7 @@
     <meta name="description" content="Detailed CampusEdgePro modules for student management, staff, attendance, fees, exams and reports.">
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
-  <body>
+  <body class="modules-page">
     <header class="topbar">
   <nav class="nav">
     <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
@@ -103,14 +103,6 @@
         </div>
       </section>
 
-      <section class="section modules-cta">
-        <div>
-          <p class="eyebrow">Walkthrough</p>
-          <h2>Need a module-by-module walkthrough?</h2>
-          <p class="lead">Book a demo and we will map CampusEdgePro to your current student, fee, attendance and admissions process.</p>
-        </div>
-        <a class="button" href="demo.html">Book Live Demo</a>
-      </section>
     </main>
     <footer class="footer">
       <div class="footer-inner">

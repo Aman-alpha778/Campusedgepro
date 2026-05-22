@@ -20,7 +20,7 @@
   </nav>
 </header>
     <main><section class="section page-hero demo-page-hero">
-      <p class="eyebrow">Demo</p>
+   
       <h1>Book a live CampusEdgePro demo.</h1>
       <p class="lead">See student management, attendance, fees, exams, reports and admissions CRM in one guided walkthrough.</p>
     </section>
@@ -58,6 +58,10 @@
             <label class="field">
               <span>Name</span>
               <input name="name" required>
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input name="email" type="email" required>
             </label>
             <label class="field">
               <span>Phone</span>
@@ -118,4 +122,3 @@
 
 </body>
 </html>
-

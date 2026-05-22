@@ -309,12 +309,11 @@
       </section>
       <section class="band">
         <div class="section">
-          <div class="section-head">
+          <div class="section-head trust-section-head">
             <div>
               <p class="eyebrow">Trust</p>
               <h2>Trusted by 50+ institutes.</h2>
             </div>
-            <p>Colleges choose CampusEdgePro when they need dependable admissions, attendance, fees and reporting workflows with real implementation support.</p>
           </div>
           <div class="trust-area">
             <article class="trust-panel">
@@ -424,4 +423,3 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
-

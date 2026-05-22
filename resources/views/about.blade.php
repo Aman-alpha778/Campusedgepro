@@ -100,10 +100,9 @@
       <section class="section about-values-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Core Values</p>
-            <h2>The principles behind every solution we ship.</h2>
+           
+            <h2>Core Values</h2>
           </div>
-          <p>Our delivery style is shaped by integrity, innovation, transparency, and customer success. Those values guide decisions, strengthen trust, and keep our work grounded in real outcomes.</p>
         </div>
         <div class="about-values-grid">
           <article class="about-value-card">
@@ -132,9 +131,8 @@
       <section class="band">
         <div class="section about-why-grid">
           <div class="about-why-copy">
-            <p class="eyebrow">Why Choose Us</p>
-            <h2>We build for business reality, not just feature checklists.</h2>
-            <p>What makes Sortiq Solutions different is our balance of technical depth, implementation discipline, and business empathy. We do not just deliver software. We help teams adopt systems that are secure, scalable, and aligned with the way they actually work.</p>
+           
+            <h2>Why Choose Us</h2>
           </div>
           <div class="about-why-list">
             <article class="about-why-item">
@@ -160,10 +158,9 @@
       <section class="section about-expertise-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Our Expertise</p>
-            <h2>Where product strategy, implementation, and support come together.</h2>
+           
+            <h2>Our Expertise</h2>
           </div>
-          <p>We bring together product engineering, workflow design, integrations, reporting, and hands-on delivery support to help institutions modernize with confidence.</p>
         </div>
         <div class="about-expertise-grid">
           <article class="about-expertise-card">

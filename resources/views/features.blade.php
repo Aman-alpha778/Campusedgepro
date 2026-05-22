@@ -66,7 +66,7 @@
       </div></section>
       <section class="section comparison-section"><div class="section-head"><div>
         <p class="eyebrow">Comparison</p><h2>Designed for connected college work.</h2>
-      </div></div><a class="button nav-cta" href="demo.html">Book Live Demo</a>
+      </div></div>
         <div class="comparison-panel">
           <div class="comparison-summary">
             <div><strong>4</strong><span>Core departments</span></div>
