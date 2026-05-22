@@ -51,11 +51,11 @@ img {
 .nav {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  min-height: 76px;
+  min-height: 60px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .brand {
@@ -71,7 +71,7 @@ img {
 .brand-logo {
   display: block;
   width: auto;
-  height: 120px;
+  height: 82px;
 }
 
 .brand-mark {
@@ -134,7 +134,7 @@ img {
 .nav-cta {
   min-height: 42px;
   padding: 0 16px;
-  border-radius: 6px;
+  border-radius: 18px;
   justify-self: end;
 }
 
@@ -147,7 +147,7 @@ img {
   width: 42px;
   height: 42px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 16px;
   background: var(--white);
   color: var(--ink);
   font-size: 1.3rem;
@@ -160,7 +160,7 @@ img {
   min-height: 46px;
   padding: 0 18px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 20px;
   background: var(--brand);
   color: var(--white);
   font-size: 0.92rem;
@@ -2804,7 +2804,7 @@ h3 {
   min-height: 38px;
   padding: 0 14px;
   border: 1px solid #d9dfe2;
-  border-radius: 999px;
+  border-radius: 20px;
   background: #f8fafb;
   color: #5f6a6f;
   font: inherit;
@@ -2838,7 +2838,7 @@ h3 {
   width: 100%;
   min-height: 50px;
   border: 1px solid #d3d9dc;
-  border-radius: 999px;
+  border-radius: 22px;
   background: linear-gradient(180deg, #ffffff 0%, #f4f6f7 100%);
   color: #141414;
   font: inherit;
@@ -3227,7 +3227,7 @@ h3 {
 }
 
 .footer-brand-block .brand-logo {
-  height: 58px;
+  height: 88px;
   width: auto;
 }
 
@@ -3255,7 +3255,7 @@ h3 {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin-top: 38px;
 }
@@ -3285,6 +3285,43 @@ h3 {
 .footer-readmore:hover,
 .footer-readmore:focus-visible {
   color: #ffffff;
+}
+
+.footer-column-social {
+  gap: 14px;
+}
+
+.footer-social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.84);
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.footer-social-icon:hover,
+.footer-social-icon:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .footer-reference .footer-bottom {
