@@ -33,7 +33,7 @@
         <div class="blog-main-column blog-post-list">
           <article class="blog-list-card">
             <div class="blog-list-media">
-              <img src="/assets/modules-hero.png" alt="College ERP dashboard interface for strategy and planning">
+              <img src="/assets/Best_erp.png" alt="College ERP dashboard interface for strategy and planning">
             </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">ERP Strategy</span>
@@ -45,7 +45,7 @@
 
           <article class="blog-list-card">
             <div class="blog-list-media">
-              <img src="/assets/hero-section-img3.png" alt="Attendance tracking dashboard for digital attendance workflows">
+              <img src="/assets/Attendence.png" alt="Attendance tracking dashboard for digital attendance workflows">
             </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Operations</span>
@@ -57,7 +57,7 @@
 
           <article class="blog-list-card">
             <div class="blog-list-media">
-              <img src="/assets/hero-section-img2.png" alt="College ERP overview dashboard showing connected operations">
+              <img src="/assets/best_erpcollege.png" alt="College ERP overview dashboard showing connected operations">
             </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">Leadership</span>

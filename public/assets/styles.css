@@ -1822,8 +1822,8 @@ h3 {
   position: absolute;
   inset: 9% 10% 12%;
   border-radius: 38px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0));
-  filter: blur(22px);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0));
+  filter: blur(12px);
   z-index: 0;
 }
 
@@ -1870,7 +1870,7 @@ h3 {
   inset: 8px;
   border-radius: 34px;
   border-top-right-radius: 88px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.48) 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.16) 100%);
   border-left: 1px solid rgba(255, 255, 255, 0.62);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   transform: translate3d(0, 0, 18px);
@@ -1888,22 +1888,21 @@ h3 {
   border-radius: 22px;
   transform: translate3d(0, 0, 28px);
   box-shadow: 0 22px 48px rgba(15, 49, 84, 0.16);
+  image-rendering: auto;
+  filter: none;
 }
 
 .modules-hero-preview:hover .modules-hero-preview-frame {
-  transform: rotate3d(1, 1, 0, 18deg);
-  box-shadow:
-    30px 50px 25px -40px rgba(15, 49, 84, 0.28),
-    0 25px 30px 0 rgba(15, 49, 84, 0.16);
+  transform: none;
 }
 
 .modules-hero-preview:hover::after {
-  transform: translate3d(0, 0, 42px);
+  transform: none;
 }
 
 .modules-hero-preview:hover .modules-hero-preview-frame::before {
-  opacity: 0;
-  transform: translate3d(0, 0, 30px);
+  opacity: 1;
+  transform: translate3d(0, 0, 18px);
 }
 
 .modules-hero-copy h1 {

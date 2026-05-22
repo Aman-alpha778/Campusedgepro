@@ -119,7 +119,7 @@
               <span class="docs-kicker">Core Areas</span>
               <h2>Documentation built around daily institute work.</h2>
             </div>
-            <p>Each section is designed as a clean operating guide with practical steps, workflow summaries and direct links into the right module documentation.</p>
+            
           </div>
 
           <div class="docs-grid cards-4">
@@ -195,7 +195,7 @@
             <article id="getting-started" class="docs-panel">
               <span class="docs-kicker">Getting Started</span>
               <h2>What is CampusEdgePro?</h2>
-              <p>CampusEdgePro is an all-in-one college ERP by Sortiq Solutions that helps institutes manage students, staff, attendance, fees, exams, reports and admissions CRM inside one integrated operating platform.</p>
+             
               <div class="docs-split">
                 <div class="docs-list-card">
                   <h3>Designed for real ERP teams</h3>
