@@ -50,7 +50,7 @@
               </div>
               <div class="about-stat">
                 <strong>IT</strong>
-                <span>Custom software and implementation support</span>
+                <span>Custom software  implementation support</span>
               </div>
               <div class="about-stat">
                 <strong>Long-term</strong>
@@ -65,18 +65,18 @@
         <div class="section about-overview-grid">
           <article class="about-overview-card about-overview-card-large">
             <div class="about-overview-media about-overview-media-company">
-              <img src="/assets/who_we.jpg" alt="Team collaboration representing who we are at Sortiq Solutions">
+              <img src="/assets/who_we.webp" alt="Team collaboration representing who we are at Sortiq Solutions">
             </div>
             <div class="about-overview-content">
               <p class="eyebrow">Who We Are</p>
               <h2>A software company focused on practical transformation, not vanity tech.</h2>
               <p>At Sortiq Solutions, innovation matters only when it improves how organizations operate. We design and deliver systems that reduce friction, improve visibility, and support scalable growth. For college teams, that means better admissions handling, stronger fee control, cleaner academic coordination, and management reporting that is easy to trust.</p>
-              <p>Our work is grounded in understanding how real institutions function. That is why our approach goes beyond implementation. We care about adoption, usability, and whether the final system genuinely helps administrators, faculty, and leadership teams make better decisions.</p>
+           
             </div>
           </article>
           <article class="about-overview-card about-overview-card-vision">
             <div class="about-overview-media about-overview-media-vision">
-              <img src="/assets/vision.jpg" alt="Futuristic eye illustration representing our vision">
+              <img src="/assets/vision.webp" alt="Futuristic eye illustration representing our vision">
             </div>
             <div class="about-overview-content">
               <p class="eyebrow">Our Vision</p>
@@ -86,7 +86,7 @@
           </article>
           <article class="about-overview-card about-overview-card-mission">
             <div class="about-overview-media about-overview-media-mission">
-              <img src="/assets/mission.jpg" alt="Mission concept image representing delivery and purpose">
+              <img src="/assets/mission.webp" alt="Mission concept image representing delivery and purpose">
             </div>
             <div class="about-overview-content">
               <p class="eyebrow">Our Mission</p>
@@ -201,4 +201,3 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
-

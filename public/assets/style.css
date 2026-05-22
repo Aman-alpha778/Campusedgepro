@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
 :root {
   --bg: #f4f7f2;
   --surface: #ffffff;
@@ -175,6 +177,7 @@ img {
 h1,
 h2,
 h3 {
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0 0 1rem;
   line-height: 1.15;
 }

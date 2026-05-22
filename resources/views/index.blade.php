@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
   <body>
+    @if (session('contact_success'))
+      <div class="site-notice is-visible" data-site-notice role="status" aria-live="polite">
+        <div class="site-notice-card">
+          <div class="site-notice-copy">
+            <strong>Email Sent Successfully</strong>
+            <p>{{ session('contact_success') }}</p>
+          </div>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">&#8212;</button>
+        </div>
+      </div>
+    @endif
+    @if (session('contact_error'))
+      <div class="site-notice is-visible" data-site-notice role="alert" aria-live="assertive">
+        <div class="site-notice-card">
+          <div class="site-notice-copy">
+            <strong>We Couldn't Send The Email</strong>
+            <p>{{ session('contact_error') }}</p>
+            @if (session('contact_error_details'))
+              <p><strong>Mail Error:</strong> {{ session('contact_error_details') }}</p>
+            @endif
+          </div>
+          <button type="button" class="site-notice-close" data-site-notice-close aria-label="Close notification">&#8212;</button>
+        </div>
+      </div>
+    @endif
     <header class="topbar">
   <nav class="nav">
     <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
@@ -347,7 +372,7 @@
             <div>
               <p class="eyebrow">Product walkthrough</p>
               <h2>See the ERP in action.</h2>
-              <p>Use this temporary overview preview to showcase the platform before the live guided session.</p>
+              <p>watch the video of the product and go through the features and functionality.</p>
             </div>
             <span class="demo-live-badge">Overview media</span>
           </div>
@@ -363,7 +388,9 @@
             <span>Fees and reports</span>
           </div>
         </section>
-        <form class="form card demo-form-card" action="mailto:hello@sortiqsolutions.com" method="post" enctype="text/plain">
+        <form class="form card demo-form-card" action="{{ route('contact.submit', [], false) }}" method="post">
+          @csrf
+          <input type="hidden" name="inquiry_type" value="Booking">
           <div class="demo-form-head">
             <div>
               <h3>Schedule your demo</h3>
@@ -372,11 +399,20 @@
             <span class="demo-live-badge">Live demo</span>
           </div>
           <div class="demo-form-body">
-            <label class="field"><span>Name</span><input name="name" placeholder="Your name" required></label>
-            <label class="field"><span>Phone</span><input name="phone" placeholder="+91" required></label>
-            <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
-            <label class="field"><span>Institute</span><input name="institute" placeholder="College / institute name" required></label>
-            <label class="field"><span>Priority module</span><select name="module"><option>Complete ERP walkthrough</option><option>Admissions CRM</option><option>Student management</option><option>Fee management</option><option>Attendance and reports</option></select></label>
+            <label class="field"><span>Name</span><input name="first_name" placeholder="Your name" value="{{ old('first_name') }}" required></label>
+            <label class="field"><span>Phone</span><input name="phone" placeholder="+91" value="{{ old('phone') }}" required></label>
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@example.com" value="{{ old('email') }}" required></label>
+            <label class="field"><span>Institute</span><input name="institute" placeholder="College / institute name" value="{{ old('institute') }}" required></label>
+            <label class="field">
+              <span>Priority module</span>
+              <select name="module">
+                <option {{ old('module') === 'Complete ERP walkthrough' ? 'selected' : '' }}>Complete ERP walkthrough</option>
+                <option {{ old('module') === 'Admissions CRM' ? 'selected' : '' }}>Admissions CRM</option>
+                <option {{ old('module') === 'Student management' ? 'selected' : '' }}>Student management</option>
+                <option {{ old('module') === 'Fee management' ? 'selected' : '' }}>Fee management</option>
+                <option {{ old('module') === 'Attendance and reports' ? 'selected' : '' }}>Attendance and reports</option>
+              </select>
+            </label>
             <div class="demo-submit">
               <button class="button" type="submit">Book Live Demo</button>
             </div>
@@ -388,5 +424,4 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
-
 

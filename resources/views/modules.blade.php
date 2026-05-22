@@ -55,7 +55,7 @@
 
       <section class="band">
         <div class="section">
-          <div class="section-head">
+          <div class="section-head" style="justify-content: center; text-align: center;">
             <div>
               <p class="eyebrow">Module library</p>
               <h2>Choose the workspace your team needs.</h2>

@@ -22,11 +22,28 @@ class ContactController extends Controller
             'email' => ['required', 'email', 'max:255'],
             'inquiry_type' => ['required', 'string', 'in:General,Booking,Pricing,Modules,Others'],
             'message' => ['nullable', 'string', 'max:5000'],
+            'institute' => ['nullable', 'string', 'max:255'],
+            'module' => ['nullable', 'string', 'max:255'],
             'updates' => ['nullable', 'accepted'],
         ]);
 
+        $messageParts = [];
+
+        if (!empty($validated['message'])) {
+            $messageParts[] = $validated['message'];
+        }
+
+        if (!empty($validated['institute'])) {
+            $messageParts[] = 'Institute: '.$validated['institute'];
+        }
+
+        if (!empty($validated['module'])) {
+            $messageParts[] = 'Preferred module: '.$validated['module'];
+        }
+
         $payload = [
             ...$validated,
+            'message' => $messageParts !== [] ? implode("\n\n", $messageParts) : null,
             'updates' => $request->boolean('updates'),
         ];
 

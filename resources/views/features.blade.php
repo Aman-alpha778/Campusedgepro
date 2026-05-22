@@ -39,22 +39,22 @@
             <a class="button secondary" href="modules.html">Explore Modules</a>
           </div>
         </div>
-        <div class="feature-carousel" data-slider aria-label="CampusEdgePro feature screenshots">
-          <div class="hero-track" data-slider-track>
-            <div class="hero-slide feature-carousel-slide">
-              <article class="feature-image-card"><img src="/assets/student management.png" alt="Student management dashboard preview"><span>Student Management</span></article>
-              <article class="feature-image-card"><img src="/assets/addmission erm.png" alt="Admissions CRM dashboard preview"><span>Admissions CRM</span></article>
-              <article class="feature-image-card"><img src="/assets/report dashboard.png" alt="Reports dashboard preview"><span>Reports Dashboard</span></article>
+        <div class="hero-panel">
+          <div class="hero-slider" data-slider aria-label="CampusEdgePro dashboard previews">
+            <div class="hero-track" data-slider-track>
+              <div class="hero-slide"><img src="/assets/hero-section-img2.png" alt="CampusEdgePro dashboard overview"></div>
+              <div class="hero-slide"><img src="/assets/hero-section-img1.png" alt="Student management dashboard"></div>
+              <div class="hero-slide"><img src="/assets/hero-section-img3.png" alt="Attendance tracking dashboard"></div>
+              <div class="hero-slide"><img src="/assets/hero-section-img4.png" alt="Fee management dashboard"></div>
+              <div class="hero-slide"><img src="/assets/hero-section-img5.png" alt="Admissions CRM dashboard"></div>
             </div>
-            <div class="hero-slide feature-carousel-slide">
-              <article class="feature-image-card"><img src="/assets/feature-card-attendance.png" alt="Attendance dashboard preview"><span>Attendance Tracking</span></article>
-              <article class="feature-image-card"><img src="/assets/feature-card-fees.png" alt="Fee management dashboard preview"><span>Fee Management</span></article>
-              <article class="feature-image-card"><img src="/assets/feature-card-staff.png" alt="Staff management dashboard preview"><span>Staff Management</span></article>
+            <div class="hero-dots" aria-label="Slider controls">
+              <button class="hero-dot" data-slider-dot type="button" aria-label="Show dashboard overview"></button>
+              <button class="hero-dot" data-slider-dot type="button" aria-label="Show student management"></button>
+              <button class="hero-dot" data-slider-dot type="button" aria-label="Show attendance tracking"></button>
+              <button class="hero-dot" data-slider-dot type="button" aria-label="Show fee management"></button>
+              <button class="hero-dot" data-slider-dot type="button" aria-label="Show admissions CRM"></button>
             </div>
-          </div>
-          <div class="hero-dots feature-dots" aria-label="Feature carousel controls">
-            <button class="hero-dot" data-slider-dot type="button" aria-label="Show dashboard features"></button>
-            <button class="hero-dot" data-slider-dot type="button" aria-label="Show finance and CRM features"></button>
           </div>
         </div>
       </section>
