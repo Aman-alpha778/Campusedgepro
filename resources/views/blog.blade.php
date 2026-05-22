@@ -33,7 +33,7 @@
         <div class="blog-main-column blog-post-list">
           <article class="blog-list-card">
             <div class="blog-list-media">
-              <img src="/assets/Best_erp.png" alt="College ERP dashboard interface for strategy and planning">
+              <img src="/assets/Best_Erp.png" alt="College ERP dashboard interface for strategy and planning">
             </div>
             <div class="blog-list-content">
               <span class="blog-list-meta">ERP Strategy</span>
