@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,21 +11,22 @@
   </head>
   <body>
     <header class="topbar">
-      <nav class="nav">
-        <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">Ã¢ËœÂ°</button>
-        <div class="nav-links" data-nav-links>
-          <a href="features.html">Features</a>
-          <a href="modules.html">Modules</a>
-          <a href="demo.html">Demo</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="blog.html">Blog</a>
-          <a href="about.html">About Us</a><a href="contact.html">Contact</a>
-          <a href="/docs/index.html">Documentation</a>
-          <a class="button" href="demo.html">Book Demo</a>
-        </div>
-      </nav>
-    </header>
+  <nav class="nav">
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
+    <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="modules.html">Product Modules</a>
+      <a href="features.html">Product Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="contact.html">Contact Us</a>
+      <a class="button" href="demo.html">Book Demo</a>
+    </div>
+  </nav>
+</header>
     <main>
       <section class="section page-hero modules-hero modules-hero-simple modules-hero-with-preview">
         <div class="modules-hero-copy">
@@ -81,7 +82,7 @@
               <span class="module-page-link">Open module</span>
             </a>
             <a class="module-page-card fees" data-index="4" href="modules/fees.html">
-              <span class="module-page-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="16" width="36" height="36" rx="5" fill="#0f3154"/><circle cx="20" cy="20" r="9" fill="#f0a43a"/><text x="16" y="25" font-size="14" font-family="Arial" fill="#fff">Ã¢â€šÂ¹</text><path d="M28 27h14M28 35h14M28 43h9" stroke="#fff" stroke-width="4"/></svg></span>
+              <span class="module-page-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="16" width="36" height="36" rx="5" fill="#0f3154"/><circle cx="20" cy="20" r="9" fill="#f0a43a"/><text x="16" y="25" font-size="14" font-family="Arial" fill="#fff">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹</text><path d="M28 27h14M28 35h14M28 43h9" stroke="#fff" stroke-width="4"/></svg></span>
               <h3>Fees</h3>
               <p>Fee structures, collections, receipts, dues and payment reports.</p>
               <span class="module-page-link">Open module</span>
@@ -125,3 +126,4 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
+

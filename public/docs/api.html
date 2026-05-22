@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,21 +12,24 @@
   </head>
   <body class="docs-page">
     <header class="topbar docs-topbar">
-      <nav class="nav">
-        <a class="brand" href="../index.html">
-          <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
-        </a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
-        <div class="nav-links" data-nav-links>
-          <a href="index.html">Docs Home</a>
-          <a href="admin-guide.html">Admin Guide</a>
-          <a href="faq.html">FAQ</a>
-          <a class="active" href="api.html">API Docs</a>
-          <a href="../contact.html">Contact</a>
-          <a class="button" href="../contact.html">Talk to Team</a>
-        </div>
-      </nav>
-    </header>
+  <nav class="nav">
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
+    </a>
+    <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Us</a>
+      <a href="../modules.html">Product Modules</a>
+      <a href="../features.html">Product Features</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="../contact.html">Contact Us</a>
+      <a class="button" href="../demo.html">Book Demo</a>
+    </div>
+  </nav>
+</header>
 
     <main>
       <section class="docs-page-hero">
@@ -93,4 +96,5 @@ POST /api/v1/admissions/leads</pre>
     <script src="/assets/main.js"></script>
   </body>
 </html>
+
 

@@ -153,7 +153,7 @@ const renderSharedFooter = () => {
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2c.4-1.8.4-4.8.4-4.8s0-3-.4-4.8zM9.7 15.1V8.9l5.4 3.1z" fill="currentColor"/></svg>
               </a>
               <a class="footer-social-icon" href="https://in.pinterest.com/" target="_blank" rel="noreferrer" aria-label="Pinterest">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.4 3C7.7 3 5 6.3 5 9.9c0 2.2 1.2 5 3.2 5 .5 0 .8-1.3.8-1.6 0-.4-1-1.2-1-2.9 0-2.4 1.8-4.7 4.5-4.7 2.2 0 3.8 1.3 3.8 3.6 0 2.7-1.2 7.7-4.7 7.7-1.3 0-2.3-1.1-2-2.4.4-1.6 1.1-3.4 1.1-5.1 0-3-4.3-2.5-4.3 1.2 0 1.1.4 1.9.4 1.9l-1.7 7.1c1.3.4 2.5.6 3.9.6 5 0 9.1-3.6 9.1-9.2C21 6.5 17.4 3 12.4 3z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 4 6.6 4 10.5c0 2.5 1.3 4.6 3.5 5.4.3.1.5 0 .5-.2.1-.2.3-1 .3-1.3 0-.2-.1-.3-.3-.5-.7-.8-1.2-1.9-1.2-3.4 0-2.8 2.1-5.4 5.9-5.4 3.2 0 5 2 5 4.7 0 3.5-1.6 6.5-3.8 6.5-1.3 0-2.2-1.1-1.9-2.3.4-1.5 1.1-3.2 1.1-4.3 0-1-.5-1.9-1.7-1.9-1.4 0-2.5 1.4-2.5 3.3 0 1.2.4 2 .4 2l-1.6 6.8c-.2.8 0 1.9.1 2.7.8.3 1.7.4 2.7.4 5 0 8.8-4.1 8.8-9.6C21 6.9 17.2 3 12 3z" fill="currentColor"/></svg>
               </a>
             </div>
           </div>
@@ -208,6 +208,63 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
 
   showSlide(0);
   window.setInterval(() => showSlide(index + 1), 3200);
+});
+
+document.querySelectorAll("[data-counter-target]").forEach((counter) => {
+  const target = Number(counter.dataset.counterTarget || 0);
+  const suffix = counter.dataset.counterSuffix || "";
+  const duration = 2200;
+  let started = false;
+  let lastValue = -1;
+
+  const renderValue = (value) => {
+    if (value === lastValue) {
+      return;
+    }
+
+    lastValue = value;
+    counter.textContent = `${value}${suffix}`;
+  };
+
+  const startCounter = () => {
+    if (started) {
+      return;
+    }
+
+    started = true;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const value = Math.round(target * eased);
+
+      renderValue(value);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(tick);
+      }
+    };
+
+    renderValue(0);
+    window.requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        startCounter();
+        observer.disconnect();
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  observer.observe(counter);
 });
 
 document.querySelectorAll(".contact-inquiry-type").forEach((group) => {

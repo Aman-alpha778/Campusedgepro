@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,22 +11,22 @@
   </head>
   <body class="blog-page">
     <header class="topbar">
-      <nav class="nav">
-        <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
-        <div class="nav-links" data-nav-links>
-          <a href="features.html">Features</a>
-          <a href="modules.html">Modules</a>
-          <a href="demo.html">Demo</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="blog.html">Blog</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
-          <a href="/docs/index.html">Documentation</a>
-          <a class="button" href="demo.html">Book Demo</a>
-        </div>
-      </nav>
-    </header>
+  <nav class="nav">
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
+    <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="modules.html">Product Modules</a>
+      <a href="features.html">Product Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="contact.html">Contact Us</a>
+      <a class="button" href="demo.html">Book Demo</a>
+    </div>
+  </nav>
+</header>
 
     <main class="blog-page-shell">
       <section class="section blog-layout blog-index-layout">
@@ -123,3 +123,4 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
+

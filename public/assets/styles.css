@@ -2019,7 +2019,7 @@ h3 {
 .demo-section {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 42px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .demo-copy {
@@ -2061,6 +2061,7 @@ h3 {
 .demo-video-card,
 .demo-form-card {
   min-height: 360px;
+  height: 100%;
 }
 
 .demo-video-card {
@@ -2092,6 +2093,8 @@ h3 {
 }
 
 .demo-form-card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -2153,6 +2156,8 @@ h3 {
 
 .demo-form-body {
   display: grid;
+  flex: 1 1 auto;
+  align-content: start;
   gap: 12px;
   padding: 18px 22px 22px;
 }
@@ -3292,8 +3297,8 @@ h3 {
 }
 
 .footer-social-icons {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
   gap: 12px;
 }
 
@@ -3301,18 +3306,18 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 16px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.84);
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .footer-social-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   display: block;
 }
 

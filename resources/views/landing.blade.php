@@ -11,21 +11,22 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
-      </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="modules.html">Modules</a>
-        <a href="demo.html">Demo</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="modules.html">Product Modules</a>
+      <a href="features.html">Product Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+</header>
   <main>
     <section class="hero">
       <div class="container hero-grid">
@@ -81,4 +82,5 @@
   </footer>
 <script src="/assets/main.js"></script></body>
 </html>
+
 

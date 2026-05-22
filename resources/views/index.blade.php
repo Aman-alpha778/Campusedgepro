@@ -11,21 +11,22 @@
   </head>
   <body>
     <header class="topbar">
-      <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-        <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">&#9776;</button>
-        <div class="nav-links" data-nav-links>
-          <a href="features.html">Features</a>
-          <a href="modules.html">Modules</a>
-          <a href="demo.html">Demo</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="blog.html">Blog</a>
-          <a href="about.html">About Us</a><a href="contact.html">Contact</a>
-          <a href="/docs/index.html">Documentation</a>
-          <a class="button" href="demo.html">Book Demo</a>
-        </div>
-      </nav>
-    </header>
+  <nav class="nav">
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
+    <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="modules.html">Product Modules</a>
+      <a href="features.html">Product Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="contact.html">Contact Us</a>
+      <a class="button" href="demo.html">Book Demo</a>
+    </div>
+  </nav>
+</header>
     <main>
       <section class="section hero">
         <div>
@@ -37,9 +38,9 @@
             <a class="button secondary" href="pricing.html">Free Trial</a>
           </div>
           <div class="stats-row">
-            <div class="stat"><strong>50+</strong>Trusted institutes</div>
-            <div class="stat"><strong>12</strong>Core ERP modules</div>
-            <div class="stat"><strong>24/7</strong>Cloud access</div>
+            <div class="stat"><strong data-counter-target="50" data-counter-suffix="+">0+</strong>Trusted institutes</div>
+            <div class="stat"><strong data-counter-target="12">0</strong>Core ERP modules</div>
+            <div class="stat"><strong data-counter-target="24" data-counter-suffix="/7">0/7</strong>Cloud access</div>
           </div>
         </div>
         <div class="hero-panel">
@@ -69,7 +70,7 @@
               <p class="eyebrow">ERP modules</p>
               <h2>Everything a college team needs to run daily work.</h2>
             </div>
-            <p>CampusEdgePro brings academic management, administration, finance and admissions CRM into one connected system.</p>
+           
           </div>
           <div class="module-showcase">
             <div class="module-tile-grid" aria-label="CampusEdgePro module shortcuts">
@@ -336,22 +337,32 @@
                   <small>Role-based control</small>
                 </article>
               </div>
-              <div class="client-logos" aria-label="Client institute logos">
-                <div class="client-logo"><span class="client-logo-mark">NC</span>Northstar College</div>
-                <div class="client-logo"><span class="client-logo-mark">VC</span>Vidya Campus</div>
-                <div class="client-logo"><span class="client-logo-mark">BD</span>Bright Degree</div>
-                <div class="client-logo"><span class="client-logo-mark">FA</span>Future Academy</div>
-              </div>
             </div>
           </div>
         </div>
       </section>
       <section class="section split demo-section">
-        <div class="demo-copy">
-          <p class="eyebrow">Demo</p>
-          <h2>See CampusEdgePro before your team changes anything.</h2>
-          <p class="lead">Book a guided walkthrough for your institute and get a module-by-module view of students, fees, attendance, admissions and reports.</p>
-        </div>
+        <section class="demo-video-card card">
+          <div class="demo-video-head">
+            <div>
+              <p class="eyebrow">Product walkthrough</p>
+              <h2>See the ERP in action.</h2>
+              <p>Use this temporary overview preview to showcase the platform before the live guided session.</p>
+            </div>
+            <span class="demo-live-badge">Overview media</span>
+          </div>
+          <div class="video-box">
+            <div class="video-box-inner demo-video-media">
+              <img src="/assets/product-overview.gif" alt="CampusEdgePro product overview preview">
+              <span class="video-play-chip">Product overview</span>
+            </div>
+          </div>
+          <div class="demo-video-points">
+            <span>Student management</span>
+            <span>Admissions CRM</span>
+            <span>Fees and reports</span>
+          </div>
+        </section>
         <form class="form card demo-form-card" action="mailto:hello@sortiqsolutions.com" method="post" enctype="text/plain">
           <div class="demo-form-head">
             <div>
@@ -363,6 +374,7 @@
           <div class="demo-form-body">
             <label class="field"><span>Name</span><input name="name" placeholder="Your name" required></label>
             <label class="field"><span>Phone</span><input name="phone" placeholder="+91" required></label>
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
             <label class="field"><span>Institute</span><input name="institute" placeholder="College / institute name" required></label>
             <label class="field"><span>Priority module</span><select name="module"><option>Complete ERP walkthrough</option><option>Admissions CRM</option><option>Student management</option><option>Fee management</option><option>Attendance and reports</option></select></label>
             <div class="demo-submit">
@@ -376,7 +388,5 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
-
-
 
 

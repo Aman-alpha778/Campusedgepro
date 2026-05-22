@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,15 +8,23 @@
         <title>Student Management Module | CampusEdgePro</title>
         <meta name="description" content="Manage student admissions, profiles, documents, courses and batches with CampusEdgePro."><link rel="stylesheet" href="/assets/styles.css"></head>
         <body class="module-detail-page">
-            <header class="topbar"><nav class="nav">
-                <a class="brand" href="../index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
-                <div class="nav-links open">
-                    <a href="../features.html">Features</a>
-                    <a href="../modules.html">Modules</a>
-                    <a href="../demo.html">Demo</a>
-                    <a href="../contact.html">Contact</a>
-                </div></nav>
-            </header>
+            <header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="../index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
+    <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Us</a>
+      <a href="../modules.html">Product Modules</a>
+      <a href="../features.html">Product Features</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../blog.html">Blogs</a>
+      <a href="/docs/index.html">Documentation</a>
+      <a href="../contact.html">Contact Us</a>
+      <a class="button" href="../demo.html">Book Demo</a>
+    </div>
+  </nav>
+</header>
                 <main>
                     <section class="section student-module-hero">
                         <div class="student-module-copy">
@@ -80,4 +88,5 @@
                     </section>
                 </main>
             <script src="/assets/main.js"></script></body></html>
+
 
