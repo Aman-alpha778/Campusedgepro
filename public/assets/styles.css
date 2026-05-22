@@ -2730,9 +2730,9 @@ h3 {
   align-self: start;
   padding: 26px 24px 24px;
   border-radius: 24px;
-  background: #f1f3f5;
-  border: 1px solid rgba(214, 220, 224, 0.95);
-  box-shadow: 0 18px 38px rgba(19, 32, 34, 0.08);
+  background: #0f3154;
+  border: 1px solid rgba(158, 187, 218, 0.22);
+  box-shadow: 0 18px 38px rgba(8, 24, 42, 0.28);
 }
 
 .contact-form-head {
@@ -2746,7 +2746,11 @@ h3 {
 
 .contact-form-head p {
   margin-bottom: 0;
-  color: #727d82;
+  color: rgba(229, 238, 247, 0.78);
+}
+
+.contact-form-shell .contact-form-head h2 {
+  color: #f7fbff;
 }
 
 .contact-form-grid {
@@ -2763,7 +2767,7 @@ h3 {
 .contact-inquiry-type > span {
   display: inline-flex;
   margin-bottom: 8px;
-  color: #1b2528;
+  color: #eef5fb;
   font-size: 0.82rem;
   font-weight: 800;
 }
@@ -2818,7 +2822,7 @@ h3 {
   align-items: center;
   gap: 10px;
   margin: 14px 0 18px;
-  color: #7a858a;
+  color: rgba(229, 238, 247, 0.78);
   font-size: 0.8rem;
 }
 
@@ -3144,7 +3148,7 @@ h3 {
 .footer-reference {
   margin-top: 56px;
   padding-top: 0;
-  background: #111416;
+  background: #0f3154;
   color: rgba(237, 237, 237, 0.78);
 }
 

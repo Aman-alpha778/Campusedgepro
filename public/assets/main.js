@@ -64,18 +64,6 @@ const renderSharedFooter = () => {
 
   const footerMarkup = `
     <footer class="footer footer-reference">
-      <div class="footer-subscribe-band">
-        <div class="footer-subscribe-inner">
-          <div class="footer-address-copy">
-            <strong>Address</strong>
-            <p>E-51, Second Floor, Phase - 8, Industrial Area, S.A.S. Nagar, Mohali, Punjab 160071</p>
-          </div>
-          <form class="footer-subscribe-form" aria-label="Subscribe form">
-            <input type="email" placeholder="Enter email address" aria-label="Email address">
-            <button type="button">Subscribe</button>
-          </form>
-        </div>
-      </div>
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
@@ -83,7 +71,6 @@ const renderSharedFooter = () => {
           </a>
           <h3>CampusEdgePro</h3>
           <p>A modern college ERP for admissions, academics, attendance, fees, and reporting in one connected platform.</p>
-          <a class="footer-readmore" href="${prefix}about.html">Read more</a>
         </div>
         <div class="footer-columns">
           <div class="footer-column">
@@ -119,11 +106,6 @@ const renderSharedFooter = () => {
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
           <p>&copy; <span data-year></span>Sortiq Solutions Pvt. Ltd. All rights reserved.</p>
-          <div class="footer-bottom-actions">
-            <a href="/docs/index.html">Terms</a>
-            <a href="/docs/faq.html">Privacy</a>
-            <a href="${prefix}contact.html">Compliances</a>
-          </div>
         </div>
       </div>
     </footer>
