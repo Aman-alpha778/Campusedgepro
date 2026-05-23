@@ -2106,8 +2106,8 @@ h3 {
 
 .demo-section {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 42px;
-  align-items: stretch;
+  gap: 24px;
+  align-items: start;
 }
 
 .demo-copy {
@@ -2148,22 +2148,22 @@ h3 {
 
 .demo-video-card,
 .demo-form-card {
-  min-height: 360px;
-  height: 100%;
+  min-height: 320px;
+  height: auto;
 }
 
 .demo-video-card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 18px;
-  padding: 22px;
+  gap: 14px;
+  padding: 18px;
   box-shadow: 0 14px 34px rgba(19, 32, 34, 0.11);
 }
 
 .demo-video-head {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
   align-items: flex-start;
 }
 
@@ -2172,12 +2172,13 @@ h3 {
 }
 
 .demo-video-head h2 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 1.28rem;
 }
 
 .demo-video-head p {
   margin-bottom: 0;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
 }
 
 .demo-form-card {
@@ -2186,6 +2187,7 @@ h3 {
   position: relative;
   overflow: hidden;
   width: 100%;
+  max-width: 500px;
   padding: 0;
   border: 1px solid var(--line);
   background: var(--white);
@@ -2203,20 +2205,21 @@ h3 {
 .demo-form-head {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
-  padding: 22px 22px 14px;
+  gap: 14px;
+  padding: 18px 18px 12px;
   border-bottom: 1px solid var(--line);
   background: var(--white);
 }
 
 .demo-form-head h3 {
   margin-bottom: 4px;
+  font-size: 1.08rem;
 }
 
 .demo-form-head p {
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.77rem;
 }
 
 .demo-live-badge {
@@ -2246,8 +2249,8 @@ h3 {
   display: grid;
   flex: 1 1 auto;
   align-content: start;
-  gap: 12px;
-  padding: 18px 22px 22px;
+  gap: 10px;
+  padding: 14px 18px 18px;
 }
 
 .field {
@@ -2258,17 +2261,21 @@ h3 {
 .field span {
   display: inline-flex;
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 800;
 }
 
 .demo-form-card input,
 .demo-form-card select,
 .demo-form-card textarea {
-  min-height: 46px;
+  min-height: 42px;
   border-color: #cbd8d5;
   background: var(--white);
   transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.demo-form-card textarea {
+  min-height: 82px;
 }
 
 .demo-form-card input:focus,
@@ -2282,13 +2289,13 @@ h3 {
 
 .demo-submit {
   display: grid;
-  gap: 10px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: 2px;
 }
 
 .demo-submit .button {
-  min-height: 48px;
-  font-size: 0.9rem;
+  min-height: 42px;
+  font-size: 0.86rem;
 }
 
 .contact-page {
@@ -4549,7 +4556,7 @@ h3 {
 }
 
 .video-box {
-  min-height: 210px;
+  min-height: 178px;
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
@@ -4559,17 +4566,17 @@ h3 {
     linear-gradient(135deg, #102629, #0f5b58);
   color: var(--ink);
   text-align: left;
-  padding: 18px;
+  padding: 12px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
 }
 
 .video-box-inner {
   width: 100%;
-  min-height: 174px;
+  min-height: 148px;
   display: grid;
   align-content: center;
   gap: 10px;
-  padding: 24px;
+  padding: 18px;
   border-radius: 14px;
   background:
     linear-gradient(160deg, #14363a 0%, #0f4b51 55%, #e9f1ef 55%, #f8fbfa 100%);
@@ -4586,7 +4593,7 @@ h3 {
 
 .demo-video-media img {
   width: 100%;
-  min-height: 174px;
+  min-height: 148px;
   height: 100%;
   object-fit: cover;
   display: block;

@@ -23,7 +23,7 @@
       </label>
       <div class="portal-field">
         <span>&nbsp;</span>
-        <button class="portal-button" type="submit">Apply filters</button>
+        <button class="portal-button portal-uniform-button" type="submit">Apply filters</button>
       </div>
     </form>
   </section>
@@ -60,7 +60,7 @@
             <td>
               @if ($demoRequest->demoUser)
                 <div><strong>{{ $demoRequest->demoUser->username }}</strong></div>
-                <div class="portal-muted">Expires {{ $demoRequest->demoUser->expiry_date->format('d M Y') }}</div>
+                <div class="portal-table-note">Expires {{ $demoRequest->demoUser->expiry_date->format('d M Y') }}</div>
               @else
                 <span class="portal-muted">Not generated</span>
               @endif
