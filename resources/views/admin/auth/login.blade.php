@@ -10,7 +10,7 @@
     <main class="portal-auth">
       <section class="portal-auth-card">
         <div class="portal-auth-brand">
-          <img class="portal-auth-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
+          <img class="portal-auth-logo" src="/assets/camplogo-admin.png" alt="CampusEdgePro">
           <small>CampusEdgePro Admin Portal</small>
         </div>
         <h1 class="portal-auth-title">Admin login</h1>
