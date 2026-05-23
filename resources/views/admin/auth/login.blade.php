@@ -10,11 +10,11 @@
     <main class="portal-auth">
       <section class="portal-auth-card">
         <div class="portal-auth-brand">
-          <span class="portal-auth-brand-mark"></span>
-          <span>CampusEdgePro Admin Portal</span>
+          <img class="portal-auth-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
+          <small>CampusEdgePro Admin Portal</small>
         </div>
-        <h1>Admin login</h1>
-        <p>Sign in to review demo requests, approve access, and manage expiry controls.</p>
+        <h1 class="portal-auth-title">Admin login</h1>
+        <p class="portal-auth-subtitle">Sign in to review demo requests, approve access, and manage expiry controls.</p>
 
         @if ($errors->any())
           <div class="portal-error-list">

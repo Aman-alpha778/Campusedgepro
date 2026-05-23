@@ -10,12 +10,16 @@
     <div class="portal-layout">
       <aside class="portal-sidebar">
         <a class="portal-brand" href="{{ route('admin.dashboard') }}">
-          <span class="portal-brand-mark"></span>
-          <span>CampusEdgePro Admin</span>
+          <img class="portal-brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
+          <span class="portal-brand-copy">
+            <span>CampusEdgePro Admin</span>
+            <small>Control Center</small>
+          </span>
         </a>
         <nav>
           <a class="portal-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
           <a class="portal-nav-link {{ request()->routeIs('admin.demo-requests.*') ? 'active' : '' }}" href="{{ route('admin.demo-requests.index') }}">Demo Requests</a>
+          <a class="portal-nav-link" href="#admin-profile">Profile</a>
         </nav>
         <div class="portal-sidebar-foot">
           <form method="post" action="{{ route('admin.logout') }}">
@@ -29,6 +33,13 @@
           <div>
             <div class="portal-muted">Secure administration area</div>
             <strong>{{ auth()->user()?->name }}</strong>
+          </div>
+          <div class="portal-profile-chip">
+            <span class="portal-avatar">{{ strtoupper(substr(auth()->user()?->name ?? 'A', 0, 1)) }}</span>
+            <span class="portal-profile-copy">
+              <strong>{{ auth()->user()?->name }}</strong>
+              <span class="portal-muted">{{ auth()->user()?->email }}</span>
+            </span>
           </div>
         </div>
         @if (session('admin_success'))
