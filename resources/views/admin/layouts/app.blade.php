@@ -45,6 +45,9 @@
         @if (session('admin_success'))
           <div class="portal-alert">{{ session('admin_success') }}</div>
         @endif
+        @if (session('admin_warning'))
+          <div class="portal-alert" style="background:#fff7ed; color:#9a3412; border-color:#fed7aa;">{{ session('admin_warning') }}</div>
+        @endif
         @yield('content')
       </main>
     </div>

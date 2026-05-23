@@ -10,8 +10,9 @@ use App\Models\DemoUser;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -52,8 +53,9 @@ class DemoRequestController extends Controller
     public function approve(DemoRequest $demoRequest): RedirectResponse
     {
         $plainPassword = Str::password(12, true, true, false, false);
+        $demoUser = null;
 
-        DB::transaction(function () use ($demoRequest, $plainPassword): void {
+        DB::transaction(function () use ($demoRequest, $plainPassword, &$demoUser): void {
             $username = $this->generateUniqueUsername($demoRequest->college_name);
 
             $demoUser = DemoUser::updateOrCreate(
@@ -67,9 +69,24 @@ class DemoRequestController extends Controller
             );
 
             $demoRequest->update(['status' => 'Approved']);
-
-            Mail::to($demoRequest->email)->send(new DemoAccessApproved($demoRequest->fresh(), $demoUser->fresh(), $plainPassword));
         });
+
+        $loginUrl = url('/demo-portal/login');
+
+        try {
+            Mail::to($demoRequest->email)->send(
+                new DemoAccessApproved($demoRequest->fresh(), $demoUser->fresh(), $plainPassword, $loginUrl)
+            );
+        } catch (\Throwable $exception) {
+            Log::error('Demo approval email failed to send.', [
+                'demo_request_id' => $demoRequest->id,
+                'email' => $demoRequest->email,
+                'exception' => $exception::class,
+                'message' => $exception->getMessage(),
+            ]);
+
+            return back()->with('admin_warning', 'Request approved and credentials created, but the email could not be sent. Demo URL: '.$loginUrl.' | Username: '.$demoUser->username.' | Temporary Password: '.$plainPassword);
+        }
 
         return back()->with('admin_success', 'Demo request approved and credentials sent successfully.');
     }

@@ -18,6 +18,7 @@ class DemoAccessApproved extends Mailable
         public DemoRequest $demoRequest,
         public DemoUser $demoUser,
         public string $plainPassword,
+        public string $loginUrl,
     ) {
     }
 
