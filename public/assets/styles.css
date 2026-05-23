@@ -2107,7 +2107,7 @@ h3 {
 .demo-section {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .demo-copy {
@@ -2149,7 +2149,7 @@ h3 {
 .demo-video-card,
 .demo-form-card {
   min-height: 320px;
-  height: auto;
+  height: 100%;
 }
 
 .demo-video-card {
