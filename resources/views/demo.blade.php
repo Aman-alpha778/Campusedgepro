@@ -46,7 +46,8 @@
             <span>Fees and reports</span>
           </div>
         </section>
-        <form class="demo-form-card form" action="mailto:hello@sortiqsolutions.com" method="post" enctype="text/plain">
+        <form class="demo-form-card form" action="{{ route('demo-requests.store') }}" method="post">
+          @csrf
           <div class="demo-form-head">
             <div>
               <h3>Book your live demo</h3>
@@ -54,30 +55,53 @@
             </div>
             <span class="demo-live-badge">Live session</span>
           </div>
+          @if (session('demo_request_success'))
+            <div style="margin: 0 24px 8px; padding: 12px 14px; background: #ecfdf3; color: #065f46; border-radius: 14px; border: 1px solid #a7f3d0;">
+              {{ session('demo_request_success') }}
+            </div>
+          @endif
+          @if ($errors->any())
+            <div style="margin: 0 24px 8px; padding: 12px 14px; background: #fef2f2; color: #991b1b; border-radius: 14px; border: 1px solid #fecaca;">
+              <ul style="margin: 0; padding-left: 18px;">
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
           <div class="demo-form-body">
             <label class="field">
-              <span>Name</span>
-              <input name="name" required>
+              <span>Admin Name</span>
+              <input name="admin_name" value="{{ old('admin_name') }}" required>
             </label>
             <label class="field">
               <span>Email</span>
-              <input name="email" type="email" required>
+              <input name="email" type="email" value="{{ old('email') }}" required>
             </label>
             <label class="field">
               <span>Phone</span>
-              <input name="phone" required>
+              <input name="phone" value="{{ old('phone') }}" required>
             </label>
             <label class="field">
-              <span>Institute</span>
-              <input name="institute" required>
+              <span>College Name</span>
+              <input name="college_name" value="{{ old('college_name') }}" required>
             </label>
             <label class="field">
-              <span>Preferred module</span>
-              <select name="module">
-                <option>Complete ERP demo</option>
-                <option>Admissions CRM</option>
-                <option>Fee Management</option>
-                <option>Attendance</option>
+              <span>Student Strength</span>
+              <input name="student_strength" value="{{ old('student_strength') }}" placeholder="e.g. 2500 students" required>
+            </label>
+            <label class="field">
+              <span>Requirements</span>
+              <textarea name="requirements" data-demo-requirements placeholder="Tell us the modules, workflows, or pain points you want covered in the demo.">{{ old('requirements') }}</textarea>
+            </label>
+            <label class="field">
+              <span>Preferred focus area</span>
+              <select onchange="this.form.querySelector('[data-demo-requirements]').value = this.value">
+                <option value="">Select a focus area</option>
+                <option value="Complete ERP demo covering admissions, academics, fees, faculty, and reports.">Complete ERP demo</option>
+                <option value="Admissions CRM and lead conversion workflow review.">Admissions CRM</option>
+                <option value="Fee management, collections, and dues tracking review.">Fee Management</option>
+                <option value="Attendance workflow and class-level analytics review.">Attendance</option>
               </select>
             </label>
             <div class="demo-submit">

@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\DemoRequestController as AdminDemoRequestController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DemoAuthController;
+use App\Http\Controllers\DemoPortalController;
+use App\Http\Controllers\DemoRequestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +69,8 @@ foreach ($pages as $uri => $view) {
     Route::view($uri, $view);
 }
 
+Route::post('/demo-request', [DemoRequestController::class, 'store'])->name('demo-requests.store');
+
 Route::get('/checkout', function (Request $request) {
     $plans = [
         'basic' => [
@@ -119,3 +127,35 @@ Route::get('/checkout', function (Request $request) {
 Route::get('/payment-gateway', fn (Request $request) => redirect()->route('checkout', ['plan' => $request->query('plan', 'professional')]));
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::prefix('admin')->group(function (): void {
+    Route::middleware('guest')->group(function (): void {
+        Route::get('/login', [AdminAuthController::class, 'create'])->name('admin.login');
+        Route::post('/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
+    });
+
+    Route::middleware(['auth', 'admin'])->group(function (): void {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/demo-requests', [AdminDemoRequestController::class, 'index'])->name('admin.demo-requests.index');
+        Route::post('/demo-requests/{demoRequest}/approve', [AdminDemoRequestController::class, 'approve'])->name('admin.demo-requests.approve');
+        Route::post('/demo-requests/{demoRequest}/reject', [AdminDemoRequestController::class, 'reject'])->name('admin.demo-requests.reject');
+        Route::post('/demo-requests/{demoRequest}/contacted', [AdminDemoRequestController::class, 'markContacted'])->name('admin.demo-requests.contacted');
+        Route::delete('/demo-requests/{demoRequest}', [AdminDemoRequestController::class, 'destroy'])->name('admin.demo-requests.destroy');
+        Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('admin.logout');
+    });
+});
+
+Route::middleware('guest:demo')->group(function (): void {
+    Route::get('/demo-portal/login', [DemoAuthController::class, 'create'])->name('demo.login');
+    Route::post('/demo-portal/login', [DemoAuthController::class, 'store'])->name('demo.login.store');
+});
+
+Route::middleware(['auth:demo', 'demo.active'])->prefix('demo-portal')->group(function (): void {
+    Route::get('/dashboard', [DemoPortalController::class, 'dashboard'])->name('demo.dashboard');
+    Route::get('/students', [DemoPortalController::class, 'module'])->defaults('module', 'students')->name('demo.students');
+    Route::get('/attendance', [DemoPortalController::class, 'module'])->defaults('module', 'attendance')->name('demo.attendance');
+    Route::get('/fees', [DemoPortalController::class, 'module'])->defaults('module', 'fees')->name('demo.fees');
+    Route::get('/faculty', [DemoPortalController::class, 'module'])->defaults('module', 'faculty')->name('demo.faculty');
+    Route::get('/reports', [DemoPortalController::class, 'module'])->defaults('module', 'reports')->name('demo.reports');
+    Route::post('/logout', [DemoAuthController::class, 'destroy'])->name('demo.logout');
+});
