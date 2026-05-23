@@ -75,6 +75,7 @@ class DemoRequestWorkflowTest extends TestCase
         Mail::assertSent(DemoAccessApproved::class, function (DemoAccessApproved $mail) use ($demoRequest, $demoUser): bool {
             return $mail->demoRequest->is($demoRequest)
                 && $mail->demoUser->is($demoUser)
+                && $mail->hasTo($demoRequest->email)
                 && Hash::check($mail->plainPassword, $demoUser->password);
         });
     }

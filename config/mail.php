@@ -115,10 +115,10 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
-    'to' => [
-        'address' => env('MAIL_TO_ADDRESS', 'ajsharma89096@gmail.com'),
-        'name' => env('MAIL_TO_NAME', env('APP_NAME', 'Laravel')),
-    ],
+    'to' => env('MAIL_OVERRIDE_TO_ADDRESS') ? [
+        'address' => env('MAIL_OVERRIDE_TO_ADDRESS'),
+        'name' => env('MAIL_OVERRIDE_TO_NAME', env('APP_NAME', 'Laravel')),
+    ] : null,
 
     'show_error_details' => env('MAIL_SHOW_ERROR_DETAILS', false),
 

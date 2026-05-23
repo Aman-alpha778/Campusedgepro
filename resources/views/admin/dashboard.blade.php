@@ -2,7 +2,7 @@
 
 @section('content')
   <section class="portal-page-head">
-    <h1>Demo request dashboard</h1>
+    <h1>DEMO REQUEST DASHBOARD</h1>
     <p>Track incoming requests, monitor approval progress, and manage live demo access from one place.</p>
   </section>
 
