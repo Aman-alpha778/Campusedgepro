@@ -129,10 +129,8 @@ Route::get('/payment-gateway', fn (Request $request) => redirect()->route('check
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::prefix('admin')->group(function (): void {
-    Route::middleware('guest')->group(function (): void {
-        Route::get('/login', [AdminAuthController::class, 'create'])->name('admin.login');
-        Route::post('/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
-    });
+    Route::get('/login', [AdminAuthController::class, 'create'])->name('admin.login');
+    Route::post('/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
 
     Route::middleware(['auth', 'admin'])->group(function (): void {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
@@ -145,10 +143,8 @@ Route::prefix('admin')->group(function (): void {
     });
 });
 
-Route::middleware('guest:demo')->group(function (): void {
-    Route::get('/demo-portal/login', [DemoAuthController::class, 'create'])->name('demo.login');
-    Route::post('/demo-portal/login', [DemoAuthController::class, 'store'])->name('demo.login.store');
-});
+Route::get('/demo-portal/login', [DemoAuthController::class, 'create'])->name('demo.login');
+Route::post('/demo-portal/login', [DemoAuthController::class, 'store'])->name('demo.login.store');
 
 Route::middleware(['auth:demo', 'demo.active'])->prefix('demo-portal')->group(function (): void {
     Route::get('/dashboard', [DemoPortalController::class, 'dashboard'])->name('demo.dashboard');

@@ -13,11 +13,19 @@ class DemoAuthController extends Controller
 {
     public function create(): View
     {
+        if (Auth::guard('demo')->check()) {
+            return redirect()->route('demo.dashboard');
+        }
+
         return view('demo.auth.login');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        if (Auth::guard('demo')->check()) {
+            return redirect()->route('demo.dashboard');
+        }
+
         $credentials = $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],

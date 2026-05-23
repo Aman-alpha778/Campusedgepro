@@ -12,11 +12,25 @@ class AuthController extends Controller
 {
     public function create(): View
     {
+        if (Auth::check()) {
+            if (Auth::user()?->is_admin) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
+        }
+
         return view('admin.auth.login');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        if (Auth::check() && Auth::user()?->is_admin) {
+            return redirect()->route('admin.dashboard');
+        }
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
