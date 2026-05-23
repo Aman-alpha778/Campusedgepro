@@ -2108,6 +2108,7 @@ h3 {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 24px;
   align-items: stretch;
+  padding-top: 28px;
 }
 
 .demo-copy {
@@ -2150,6 +2151,7 @@ h3 {
 .demo-form-card {
   min-height: 320px;
   height: 100%;
+  align-self: stretch;
 }
 
 .demo-video-card {
@@ -2187,7 +2189,7 @@ h3 {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 500px;
+  max-width: none;
   padding: 0;
   border: 1px solid var(--line);
   background: var(--white);
@@ -2250,7 +2252,14 @@ h3 {
   flex: 1 1 auto;
   align-content: start;
   gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 14px 18px 18px;
+}
+
+.demo-form-body .field:nth-child(6),
+.demo-form-body .field:nth-child(7),
+.demo-form-body .demo-submit {
+  grid-column: 1 / -1;
 }
 
 .field {
@@ -2275,7 +2284,7 @@ h3 {
 }
 
 .demo-form-card textarea {
-  min-height: 82px;
+  min-height: 68px;
 }
 
 .demo-form-card input:focus,
@@ -4672,6 +4681,10 @@ h3 {
   .blog-index-layout,
   .blog-post-list,
   .blog-list-card {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-form-body {
     grid-template-columns: 1fr;
   }
 

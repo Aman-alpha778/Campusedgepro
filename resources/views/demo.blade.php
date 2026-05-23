@@ -19,11 +19,7 @@
     </div>
   </nav>
 </header>
-    <main><section class="section page-hero demo-page-hero">
-   
-      <h1>Book a live CampusEdgePro demo.</h1>
-      <p class="lead">See student management, attendance, fees, exams, reports and admissions CRM in one guided walkthrough.</p>
-    </section>
+    <main>
       <section class="band"><div class="section split demo-section">
         <section class="demo-video-card card">
           <div class="demo-video-head">
