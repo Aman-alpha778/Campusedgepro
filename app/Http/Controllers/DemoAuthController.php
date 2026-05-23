@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class DemoAuthController extends Controller
 {
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
         if (Auth::guard('demo')->check()) {
             return redirect()->route('demo.dashboard');
