@@ -3,6 +3,7 @@
 use App\Http\Middleware\EnsureDemoUserIsActive;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -18,6 +19,16 @@ return Application::configure(basePath: dirname(__DIR__))
         $schedule->command('demo-access:maintain')->dailyAt('08:00');
     })
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->trustProxies(
+            at: '*',
+            headers: SymfonyRequest::HEADER_X_FORWARDED_FOR
+                | SymfonyRequest::HEADER_X_FORWARDED_HOST
+                | SymfonyRequest::HEADER_X_FORWARDED_PORT
+                | SymfonyRequest::HEADER_X_FORWARDED_PROTO
+                | SymfonyRequest::HEADER_X_FORWARDED_PREFIX
+                | SymfonyRequest::HEADER_X_FORWARDED_AWS_ELB
+        );
+
         $middleware->redirectGuestsTo(function (Request $request): string {
             if ($request->is('demo-portal') || $request->is('demo-portal/*')) {
                 return route('demo.login');
