@@ -21,7 +21,7 @@
       <a href="features.html">Product Features</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Blogs</a>
-      <a href="/docs/index.html">Documentation</a>
+      <a href="/docs">Documentation</a>
       <a href="contact.html">Contact Us</a>
       <a class="button" href="demo.html">Book Demo</a>
     </div>
@@ -141,4 +141,3 @@
     <script src="/assets/main.js"></script>
   </body>
 </html>
-

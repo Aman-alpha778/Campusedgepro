@@ -20,7 +20,7 @@ const normalizeNavLayout = () => {
     { href: `${prefix}features.html`, label: "Product Features" },
     { href: `${prefix}pricing.html`, label: "Pricing" },
     { href: `${prefix}blog.html`, label: "Blogs" },
-    { href: "/docs/index.html", label: "Documentation" },
+    { href: "/docs", label: "Documentation" },
     { href: `${prefix}contact.html`, label: "Contact Us" },
   ];
 
@@ -130,7 +130,7 @@ const renderSharedFooter = () => {
           <div class="footer-column">
             <strong>About</strong>
             <a href="${prefix}about.html">About Us</a>
-            <a href="/docs/index.html">Documentation</a>
+            <a href="/docs">Documentation</a>
             <a href="${prefix}contact.html">Contact Us</a>
             <a href="${prefix}blog.html">Blogs</a>
           </div>

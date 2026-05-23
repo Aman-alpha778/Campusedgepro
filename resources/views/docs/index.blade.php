@@ -24,7 +24,7 @@
       <a href="../features.html">Product Features</a>
       <a href="../pricing.html">Pricing</a>
       <a href="../blog.html">Blogs</a>
-      <a href="/docs/index.html">Documentation</a>
+      <a href="/docs">Documentation</a>
       <a href="../contact.html">Contact Us</a>
       <a class="button" href="../demo.html">Book Demo</a>
     </div>
@@ -143,7 +143,7 @@
                 <span class="docs-card-tag">Admin Guide</span>
                 <h3>Manage students, staff and institutional reports.</h3>
                 <p>Navigate the admin foundation for user permissions, academic records, reporting and master operations.</p>
-                <a class="docs-link-row" href="/docs/admin-guide.html">Read admin guide</a>
+                <a class="docs-link-row" href="/docs/admin-guide">Read admin guide</a>
               </div>
             </article>
 
@@ -155,7 +155,7 @@
                 <span class="docs-card-tag">Fee Management</span>
                 <h3>Configure structures, capture payments and review dues.</h3>
                 <p>Finance teams can standardize fee setup, collections, concessions and reporting from one guided hub.</p>
-                <a class="docs-link-row" href="/docs/fee-management.html">Explore finance docs</a>
+                <a class="docs-link-row" href="/docs/fee-management">Explore finance docs</a>
               </div>
             </article>
 
@@ -167,7 +167,7 @@
                 <span class="docs-card-tag">CRM Admissions</span>
                 <h3>Handle inquiries, follow-ups and conversion to student records.</h3>
                 <p>Admissions teams can track lead stages and move qualified inquiries into student onboarding workflows.</p>
-                <a class="docs-link-row" href="/docs/crm-admissions.html">Open CRM docs</a>
+                <a class="docs-link-row" href="/docs/crm-admissions">Open CRM docs</a>
               </div>
             </article>
           </div>
@@ -280,7 +280,7 @@
                 <span class="docs-card-tag">Admin Guide</span>
                 <h3>Control institutional operations from one workspace.</h3>
                 <p>Admins manage master data, permissions, students, staff and reporting with cross-module oversight designed for college operations.</p>
-                <a class="docs-link-row" href="/docs/admin-guide.html">Open admin guide</a>
+                <a class="docs-link-row" href="/docs/admin-guide">Open admin guide</a>
               </div>
             </article>
 
@@ -292,7 +292,7 @@
                 <span class="docs-card-tag">Student Module</span>
                 <h3>Admissions, profiles and attendance in one student view.</h3>
                 <p>Use the student guide to onboard students, inspect profile records and understand attendance visibility for each learner.</p>
-                <a class="docs-link-row" href="/docs/student-module.html">Open student guide</a>
+                <a class="docs-link-row" href="/docs/student-module">Open student guide</a>
               </div>
             </article>
 
@@ -304,7 +304,7 @@
                 <span class="docs-card-tag">Fee Management</span>
                 <h3>Professional finance workflows for college teams.</h3>
                 <p>Configure fee structures, collect payments, apply concessions and monitor reports with documented finance processes.</p>
-                <a class="docs-link-row" href="/docs/fee-management.html">Open fee docs</a>
+                <a class="docs-link-row" href="/docs/fee-management">Open fee docs</a>
               </div>
             </article>
 
@@ -316,7 +316,7 @@
                 <span class="docs-card-tag">CRM Admission</span>
                 <h3>Track inquiries, follow-ups and student conversion.</h3>
                 <p>Admissions staff can handle lead intake, follow-up planning and final conversion into student records without manual handoff gaps.</p>
-                <a class="docs-link-row" href="/docs/crm-admissions.html">Open CRM guide</a>
+                <a class="docs-link-row" href="/docs/crm-admissions">Open CRM guide</a>
               </div>
             </article>
 
@@ -337,7 +337,7 @@
                   <p>Admins can create a user from the user management area, assign department and role, then share login credentials securely.</p>
                 </details>
               </div>
-              <a class="docs-link-row" href="/docs/faq.html">View full FAQ</a>
+              <a class="docs-link-row" href="/docs/faq">View full FAQ</a>
             </article>
 
             <article id="api-docs" class="docs-code-card">
@@ -351,7 +351,7 @@ POST /api/v1/students
 GET /api/v1/attendance
 POST /api/v1/fees/payments
 GET /api/v1/reports/summary</pre>
-              <a class="docs-link-row" href="/docs/api.html">Open API reference</a>
+              <a class="docs-link-row" href="/docs/api">Open API reference</a>
             </article>
           </div>
         </div>
@@ -373,4 +373,3 @@ GET /api/v1/reports/summary</pre>
     <script src="/assets/main.js"></script>
   </body>
 </html>
-
