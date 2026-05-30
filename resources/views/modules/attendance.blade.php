@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -7,7 +7,7 @@
         <link rel="apple-touch-icon" href="/favicon-192.png">
         <title>Attendance Module | CampusEdgePro</title>
         <meta name="description" content="Track student and staff attendance digitally with CampusEdgePro.">
-        <link rel="stylesheet" href="/assets/styles.css">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="module-detail-page">
         <header class="topbar">
@@ -91,7 +91,7 @@
                 <a class="button" href="../demo.html">Book Demo</a>
             </section>
         </main>
-        <script src="/assets/main.js"></script>
+        
     </body>
 </html>
 

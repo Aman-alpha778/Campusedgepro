@@ -1,8 +1,8 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-    <link rel="apple-touch-icon" href="/favicon-192.png"><title>College ERP Landing Page | CampusEdgePro</title><meta name="description" content="High-conversion CampusEdgePro landing page for college ERP ads."><link rel="stylesheet" href="/assets/styles.css"></head>
+    <link rel="apple-touch-icon" href="/favicon-192.png"><title>College ERP Landing Page | CampusEdgePro</title><meta name="description" content="High-conversion CampusEdgePro landing page for college ERP ads.">@vite(['resources/css/app.css', 'resources/js/app.js'])</head>
   <body><header class="topbar">
   <nav class="nav">
     <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
@@ -96,6 +96,6 @@
       </div><form class="form card" action="mailto:hello@sortiqsolutions.com" method="post" enctype="text/plain">
         <label>Name<input name="name" required></label><label>Phone<input name="phone" required></label>
         <label>Institute<input name="institute" required></label><button class="button" type="submit">Book Demo</button></form></section>
-    </main><script src="/assets/main.js"></script></body>
+    </main></body>
 </html>
 

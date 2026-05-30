@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>Pricing | CampusEdgePro</title>
     <meta name="description" content="CampusEdgePro pricing plans for colleges: Basic, Pro and Enterprise with custom quotes.">
-    <link rel="stylesheet" href="/assets/styles.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="pricing-page">
     <header class="topbar">
@@ -94,7 +94,7 @@
     </main>
 
     <footer class="footer"></footer>
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>
 

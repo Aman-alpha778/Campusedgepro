@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,9 +7,8 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>CRM Admissions | CampusEdgePro Docs</title>
     <meta name="description" content="Documentation for inquiries, follow-ups and conversion workflows in CampusEdgePro CRM admissions.">
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="stylesheet" href="/docs/docs.css">
-  </head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
   <body class="docs-page">
     <header class="topbar docs-topbar">
   <nav class="nav">
@@ -128,7 +127,7 @@
       </section>
     </main>
 
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>
 

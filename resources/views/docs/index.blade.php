@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,9 +7,8 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>CampusEdgePro Documentation</title>
     <meta name="description" content="CampusEdgePro documentation for getting started, admin guide, students, fees, CRM admissions, FAQ and API integrations.">
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="stylesheet" href="/docs/docs.css">
-  </head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
   <body class="docs-page">
     <header class="topbar docs-topbar">
   <nav class="nav">
@@ -370,6 +369,6 @@ GET /api/v1/reports/summary</pre>
       </section>
     </main>
 
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>

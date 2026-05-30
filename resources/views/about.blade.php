@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>About Sortiq Solutions | CampusEdgePro</title>
     <meta name="description" content="Learn about Sortiq Solutions Pvt. Ltd., the team behind CampusEdgePro and practical digital transformation for education institutions.">
-    <link rel="stylesheet" href="/assets/styles.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
     <header class="topbar">
@@ -195,6 +195,6 @@
       </section>
     </main>
     <footer class="footer"><div class="footer-inner"><div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p></div><div class="footer-links"><div><strong>Website</strong><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="pricing.html">Pricing</a></div><div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs">Documentation</a><a href="ads.html">Landing Page</a></div><div><strong>Modules</strong><a href="modules/student-management.html">Students</a><a href="modules/fees.html">Fees</a><a href="modules/attendance.html">Attendance</a></div><div><strong>Contact</strong><a href="contact.html">Book Demo</a><a href="mailto:hello@sortiqsolutions.com">Email</a></div></div></div></footer>
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>

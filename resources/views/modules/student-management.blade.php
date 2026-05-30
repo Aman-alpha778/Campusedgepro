@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
         <link rel="apple-touch-icon" href="/favicon-192.png">
         <title>Student Management Module | CampusEdgePro</title>
-        <meta name="description" content="Manage student admissions, profiles, documents, courses and batches with CampusEdgePro."><link rel="stylesheet" href="/assets/styles.css"></head>
+        <meta name="description" content="Manage student admissions, profiles, documents, courses and batches with CampusEdgePro.">@vite(['resources/css/app.css', 'resources/js/app.js'])</head>
         <body class="module-detail-page">
             <header class="topbar">
   <nav class="nav">
@@ -87,6 +87,6 @@
                     <section class="section"><a class="button" href="../demo.html">Book Demo</a>
                     </section>
                 </main>
-            <script src="/assets/main.js"></script></body></html>
+            </body></html>
 
 

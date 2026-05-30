@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 
+$isLocalHost = ! app()->runningInConsole()
+    && in_array(request()->getHost(), ['127.0.0.1', 'localhost', '::1'], true);
+
 return [
 
     /*
@@ -156,7 +159,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN'),
+    'domain' => app()->runningInConsole() ? env('SESSION_DOMAIN') : ($isLocalHost ? null : env('SESSION_DOMAIN')),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,7 +172,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE'),
+    'secure' => app()->runningInConsole() ? env('SESSION_SECURE_COOKIE') : request()->isSecure(),
 
     /*
     |--------------------------------------------------------------------------

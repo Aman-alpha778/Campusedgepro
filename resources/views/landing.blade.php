@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,9 +7,9 @@
   <link rel="apple-touch-icon" href="/favicon-192.png">
   <meta name="description" content="High-conversion CampusEdgePro ads landing page for college ERP campaigns.">
   <title>Landing Page | CampusEdgePro</title>
-  <link rel="stylesheet" href="/assets/style.css">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="landing-page">
   <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
@@ -71,7 +71,7 @@
     <div class="container footer-inner">
       <div>
         <strong>CampusEdgePro</strong>
-        <p class="mini">CampusEdgePro – Smart College ERP by Sortiq Solutions</p>
+        <p class="mini">CampusEdgePro � Smart College ERP by Sortiq Solutions</p>
       </div>
       <div class="footer-links">
         <a href="contact.html">Contact</a>
@@ -80,7 +80,7 @@
       </div>
     </div>
   </footer>
-<script src="/assets/main.js"></script></body>
+</body>
 </html>
 
 

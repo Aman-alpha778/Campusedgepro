@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>College ERP Blog | CampusEdgePro</title>
     <meta name="description" content="CampusEdgePro blog articles about college ERP, digital attendance and ERP benefits.">
-    <link rel="stylesheet" href="/assets/styles.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="blog-page">
     <header class="topbar">
@@ -138,6 +138,6 @@
     </main>
 
     <footer class="footer"></footer>
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>

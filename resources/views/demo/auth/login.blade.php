@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo ERP Login | CampusEdgePro</title>
-    <link rel="stylesheet" href="/assets/portal.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="portal-body">
     <main class="portal-auth">

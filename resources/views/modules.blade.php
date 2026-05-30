@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,9 +7,9 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>College ERP Modules | CampusEdgePro</title>
     <meta name="description" content="Detailed CampusEdgePro modules for student management, staff, attendance, fees, exams and reports.">
-    <link rel="stylesheet" href="/assets/styles.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
-  <body class="modules-page">
+  <body>
     <header class="topbar">
   <nav class="nav">
     <a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a>
@@ -21,7 +21,7 @@
       <a href="features.html">Product Features</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Blogs</a>
-      <a href="/docs">Documentation</a>
+      <a href="/docs/index.html">Documentation</a>
       <a href="contact.html">Contact Us</a>
       <a class="button" href="demo.html">Book Demo</a>
     </div>
@@ -53,7 +53,7 @@
         </div>
       </section>
 
-      <section class="band">
+      <section class="band">  
         <div class="section">
           <div class="section-head" style="justify-content: center; text-align: center;">
             <div>
@@ -82,7 +82,7 @@
               <span class="module-page-link">Open module</span>
             </a>
             <a class="module-page-card fees" data-index="4" href="modules/fees.html">
-              <span class="module-page-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="16" width="36" height="36" rx="5" fill="#0f3154"/><circle cx="20" cy="20" r="9" fill="#f0a43a"/><text x="16" y="25" font-size="14" font-family="Arial" fill="#fff">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹</text><path d="M28 27h14M28 35h14M28 43h9" stroke="#fff" stroke-width="4"/></svg></span>
+              <span class="module-page-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="16" width="36" height="36" rx="5" fill="#0f3154"/><circle cx="20" cy="20" r="9" fill="#f0a43a"/><text x="16" y="25" font-size="14" font-family="Arial" fill="#fff">Ã¢â€šÂ¹</text><path d="M28 27h14M28 35h14M28 43h9" stroke="#fff" stroke-width="4"/></svg></span>
               <h3>Fees</h3>
               <p>Fee structures, collections, receipts, dues and payment reports.</p>
               <span class="module-page-link">Open module</span>
@@ -103,19 +103,27 @@
         </div>
       </section>
 
+      <section class="section modules-cta">
+        <div>
+          <p class="eyebrow">Walkthrough</p>
+          <h2>Need a module-by-module walkthrough?</h2>
+          <p class="lead">Book a demo and we will map CampusEdgePro to your current student, fee, attendance and admissions process.</p>
+        </div>
+        <a class="button" href="demo.html">Book Live Demo</a>
+      </section>
     </main>
     <footer class="footer">
       <div class="footer-inner">
         <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p></div>
         <div class="footer-links">
           <div><strong>Website</strong><a href="features.html">Features</a><a href="modules.html">Modules</a><a href="pricing.html">Pricing</a></div>
-          <div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs">Documentation</a><a href="ads.html">Landing Page</a></div>
+          <div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs/index.html">Documentation</a><a href="ads.html">Landing Page</a></div>
           <div><strong>Modules</strong><a href="modules/student-management.html">Students</a><a href="modules/fees.html">Fees</a><a href="modules/attendance.html">Attendance</a></div>
           <div><strong>Contact</strong><a href="contact.html">Book Demo</a><a href="mailto:hello@sortiqsolutions.com">Email</a></div>
         </div>
       </div>
     </footer>
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>
 

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="/favicon-192.png">
     <title>Secure Checkout | CampusEdgePro</title>
     <meta name="description" content="Secure payment gateway for CampusEdgePro subscription plans.">
-    <link rel="stylesheet" href="/assets/styles.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="checkout-page">
     <header class="topbar">
@@ -94,7 +94,7 @@
               </div>
 
               <div class="checkout-pay-actions">
-                <button class="button checkout-pay-button" type="button">Pay ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{{ $plan['price'] }} Securely</button>
+                <button class="button checkout-pay-button" type="button">Pay ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹{{ $plan['price'] }} Securely</button>
                 <p>Your payment is protected and your implementation team is notified immediately after confirmation.</p>
               </div>
             </form>
@@ -104,7 +104,7 @@
             <div class="checkout-summary-top">
               <span class="checkout-summary-label">Selected Plan</span>
               <h2>{{ $plan['name'] }}</h2>
-              <div class="checkout-price">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{{ $plan['price'] }} <span>/ month</span></div>
+              <div class="checkout-price">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹{{ $plan['price'] }} <span>/ month</span></div>
               <p>{{ $plan['summary'] }}</p>
             </div>
 
@@ -148,7 +148,7 @@
     </main>
 
     <footer class="footer"></footer>
-    <script src="/assets/main.js"></script>
+    
   </body>
 </html>
 
