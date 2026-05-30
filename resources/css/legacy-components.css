@@ -2601,6 +2601,9 @@ a {
 .portal-button-danger {
   @apply inline-flex items-center justify-center gap-[8px] min-h-[44px] border font-semibold text-center whitespace-nowrap cursor-pointer [transition:transform_0.2s_ease,box-shadow_0.2s_ease,background_0.2s_ease] px-[18px] py-[12px] rounded-[14px] border-solid border-transparent;
 }
+.portal-button-small {
+  @apply min-h-[34px] text-[0.82rem] px-[12px] py-[8px] rounded-[10px];
+}
 .portal-button {
   @apply [background:linear-gradient(135deg,var(--portal-blue),#3476f6)] text-white shadow-[0_18px_34px_rgba(37,99,235,0.22)];
 }
@@ -2837,6 +2840,9 @@ a {
 }
 .portal-table-note {
   @apply inline-flex items-center text-[color:var(--portal-muted)] text-[0.82rem] mt-[6px];
+}
+.portal-resend-form {
+  @apply block mt-[10px];
 }
 @media (max-width: 1100px) {
   .portal-layout,

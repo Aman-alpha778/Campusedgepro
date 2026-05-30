@@ -49,6 +49,9 @@
       </thead>
       <tbody>
         @forelse ($demoRequests as $demoRequest)
+          @php
+            $canResendAccess = $demoRequest->status === 'Approved' || $demoRequest->demoUser;
+          @endphp
           <tr>
             <td>
               <strong>{{ $demoRequest->college_name }}</strong>
@@ -66,6 +69,15 @@
               @if ($demoRequest->demoUser)
                 <div><strong>{{ $demoRequest->demoUser->username }}</strong></div>
                 <div class="portal-table-note">Expires {{ $demoRequest->demoUser->expiry_date->format('d M Y') }}</div>
+                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
+                  @csrf
+                  <button class="portal-button-ghost portal-button-small" type="submit">Resend Access</button>
+                </form>
+              @elseif ($demoRequest->status === 'Approved')
+                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate demo credentials and resend access details?');">
+                  @csrf
+                  <button class="portal-button-ghost portal-button-small" type="submit">Resend Access</button>
+                </form>
               @else
                 <span class="portal-muted">Not generated</span>
               @endif
@@ -92,7 +104,7 @@
                     <button class="portal-button-ghost" type="submit">Reject</button>
                   </form>
                 @endif
-                @if ($demoRequest->status === 'Approved')
+                @if ($canResendAccess)
                   <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
                     @csrf
                     <button class="portal-button-ghost" type="submit">Resend Access</button>

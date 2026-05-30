@@ -88,7 +88,7 @@ class DemoRequestController extends Controller
 
     public function resendAccess(DemoRequest $demoRequest): RedirectResponse
     {
-        if ($demoRequest->status !== 'Approved') {
+        if ($demoRequest->status !== 'Approved' && ! $demoRequest->demoUser) {
             return back()->with('admin_warning', 'Only approved demo requests can receive access credentials.');
         }
 
