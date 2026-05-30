@@ -16,14 +16,19 @@
         <span>Status</span>
         <select name="status">
           <option value="">All statuses</option>
-          @foreach (['Pending', 'Approved', 'Rejected', 'Contacted'] as $status)
+          @foreach (['Pending', 'Approved', 'Rejected'] as $status)
             <option value="{{ $status }}" @selected($filters['status'] === $status)>{{ $status }}</option>
           @endforeach
         </select>
       </label>
-      <div class="portal-field">
+      <div class="portal-field portal-filter-actions">
         <span>&nbsp;</span>
-        <button class="portal-button portal-uniform-button" type="submit">Apply filters</button>
+        <div>
+          <button class="portal-button portal-uniform-button" type="submit">Search</button>
+          @if ($filters['search'] !== '' || $filters['status'] !== '')
+            <a class="portal-button-ghost portal-uniform-button" href="{{ route('admin.demo-requests.index') }}">Reset</a>
+          @endif
+        </div>
       </div>
     </form>
   </section>

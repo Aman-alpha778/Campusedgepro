@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Mail\DemoAccessApproved;
 use App\Models\DemoRequest;
+use App\Models\DemoUser;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -78,5 +79,64 @@ class DemoRequestWorkflowTest extends TestCase
                 && $mail->hasTo($demoRequest->email)
                 && Hash::check($mail->plainPassword, $demoUser->password);
         });
+    }
+
+    public function test_admin_can_search_demo_requests_across_request_details_and_credentials(): void
+    {
+        $admin = User::query()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => 'secret123',
+            'is_admin' => true,
+        ]);
+
+        $matchingRequest = DemoRequest::query()->create([
+            'college_name' => 'Silver Oak College',
+            'admin_name' => 'Meera Shah',
+            'email' => 'meera@example.com',
+            'phone' => '9000011111',
+            'student_strength' => '1800',
+            'requirements' => 'Needs a transport and fee module walkthrough.',
+            'status' => 'Approved',
+        ]);
+
+        DemoUser::query()->create([
+            'request_id' => $matchingRequest->id,
+            'username' => 'demo_silver_oak',
+            'password' => 'secret123',
+            'expiry_date' => now()->addWeek(),
+            'status' => 'Active',
+        ]);
+
+        DemoRequest::query()->create([
+            'college_name' => 'North Star Institute',
+            'admin_name' => 'Aditya Rao',
+            'email' => 'aditya@example.com',
+            'phone' => '9000022222',
+            'student_strength' => '2500',
+            'requirements' => 'Complete ERP walkthrough.',
+            'status' => 'Pending',
+        ]);
+
+        $this
+            ->actingAs($admin)
+            ->get(route('admin.demo-requests.index', ['search' => 'silver oak']))
+            ->assertOk()
+            ->assertSee('Silver Oak College')
+            ->assertDontSee('North Star Institute');
+
+        $this
+            ->actingAs($admin)
+            ->get(route('admin.demo-requests.index', ['search' => 'transport']))
+            ->assertOk()
+            ->assertSee('Silver Oak College')
+            ->assertDontSee('North Star Institute');
+
+        $this
+            ->actingAs($admin)
+            ->get(route('admin.demo-requests.index', ['search' => 'demo_silver']))
+            ->assertOk()
+            ->assertSee('Silver Oak College')
+            ->assertDontSee('North Star Institute');
     }
 }

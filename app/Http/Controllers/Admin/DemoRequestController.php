@@ -22,19 +22,32 @@ class DemoRequestController extends Controller
     {
         $search = trim((string) $request->query('search'));
         $status = trim((string) $request->query('status'));
+        $searchTerms = $search === ''
+            ? []
+            : preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
 
         $demoRequests = DemoRequest::query()
             ->with('demoUser')
-            ->when($search !== '', function ($query) use ($search): void {
-                $query->where(function ($nested) use ($search): void {
-                    $nested
-                        ->where('college_name', 'like', "%{$search}%")
-                        ->orWhere('admin_name', 'like', "%{$search}%")
-                        ->orWhere('email', 'like', "%{$search}%")
-                        ->orWhere('phone', 'like', "%{$search}%");
-                });
+            ->when($searchTerms !== [], function ($query) use ($searchTerms): void {
+                foreach ($searchTerms as $term) {
+                    $likeTerm = "%{$term}%";
+
+                    $query->where(function ($nested) use ($likeTerm): void {
+                        $nested
+                            ->where('college_name', 'like', $likeTerm)
+                            ->orWhere('admin_name', 'like', $likeTerm)
+                            ->orWhere('email', 'like', $likeTerm)
+                            ->orWhere('phone', 'like', $likeTerm)
+                            ->orWhere('student_strength', 'like', $likeTerm)
+                            ->orWhere('requirements', 'like', $likeTerm)
+                            ->orWhere('status', 'like', $likeTerm)
+                            ->orWhereHas('demoUser', function ($demoUserQuery) use ($likeTerm): void {
+                                $demoUserQuery->where('username', 'like', $likeTerm);
+                            });
+                    });
+                }
             })
-            ->when(in_array($status, ['Pending', 'Approved', 'Rejected', 'Contacted'], true), function ($query) use ($status): void {
+            ->when(in_array($status, ['Pending', 'Approved', 'Rejected'], true), function ($query) use ($status): void {
                 $query->where('status', $status);
             })
             ->latest()

@@ -2553,7 +2553,7 @@ a {
   @apply w-[min(250px,100%)] h-auto block [filter:drop-shadow(0_22px_38px_rgba(16,32,61,0.18))];
 }
 .portal-brand-logo {
-  @apply w-[64px] h-[64px] object-contain block;
+  @apply w-[86px] h-[86px] object-contain block;
 }
 .portal-auth-brand small,
 .portal-brand small {
@@ -2586,6 +2586,9 @@ a {
 }
 .portal-field textarea {
   @apply min-h-[120px] resize-y;
+}
+.portal-filter-actions > div {
+  @apply flex flex-wrap gap-[10px];
 }
 .portal-remember {
   @apply inline-flex w-fit items-center gap-[10px] text-[0.95rem] font-semibold text-[color:var(--portal-text)] cursor-pointer;
