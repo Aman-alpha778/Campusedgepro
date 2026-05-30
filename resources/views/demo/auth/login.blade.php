@@ -6,14 +6,16 @@
     <title>Demo ERP Login | CampusEdgePro</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
-  <body class="portal-body">
+  <body class="portal-body demo-login-page">
     <main class="portal-auth">
-      <section class="portal-auth-card">
+      <section class="portal-auth-card demo-login-card">
         <div class="portal-auth-brand">
-          <span class="portal-auth-brand-mark"></span>
+          <span class="demo-login-logo-wrap">
+            <img class="portal-auth-logo demo-login-logo" src="{{ asset('assets/cmpus.png') }}" alt="CampusEdgePro">
+          </span>
           <span>CampusEdgePro Demo Access</span>
         </div>
-        <h1>Demo ERP login</h1>
+        <h1>Demo ERP Login</h1>
         <p>Use the credentials sent to your email after approval. Access is available for seven days from approval.</p>
 
         @if ($errors->any())
