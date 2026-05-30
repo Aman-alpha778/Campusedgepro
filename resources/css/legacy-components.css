@@ -2612,6 +2612,10 @@ a {
 .portal-button-danger:hover {
   @apply -translate-y-px;
 }
+.portal-button-muted,
+.portal-button-muted:hover {
+  @apply opacity-60 cursor-not-allowed translate-y-0 shadow-none;
+}
 .portal-layout {
   @apply min-h-screen grid grid-cols-[280px_1fr];
 }
@@ -2730,10 +2734,19 @@ a {
 }
 .portal-table th,
 .portal-table td {
-  @apply text-left align-top px-[10px] py-[14px] border-b-[#edf2f7] border-b border-solid;
+  @apply text-left align-middle px-[12px] py-[14px] border-b-[#edf2f7] border-b border-solid;
 }
 .portal-table td strong {
   @apply text-[color:var(--portal-text)];
+}
+.portal-table-center {
+  @apply text-center;
+}
+.portal-table-email {
+  @apply max-w-[220px] break-words;
+}
+.portal-table-nowrap {
+  @apply whitespace-nowrap;
 }
 .portal-badge {
   @apply inline-flex items-center text-[0.82rem] font-bold px-[10px] py-[6px] rounded-[999px];
@@ -2754,10 +2767,11 @@ a {
   @apply inline;
 }
 .portal-actions {
-  @apply grid-cols-[repeat(2,minmax(110px,1fr))] items-stretch;
+  @apply grid-cols-[repeat(2,minmax(112px,1fr))] items-stretch gap-[10px] min-w-[240px];
 }
 .portal-actions .portal-inline-form,
-.portal-actions .portal-inline-form button {
+.portal-actions .portal-inline-form button,
+.portal-actions > button {
   @apply w-full;
 }
 .portal-alert,

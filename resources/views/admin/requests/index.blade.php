@@ -52,11 +52,11 @@
                 <div class="portal-muted" style="margin-top: 6px;">{{ \Illuminate\Support\Str::limit($demoRequest->requirements, 90) }}</div>
               @endif
             </td>
-            <td>{{ $demoRequest->admin_name }}</td>
-            <td>{{ $demoRequest->email }}</td>
-            <td>{{ $demoRequest->phone }}</td>
-            <td><span class="portal-badge {{ strtolower($demoRequest->status) }}">{{ $demoRequest->status }}</span></td>
-            <td>{{ $demoRequest->created_at->format('d M Y') }}</td>
+            <td class="portal-table-nowrap">{{ $demoRequest->admin_name }}</td>
+            <td class="portal-table-email">{{ $demoRequest->email }}</td>
+            <td class="portal-table-nowrap">{{ $demoRequest->phone }}</td>
+            <td class="portal-table-center"><span class="portal-badge {{ strtolower($demoRequest->status) }}">{{ $demoRequest->status }}</span></td>
+            <td class="portal-table-nowrap">{{ $demoRequest->created_at->format('d M Y') }}</td>
             <td>
               @if ($demoRequest->demoUser)
                 <div><strong>{{ $demoRequest->demoUser->username }}</strong></div>
@@ -67,18 +67,26 @@
             </td>
             <td>
               <div class="portal-actions">
-                <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.approve', $demoRequest) }}" onsubmit="return confirm('Approve this demo request and send credentials?');">
-                  @csrf
-                  <button class="portal-button" type="submit">Approve</button>
-                </form>
-                <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.reject', $demoRequest) }}" onsubmit="return confirm('Reject this demo request and notify the user?');">
-                  @csrf
-                  <button class="portal-button-ghost" type="submit">Reject</button>
-                </form>
-                <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.contacted', $demoRequest) }}" onsubmit="return confirm('Mark this request as contacted?');">
-                  @csrf
-                  <button class="portal-button-ghost" type="submit">Contacted</button>
-                </form>
+                @if ($demoRequest->status === 'Approved')
+                  <button class="portal-button portal-button-muted" type="button" disabled>Approved</button>
+                @elseif ($demoRequest->status === 'Rejected')
+                  <button class="portal-button portal-button-muted" type="button" disabled>Approve</button>
+                @else
+                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.approve', $demoRequest) }}" onsubmit="return confirm('Approve this demo request and send credentials?');">
+                    @csrf
+                    <button class="portal-button" type="submit">Approve</button>
+                  </form>
+                @endif
+                @if ($demoRequest->status === 'Rejected')
+                  <button class="portal-button-ghost portal-button-muted" type="button" disabled>Rejected</button>
+                @elseif ($demoRequest->status === 'Approved')
+                  <button class="portal-button-ghost portal-button-muted" type="button" disabled>Reject</button>
+                @else
+                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.reject', $demoRequest) }}" onsubmit="return confirm('Reject this demo request and notify the user?');">
+                    @csrf
+                    <button class="portal-button-ghost" type="submit">Reject</button>
+                  </form>
+                @endif
                 <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.destroy', $demoRequest) }}" onsubmit="return confirm('Delete this demo request permanently?');">
                   @csrf
                   @method('delete')
