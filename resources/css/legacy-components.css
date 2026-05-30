@@ -2553,7 +2553,7 @@ a {
   @apply w-[min(250px,100%)] h-auto block [filter:drop-shadow(0_22px_38px_rgba(16,32,61,0.18))];
 }
 .demo-login-page {
-  @apply min-h-screen overflow-x-hidden [background:radial-gradient(circle_at_15%_12%,rgba(14,165,233,0.24),transparent_30%),radial-gradient(circle_at_85%_18%,rgba(37,99,235,0.24),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(15,159,110,0.14),transparent_34%),linear-gradient(135deg,#071b4f_0%,#123fbb_44%,#0ea5e9_100%)];
+  @apply min-h-screen overflow-x-hidden [background:radial-gradient(circle_at_15%_12%,rgba(37,99,235,0.2),transparent_30%),radial-gradient(circle_at_85%_18%,rgba(14,165,233,0.18),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(15,159,110,0.1),transparent_34%),linear-gradient(135deg,#eaf3ff_0%,#dbeafe_46%,#f8fbff_100%)];
 }
 .demo-login-page .portal-auth {
   @apply relative min-h-screen;
@@ -2564,13 +2564,13 @@ a {
   @apply absolute rounded-full pointer-events-none;
 }
 .demo-login-page .portal-auth::before {
-  @apply w-[360px] h-[360px] left-[8%] top-[12%] [background:rgba(255,255,255,0.12)] blur-[4px] animate-[demoFloat_9s_ease-in-out_infinite];
+  @apply w-[360px] h-[360px] left-[8%] top-[12%] [background:rgba(37,99,235,0.14)] blur-[4px] animate-[demoFloat_9s_ease-in-out_infinite];
 }
 .demo-login-page .portal-auth::after {
-  @apply w-[260px] h-[260px] right-[9%] bottom-[10%] [background:rgba(255,255,255,0.1)] blur-[3px] animate-[demoFloat_11s_ease-in-out_infinite_reverse];
+  @apply w-[260px] h-[260px] right-[9%] bottom-[10%] [background:rgba(14,165,233,0.12)] blur-[3px] animate-[demoFloat_11s_ease-in-out_infinite_reverse];
 }
 .demo-login-card {
-  @apply relative z-[1] overflow-hidden border-[rgba(255,255,255,0.42)] [background:linear-gradient(145deg,rgba(255,255,255,0.28),rgba(255,255,255,0.12)),linear-gradient(135deg,rgba(255,255,255,0.2),rgba(14,165,233,0.12))] text-white shadow-[0_38px_100px_rgba(2,8,23,0.36)] [backdrop-filter:blur(22px)] animate-[demoCardIn_0.7s_ease-out_both];
+  @apply relative z-[1] overflow-hidden border-[rgba(255,255,255,0.78)] [background:linear-gradient(145deg,rgba(255,255,255,0.92),rgba(240,247,255,0.78)),linear-gradient(135deg,rgba(219,234,254,0.65),rgba(255,255,255,0.54))] text-[color:var(--portal-text)] shadow-[0_38px_100px_rgba(17,46,114,0.2)] [backdrop-filter:blur(22px)] animate-[demoCardIn_0.7s_ease-out_both];
 }
 .demo-login-card::before {
   content: "";
@@ -2578,19 +2578,19 @@ a {
 }
 .demo-login-card::after {
   content: "";
-  @apply absolute w-[190px] h-[190px] -right-[70px] -top-[70px] rounded-full [background:rgba(255,255,255,0.13)] pointer-events-none;
+  @apply absolute w-[190px] h-[190px] -right-[70px] -top-[70px] rounded-full [background:rgba(37,99,235,0.09)] pointer-events-none;
 }
 .demo-login-card h1 {
-  @apply text-white text-center;
+  @apply text-[color:var(--portal-text)] text-center;
 }
 .demo-login-card p {
-  @apply text-blue-50 text-center leading-[1.65];
+  @apply text-[color:var(--portal-muted)] text-center leading-[1.65];
 }
 .demo-login-card .portal-auth-brand {
-  @apply text-white;
+  @apply text-[color:var(--portal-blue-deep)];
 }
 .demo-login-logo-wrap {
-  @apply grid place-items-center w-[170px] h-[126px] [background:rgba(255,255,255,0.2)] border border-[rgba(255,255,255,0.34)] shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_24px_54px_rgba(2,8,23,0.22)] rounded-[28px] border-solid transition-transform duration-300;
+  @apply grid place-items-center w-[170px] h-[126px] [background:linear-gradient(145deg,#ffffff,#eef6ff)] border border-[rgba(212,226,251,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_24px_54px_rgba(17,46,114,0.16)] rounded-[28px] border-solid transition-transform duration-300;
 }
 .demo-login-card:hover .demo-login-logo-wrap {
   @apply -translate-y-[4px] scale-[1.03];
@@ -2599,22 +2599,22 @@ a {
   @apply w-[132px] max-w-[78%] [filter:drop-shadow(0_18px_24px_rgba(2,8,23,0.28))];
 }
 .demo-login-card .portal-field span {
-  @apply text-blue-50;
+  @apply text-[color:var(--portal-text)];
 }
 .demo-login-card .portal-field input {
-  @apply border-[rgba(255,255,255,0.34)] [background:rgba(255,255,255,0.18)] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] [backdrop-filter:blur(10px)];
+  @apply border-[rgba(170,194,235,0.88)] [background:rgba(255,255,255,0.84)] text-[color:var(--portal-text)] shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)] [backdrop-filter:blur(10px)];
 }
 .demo-login-card .portal-field input::placeholder {
-  @apply text-blue-100;
+  @apply text-slate-400;
 }
 .demo-login-card .portal-field input:focus {
-  @apply border-[rgba(255,255,255,0.72)] shadow-[0_0_0_4px_rgba(255,255,255,0.16)];
+  @apply border-[rgba(37,99,235,0.68)] shadow-[0_0_0_4px_rgba(37,99,235,0.14)];
 }
 .demo-login-card .portal-button {
-  @apply min-h-[50px] [background:linear-gradient(135deg,#ffffff,#dbeafe)] text-[color:var(--portal-blue-deep)] shadow-[0_22px_44px_rgba(2,8,23,0.22)] transition-all duration-300;
+  @apply min-h-[50px] [background:linear-gradient(135deg,#1d4ed8,#0ea5e9)] text-white shadow-[0_22px_44px_rgba(37,99,235,0.28)] transition-all duration-300;
 }
 .demo-login-card .portal-button:hover {
-  @apply -translate-y-[3px] shadow-[0_30px_60px_rgba(2,8,23,0.3)];
+  @apply -translate-y-[3px] shadow-[0_30px_60px_rgba(37,99,235,0.34)];
 }
 @keyframes demoCardIn {
   from {
