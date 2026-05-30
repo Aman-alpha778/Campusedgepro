@@ -1,93 +1,54 @@
-@extends('demo.layouts.app', ['title' => $module['title']])
+@extends('demo.layouts.app', ['title' => $workspace['shortName'].' - '.$module['label']])
 
 @section('content')
-  <section class="portal-page-head demo-module-head">
-    <span class="demo-chip">{{ $module['title'] }}</span>
-    <h1>{{ $module['title'] }}</h1>
+  <section class="portal-page-head">
+    <span class="demo-role-kicker">{{ $workspace['shortName'] }} Workspace</span>
+    <h1>{{ $module['label'] }}</h1>
     <p>{{ $module['description'] }}</p>
   </section>
 
-  @if (! empty($module['metrics']))
-    <section class="demo-module-metrics">
-      @foreach ($module['metrics'] as $metric)
-        <article>
-          <span>{{ $metric[0] }}</span>
-          <strong>{{ $metric[1] }}</strong>
-        </article>
-      @endforeach
-    </section>
-  @endif
+  <section class="demo-workspace-content">
+    <article class="portal-card">
+      <h2>Workflow Preview</h2>
+      <div class="demo-step-row">
+        <span>Open Module</span>
+        <span>Review Data</span>
+        <span>Create or Edit</span>
+        <span>Generate Report</span>
+      </div>
+    </article>
 
-  <section class="demo-grid-2">
-    @if (! empty($module['workflow']))
-      <article class="portal-card demo-card">
-        <h2>Workflow</h2>
-        <div class="demo-workflow">
-          @foreach ($module['workflow'] as $step)
-            <span>{{ $step }}</span>
-          @endforeach
-        </div>
-      </article>
-    @endif
-
-    @if (! empty($module['form']))
-      <article class="portal-card demo-card">
-        <h2>Demo Form Fields</h2>
-        <div class="demo-field-grid">
-          @foreach ($module['form'] as $field)
-            <label>
-              <span>{{ $field }}</span>
-              <input type="text" value="{{ $field }} sample" disabled>
-            </label>
-          @endforeach
-        </div>
-      </article>
-    @endif
-
-    @if (! empty($module['actions']))
-      <article class="portal-card demo-card">
-        <h2>Available Actions</h2>
-        <div class="demo-action-grid">
-          @foreach ($module['actions'] as $action)
-            <button class="portal-button-ghost" type="button">{{ $action }}</button>
-          @endforeach
-        </div>
-      </article>
-    @endif
-
-    @if (! empty($module['panels']))
-      <article class="portal-card demo-card">
-        <h2>Module Areas</h2>
-        <div class="demo-panel-grid">
-          @foreach ($module['panels'] as $panel)
-            <div>
-              <strong>{{ $panel[0] }}</strong>
-              <span>{{ $panel[1] }}</span>
-            </div>
-          @endforeach
-        </div>
-      </article>
-    @endif
+    <article class="portal-card">
+      <h2>Permissions</h2>
+      <div class="demo-permission-grid">
+        <span>View Records</span>
+        <span>Create Records</span>
+        <span>Edit Records</span>
+        <span>Generate Reports</span>
+      </div>
+      <div class="portal-restricted">Delete, system configuration, subscription settings, and licensing changes are restricted.</div>
+    </article>
   </section>
 
-  <section class="portal-module-card demo-card">
+  <section class="portal-module-card">
     <div class="portal-card-head">
       <div>
-        <h2>Live Demo Records</h2>
-        <p>Sample operational data prepared for product exploration.</p>
+        <h2>Sample Data View</h2>
+        <p class="portal-muted">Filtered for {{ $workspace['shortName'] }} access.</p>
       </div>
-      <span class="portal-badge approved">Preview Only</span>
+      <span class="portal-badge approved">Demo Data</span>
     </div>
     <table class="portal-table">
       <thead>
         <tr>
-          @foreach ($module['headers'] as $header)
-            <th>{{ $header }}</th>
-          @endforeach
+          <th>Record</th>
+          <th>Detail</th>
+          <th>Metric</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($module['rows'] as $row)
+        @foreach ($module['records'] as $row)
           <tr>
             @foreach ($row as $value)
               <td>{{ $value }}</td>
@@ -97,15 +58,11 @@
       </tbody>
     </table>
 
-    <div class="portal-restricted">
-      Restricted in demo version. Delete, export, payment, and settings actions remain disabled.
-    </div>
-
-    <div class="demo-disabled-actions">
-      <button class="portal-button-danger portal-disabled" type="button">Delete Records</button>
-      <button class="portal-button-ghost portal-disabled" type="button">Export Report</button>
-      <button class="portal-button-ghost portal-disabled" type="button">Open Payment Gateway</button>
-      <button class="portal-button-ghost portal-disabled" type="button">Modify Settings</button>
+    <div class="demo-action-row">
+      <button class="portal-button" type="button">Create Record</button>
+      <button class="portal-button-ghost" type="button">Edit Record</button>
+      <button class="portal-button-ghost" type="button">Generate Report</button>
+      <button class="portal-button-danger portal-disabled" type="button">Delete Record</button>
     </div>
   </section>
 @endsection

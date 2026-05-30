@@ -1,21 +1,3 @@
-@php
-  $demoNav = [
-    ['route' => 'demo.dashboard', 'label' => 'Dashboard', 'icon' => 'DB'],
-    ['route' => 'demo.admissions', 'label' => 'Admissions', 'icon' => 'AD'],
-    ['route' => 'demo.students', 'label' => 'Students', 'icon' => 'ST'],
-    ['route' => 'demo.academics', 'label' => 'Academics', 'icon' => 'AC'],
-    ['route' => 'demo.attendance', 'label' => 'Attendance', 'icon' => 'AT'],
-    ['route' => 'demo.timetable', 'label' => 'Timetable', 'icon' => 'TT'],
-    ['route' => 'demo.exams', 'label' => 'Exams', 'icon' => 'EX'],
-    ['route' => 'demo.assignments', 'label' => 'Assignments', 'icon' => 'AS'],
-    ['route' => 'demo.fees', 'label' => 'Fees', 'icon' => 'FE'],
-    ['route' => 'demo.staff', 'label' => 'Staff', 'icon' => 'SF'],
-    ['route' => 'demo.payroll', 'label' => 'Payroll', 'icon' => 'PY'],
-    ['route' => 'demo.notifications', 'label' => 'Notifications', 'icon' => 'NO'],
-    ['route' => 'demo.reports', 'label' => 'Reports', 'icon' => 'RP'],
-  ];
-@endphp
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,43 +6,40 @@
     <title>{{ $title ?? 'Demo ERP' }} | CampusEdgePro</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
-  <body class="portal-body demo-erp-body">
-    <div class="portal-layout demo-erp-layout">
-      <aside class="portal-sidebar demo-erp-sidebar">
-        <a class="portal-brand demo-erp-brand" href="{{ route('demo.dashboard') }}">
-          <img class="portal-brand-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
-          <span class="portal-brand-copy">
-            <span>CampusEdgePro</span>
-            <small>Demo ERP</small>
-          </span>
+  <body class="portal-body">
+    <div class="portal-layout demo-role-layout">
+      <aside class="portal-sidebar demo-role-sidebar">
+        <a class="portal-brand" href="{{ route('demo.dashboard') }}">
+          <span class="portal-brand-mark"></span>
+          <span>{{ $workspace['shortName'] ?? 'CampusEdgePro Demo ERP' }}</span>
         </a>
-        <nav class="demo-erp-nav">
-          @foreach ($demoNav as $item)
-            <a class="portal-nav-link demo-erp-nav-link {{ request()->routeIs($item['route']) ? 'active' : '' }}" href="{{ route($item['route']) }}">
-              <span>{{ $item['icon'] }}</span>
-              {{ $item['label'] }}
-            </a>
-          @endforeach
+        <nav>
+          @isset($workspaceKey, $workspace)
+            <a class="portal-nav-link {{ request()->routeIs('demo.workspace') ? 'active' : '' }}" href="{{ route('demo.workspace', $workspaceKey) }}">Dashboard</a>
+            @foreach ($workspace['modules'] as $item)
+              <a class="portal-nav-link {{ ($moduleKey ?? '') === $item['key'] ? 'active' : '' }}" href="{{ route('demo.workspace.module', [$workspaceKey, $item['key']]) }}">
+                {{ $item['label'] }}
+              </a>
+            @endforeach
+          @else
+            <a class="portal-nav-link active" href="{{ route('demo.dashboard') }}">Role Experience Center</a>
+          @endisset
         </nav>
-        <div class="portal-sidebar-foot demo-erp-sales-card">
-          <strong>Interested in CampusEdge ERP?</strong>
-          <a class="portal-button" href="/contact.html">Talk to Sales</a>
+        <div class="portal-sidebar-foot">
+          @isset($workspaceKey)
+            <a class="portal-button-ghost" href="{{ route('demo.dashboard') }}">Switch Workspace</a>
+          @endisset
           <form method="post" action="{{ route('demo.logout') }}">
             @csrf
             <button class="portal-button-ghost" type="submit">Logout</button>
           </form>
         </div>
       </aside>
-      <main class="portal-main demo-erp-main">
-        <div class="portal-lockout demo-erp-banner">
+      <main class="portal-main">
+        <div class="portal-lockout demo-restriction-banner">
           You are currently using a Demo Environment. Changes may not be permanently saved.
         </div>
         @yield('content')
-        <section class="demo-floating-cta" aria-label="Sales actions">
-          <strong>Need this for your institution?</strong>
-          <a href="/demo.html">Schedule Live Consultation</a>
-          <a href="/pricing.html">Request Pricing</a>
-        </section>
       </main>
     </div>
   </body>
