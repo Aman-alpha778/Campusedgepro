@@ -105,7 +105,21 @@ const normalizeNavLayout = () => {
 
 normalizeNavLayout();
 
+const isPortalPage = () => {
+  const path = window.location.pathname.replace(/\\/g, "/");
+
+  return (
+    document.body?.classList.contains("portal-body") ||
+    path.startsWith("/admin") ||
+    path.startsWith("/demo-portal")
+  );
+};
+
 const renderSharedFooter = () => {
+  if (isPortalPage()) {
+    return;
+  }
+
   const path = window.location.pathname.replace(/\\/g, "/");
   const nested = ["/blog/", "/modules/", "/docs/", "/documentation/"].some((segment) => path.includes(segment));
   const prefix = nested ? "../" : "";
