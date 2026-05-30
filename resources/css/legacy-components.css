@@ -2676,7 +2676,7 @@ a {
   @apply grid grid-cols-4 gap-[20px] mb-[32px];
 }
 .portal-stat {
-  @apply shadow-[var(--portal-shadow)] relative overflow-hidden p-[24px] rounded-[24px] after:content-[""] after:absolute after:inset-[auto_-26px_-26px_auto] after:w-[110px] after:h-[110px] after:[background:radial-gradient(circle,rgba(37,99,235,0.16),transparent_70%)] after:rounded-[999px];
+  @apply shadow-[var(--portal-shadow)] relative overflow-hidden p-[24px] rounded-[24px];
 }
 .portal-stat strong {
   @apply block text-[2.1rem] mt-[12px];
@@ -2856,11 +2856,6 @@ a {
 .demo-role-hero,
 .demo-workspace-hero {
   @apply relative overflow-hidden border border-[#cfe0ff] [background:linear-gradient(135deg,#0d2b6b_0%,#2563eb_62%,#0ea5e9_100%)] text-white shadow-[0_34px_80px_rgba(17,46,114,0.28)] p-[32px] rounded-[30px] mb-[22px] border-solid;
-}
-.demo-role-hero:after,
-.demo-workspace-hero:after,
-.demo-workspace-card:after {
-  @apply content-[""] absolute w-[190px] h-[190px] rounded-[999px] [background:rgba(255,255,255,0.12)] -right-[60px] -bottom-[80px];
 }
 .demo-role-hero h1,
 .demo-workspace-hero h1 {

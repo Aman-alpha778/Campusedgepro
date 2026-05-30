@@ -10,7 +10,6 @@
     <div class="portal-layout demo-role-layout">
       <aside class="portal-sidebar demo-role-sidebar">
         <a class="portal-brand" href="{{ route('demo.dashboard') }}">
-          <span class="portal-brand-mark"></span>
           <span>{{ $workspace['shortName'] ?? 'CampusEdgePro Demo ERP' }}</span>
         </a>
         <nav>
