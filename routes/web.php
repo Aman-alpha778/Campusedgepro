@@ -163,10 +163,17 @@ Route::post('/demo-portal/login', [DemoAuthController::class, 'store'])->name('d
 
 Route::middleware(['auth:demo', 'demo.active'])->prefix('demo-portal')->group(function (): void {
     Route::get('/dashboard', [DemoPortalController::class, 'dashboard'])->name('demo.dashboard');
+    Route::get('/admissions', [DemoPortalController::class, 'module'])->defaults('module', 'admissions')->name('demo.admissions');
     Route::get('/students', [DemoPortalController::class, 'module'])->defaults('module', 'students')->name('demo.students');
+    Route::get('/academics', [DemoPortalController::class, 'module'])->defaults('module', 'academics')->name('demo.academics');
     Route::get('/attendance', [DemoPortalController::class, 'module'])->defaults('module', 'attendance')->name('demo.attendance');
+    Route::get('/timetable', [DemoPortalController::class, 'module'])->defaults('module', 'timetable')->name('demo.timetable');
+    Route::get('/exams', [DemoPortalController::class, 'module'])->defaults('module', 'exams')->name('demo.exams');
+    Route::get('/assignments', [DemoPortalController::class, 'module'])->defaults('module', 'assignments')->name('demo.assignments');
     Route::get('/fees', [DemoPortalController::class, 'module'])->defaults('module', 'fees')->name('demo.fees');
-    Route::get('/faculty', [DemoPortalController::class, 'module'])->defaults('module', 'faculty')->name('demo.faculty');
+    Route::get('/staff', [DemoPortalController::class, 'module'])->defaults('module', 'staff')->name('demo.staff');
+    Route::get('/payroll', [DemoPortalController::class, 'module'])->defaults('module', 'payroll')->name('demo.payroll');
+    Route::get('/notifications', [DemoPortalController::class, 'module'])->defaults('module', 'notifications')->name('demo.notifications');
     Route::get('/reports', [DemoPortalController::class, 'module'])->defaults('module', 'reports')->name('demo.reports');
     Route::post('/logout', [DemoAuthController::class, 'destroy'])->name('demo.logout');
 });

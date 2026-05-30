@@ -1,63 +1,98 @@
 @extends('demo.layouts.app', ['title' => 'Dashboard'])
 
 @section('content')
-  <section class="portal-page-head">
-    <h1>Welcome to your CampusEdgePro demo</h1>
-    <p>Explore the ERP using realistic sample data with safe read-only restrictions across sensitive actions.</p>
-  </section>
-
-  <section class="portal-hero-banner">
-    <article class="portal-hero-panel">
-      <h2 style="margin-top: 0;">Institution snapshot</h2>
-      <p class="portal-muted">This preview environment mirrors a college operations workspace across students, fees, attendance, faculty, and reports.</p>
-      <div style="margin-top: 16px;">
-        <a class="portal-button" href="{{ route('demo.students') }}">Explore student records</a>
+  <section class="demo-dashboard-hero">
+    <div>
+      <span class="demo-chip">Full ERP Demo</span>
+      <h1>Explore a complete college ERP workspace.</h1>
+      <p>Review admissions, academics, attendance, exams, fees, payroll, notifications, and analytics with realistic demo data.</p>
+      <div class="demo-hero-actions">
+        <a class="portal-button" href="{{ route('demo.admissions') }}">Start Admission Workflow</a>
+        <a class="portal-button-ghost" href="{{ route('demo.reports') }}">View Reports</a>
       </div>
-    </article>
-    <article class="portal-card">
-      <h2 style="margin-top: 0;">Demo restrictions</h2>
-      <ul class="portal-muted">
-        <li>Delete records is disabled</li>
-        <li>Export reports is disabled</li>
-        <li>Payment system access is disabled</li>
-        <li>Settings changes are disabled</li>
-      </ul>
-    </article>
+    </div>
+    <div class="demo-hero-panel">
+      <strong>Daily Reset</strong>
+      <span>02:00 AM</span>
+      <p>Demo data is prepared for repeat product tours. Delete, subscription, settings, payment, and export actions remain restricted.</p>
+    </div>
   </section>
 
-  <section class="portal-grid-4">
+  <section class="demo-kpi-grid">
     @foreach ($kpis as $kpi)
-      <article class="portal-stat">
-        <span class="portal-muted">{{ $kpi['label'] }}</span>
+      <article class="demo-kpi-card {{ $kpi['tone'] }}">
+        <span>{{ $kpi['label'] }}</span>
         <strong>{{ $kpi['value'] }}</strong>
+        <small>{{ $kpi['trend'] }}</small>
       </article>
     @endforeach
   </section>
 
-  <section class="portal-grid-2" style="margin-top: 18px;">
-    <article class="portal-card">
-      <h2>Recommended walkthrough</h2>
-      <table class="portal-table">
-        <thead>
-          <tr>
-            <th>Step</th>
-            <th>What to review</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Open student profiles and admissions data</td></tr>
-          <tr><td>2</td><td>Review daily attendance snapshots</td></tr>
-          <tr><td>3</td><td>Inspect fee collection and outstanding dues</td></tr>
-          <tr><td>4</td><td>Preview faculty workload and reporting dashboards</td></tr>
-        </tbody>
-      </table>
-    </article>
-    <article class="portal-card">
-      <h2>Read-only mode</h2>
-      <p class="portal-muted">Sensitive actions stay locked so your team can safely evaluate workflows without affecting any live data or connected services.</p>
-      <div class="portal-restricted">
-        Restricted in demo version
+  <section class="demo-grid-2">
+    <article class="portal-card demo-card">
+      <div class="portal-card-head">
+        <div>
+          <h2>Demo User Roles</h2>
+          <p>Switch perspectives during a sales walkthrough.</p>
+        </div>
+      </div>
+      <div class="demo-role-grid">
+        @foreach ($roles as $role)
+          <article class="demo-role-card">
+            <strong>{{ $role['name'] }}</strong>
+            <p>{{ $role['purpose'] }}</p>
+            <div>
+              @foreach ($role['access'] as $access)
+                <span>{{ $access }}</span>
+              @endforeach
+            </div>
+          </article>
+        @endforeach
       </div>
     </article>
+
+    <article class="portal-card demo-card">
+      <h2>Demo Data Coverage</h2>
+      <div class="demo-data-grid">
+        @foreach ($demoData as $item)
+          <div>
+            <strong>{{ $item['value'] }}</strong>
+            <span>{{ $item['label'] }}</span>
+          </div>
+        @endforeach
+      </div>
+      <div class="portal-restricted">Delete records disabled. System settings read only. Subscription settings hidden.</div>
+    </article>
+  </section>
+
+  <section class="demo-chart-grid">
+    @foreach ($charts as $title => $points)
+      <article class="portal-card demo-chart-card">
+        <h3>{{ $title }}</h3>
+        <div class="demo-bars">
+          @foreach ($points as $point)
+            <div>
+              <span style="height: {{ $point['value'] }}%;"></span>
+              <small>{{ $point['label'] }}</small>
+            </div>
+          @endforeach
+        </div>
+      </article>
+    @endforeach
+  </section>
+
+  <section class="portal-card demo-card">
+    <div class="portal-card-head">
+      <div>
+        <h2>Recommended MVP Walkthrough</h2>
+        <p>Use this path to show the strongest product story first.</p>
+      </div>
+      <a class="portal-button-ghost" href="{{ route('demo.students') }}">Open Student Module</a>
+    </div>
+    <div class="demo-flow">
+      @foreach (['Authentication & Roles', 'Dashboard', 'Admissions', 'Students', 'Academics', 'Attendance', 'Timetable', 'Exams', 'Assignments', 'Fees', 'Staff', 'Payroll', 'Notifications', 'Reports', 'Demo Management'] as $step)
+        <span>{{ $step }}</span>
+      @endforeach
+    </div>
   </section>
 @endsection
