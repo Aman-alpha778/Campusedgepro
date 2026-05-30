@@ -646,7 +646,7 @@ h3 {
   @apply overflow-hidden [background:linear-gradient(180deg,#eef5ff_0%,#dfeafa_100%)] mb-[18px] rounded-[16px];
 }
 .blog-list-media img {
-  @apply w-full aspect-video object-cover transition-transform duration-[240ms] ease-[ease];
+  @apply w-full aspect-video object-contain transition-transform duration-[240ms] ease-[ease];
 }
 .blog-list-card:hover .blog-list-media img,
 .blog-list-card:focus-within .blog-list-media img {
