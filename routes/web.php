@@ -150,6 +150,7 @@ Route::prefix('admin')->group(function (): void {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('/demo-requests', [AdminDemoRequestController::class, 'index'])->name('admin.demo-requests.index');
         Route::post('/demo-requests/{demoRequest}/approve', [AdminDemoRequestController::class, 'approve'])->name('admin.demo-requests.approve');
+        Route::post('/demo-requests/{demoRequest}/resend-access', [AdminDemoRequestController::class, 'resendAccess'])->name('admin.demo-requests.resend-access');
         Route::post('/demo-requests/{demoRequest}/reject', [AdminDemoRequestController::class, 'reject'])->name('admin.demo-requests.reject');
         Route::post('/demo-requests/{demoRequest}/contacted', [AdminDemoRequestController::class, 'markContacted'])->name('admin.demo-requests.contacted');
         Route::delete('/demo-requests/{demoRequest}', [AdminDemoRequestController::class, 'destroy'])->name('admin.demo-requests.destroy');

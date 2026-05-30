@@ -139,4 +139,51 @@ class DemoRequestWorkflowTest extends TestCase
             ->assertSee('Silver Oak College')
             ->assertDontSee('North Star Institute');
     }
+
+    public function test_admin_can_resend_demo_access_credentials_to_request_email(): void
+    {
+        Mail::fake();
+
+        $admin = User::query()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => 'secret123',
+            'is_admin' => true,
+        ]);
+
+        $demoRequest = DemoRequest::query()->create([
+            'college_name' => 'Riverdale College',
+            'admin_name' => 'Kavya Menon',
+            'email' => 'kavya@example.com',
+            'phone' => '9000033333',
+            'student_strength' => '1200',
+            'requirements' => 'Needs admissions CRM demo.',
+            'status' => 'Approved',
+        ]);
+
+        $demoUser = DemoUser::query()->create([
+            'request_id' => $demoRequest->id,
+            'username' => 'demo_riverdale',
+            'password' => 'old-password',
+            'expiry_date' => now()->addDay(),
+            'status' => 'Active',
+        ]);
+
+        $response = $this
+            ->actingAs($admin)
+            ->post(route('admin.demo-requests.resend-access', $demoRequest));
+
+        $response->assertRedirect();
+        $response->assertSessionHas('admin_success');
+
+        $demoUser->refresh();
+
+        Mail::assertSent(DemoAccessApproved::class, function (DemoAccessApproved $mail) use ($demoRequest, $demoUser): bool {
+            return $mail->demoRequest->is($demoRequest)
+                && $mail->demoUser->is($demoUser)
+                && $mail->hasTo($demoRequest->email)
+                && $mail->demoUser->username === 'demo_riverdale'
+                && Hash::check($mail->plainPassword, $demoUser->password);
+        });
+    }
 }

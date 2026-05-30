@@ -66,30 +66,12 @@ class DemoRequestController extends Controller
     public function approve(DemoRequest $demoRequest): RedirectResponse
     {
         $plainPassword = Str::password(12, true, true, false, false);
-        $demoUser = null;
-
-        DB::transaction(function () use ($demoRequest, $plainPassword, &$demoUser): void {
-            $username = $this->generateUniqueUsername($demoRequest->college_name);
-
-            $demoUser = DemoUser::updateOrCreate(
-                ['request_id' => $demoRequest->id],
-                [
-                    'username' => $username,
-                    'password' => Hash::make($plainPassword),
-                    'expiry_date' => now()->addDays(7),
-                    'status' => 'Active',
-                ]
-            );
-
-            $demoRequest->update(['status' => 'Approved']);
-        });
+        $demoUser = $this->createOrRefreshDemoUser($demoRequest, $plainPassword);
 
         $loginUrl = url('/demo-portal/login');
 
         try {
-            Mail::to($demoRequest->email)->send(
-                new DemoAccessApproved($demoRequest->fresh(), $demoUser->fresh(), $plainPassword, $loginUrl)
-            );
+            $this->sendApprovedAccessEmail($demoRequest, $demoUser, $plainPassword, $loginUrl);
         } catch (\Throwable $exception) {
             Log::error('Demo approval email failed to send.', [
                 'demo_request_id' => $demoRequest->id,
@@ -102,6 +84,32 @@ class DemoRequestController extends Controller
         }
 
         return back()->with('admin_success', 'Demo request approved and credentials sent successfully.');
+    }
+
+    public function resendAccess(DemoRequest $demoRequest): RedirectResponse
+    {
+        if ($demoRequest->status !== 'Approved') {
+            return back()->with('admin_warning', 'Only approved demo requests can receive access credentials.');
+        }
+
+        $plainPassword = Str::password(12, true, true, false, false);
+        $demoUser = $this->createOrRefreshDemoUser($demoRequest, $plainPassword);
+        $loginUrl = url('/demo-portal/login');
+
+        try {
+            $this->sendApprovedAccessEmail($demoRequest, $demoUser, $plainPassword, $loginUrl);
+        } catch (\Throwable $exception) {
+            Log::error('Demo access resend email failed to send.', [
+                'demo_request_id' => $demoRequest->id,
+                'email' => $demoRequest->email,
+                'exception' => $exception::class,
+                'message' => $exception->getMessage(),
+            ]);
+
+            return back()->with('admin_warning', 'Credentials were refreshed, but the email could not be sent. Demo URL: '.$loginUrl.' | Username: '.$demoUser->username.' | Temporary Password: '.$plainPassword);
+        }
+
+        return back()->with('admin_success', 'Demo access credentials resent successfully.');
     }
 
     public function reject(DemoRequest $demoRequest): RedirectResponse
@@ -140,5 +148,43 @@ class DemoRequestController extends Controller
         }
 
         return $candidate;
+    }
+
+    protected function createOrRefreshDemoUser(DemoRequest $demoRequest, string $plainPassword): DemoUser
+    {
+        return DB::transaction(function () use ($demoRequest, $plainPassword): DemoUser {
+            $demoUser = $demoRequest->demoUser;
+
+            if ($demoUser) {
+                $demoUser->update([
+                    'password' => Hash::make($plainPassword),
+                    'expiry_date' => now()->addDays(7),
+                    'status' => 'Active',
+                ]);
+            } else {
+                $demoUser = DemoUser::create([
+                    'request_id' => $demoRequest->id,
+                    'username' => $this->generateUniqueUsername($demoRequest->college_name),
+                    'password' => Hash::make($plainPassword),
+                    'expiry_date' => now()->addDays(7),
+                    'status' => 'Active',
+                ]);
+            }
+
+            $demoRequest->update(['status' => 'Approved']);
+
+            return $demoUser;
+        });
+    }
+
+    protected function sendApprovedAccessEmail(
+        DemoRequest $demoRequest,
+        DemoUser $demoUser,
+        string $plainPassword,
+        string $loginUrl
+    ): void {
+        Mail::to($demoRequest->email)->send(
+            new DemoAccessApproved($demoRequest->fresh(), $demoUser->fresh(), $plainPassword, $loginUrl)
+        );
     }
 }

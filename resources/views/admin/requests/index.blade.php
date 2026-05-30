@@ -92,6 +92,12 @@
                     <button class="portal-button-ghost" type="submit">Reject</button>
                   </form>
                 @endif
+                @if ($demoRequest->status === 'Approved')
+                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
+                    @csrf
+                    <button class="portal-button-ghost" type="submit">Resend Access</button>
+                  </form>
+                @endif
                 <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.destroy', $demoRequest) }}" onsubmit="return confirm('Delete this demo request permanently?');">
                   @csrf
                   @method('delete')
