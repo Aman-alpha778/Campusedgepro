@@ -2587,6 +2587,12 @@ a {
 .portal-field textarea {
   @apply min-h-[120px] resize-y;
 }
+.portal-remember {
+  @apply inline-flex w-fit items-center gap-[10px] text-[0.95rem] font-semibold text-[color:var(--portal-text)] cursor-pointer;
+}
+.portal-remember input {
+  @apply w-[16px] h-[16px] shrink-0 m-0 cursor-pointer;
+}
 .portal-button,
 .portal-button-ghost,
 .portal-button-danger {

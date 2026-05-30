@@ -36,8 +36,9 @@
             <span>Password</span>
             <input type="password" name="password" required>
           </label>
-          <label class="portal-field">
-            <span><input type="checkbox" name="remember" value="1"> Remember me</span>
+          <label class="portal-remember">
+            <input type="checkbox" name="remember" value="1">
+            <span>Remember me</span>
           </label>
           <button class="portal-button" type="submit">Login to dashboard</button>
         </form>
