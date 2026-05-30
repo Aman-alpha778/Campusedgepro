@@ -24,15 +24,6 @@
             <a class="portal-nav-link active" href="{{ route('demo.dashboard') }}">Role Experience Center</a>
           @endisset
         </nav>
-        <div class="portal-sidebar-foot">
-          @isset($workspaceKey)
-            <a class="portal-button-ghost" href="{{ route('demo.dashboard') }}">Switch Workspace</a>
-          @endisset
-          <form method="post" action="{{ route('demo.logout') }}">
-            @csrf
-            <button class="portal-button-ghost" type="submit">Logout</button>
-          </form>
-        </div>
       </aside>
       <main class="portal-main">
         <div class="portal-lockout demo-restriction-banner">

@@ -20,12 +20,6 @@
           <a class="portal-nav-link {{ request()->routeIs('admin.demo-requests.*') ? 'active' : '' }}" href="{{ route('admin.demo-requests.index') }}">Demo Requests</a>
           <a class="portal-nav-link" href="#admin-profile">Profile</a>
         </nav>
-        <div class="portal-sidebar-foot">
-          <form method="post" action="{{ route('admin.logout') }}">
-            @csrf
-            <button class="portal-button-ghost" type="submit">Logout</button>
-          </form>
-        </div>
       </aside>
       <main class="portal-main">
         <div class="portal-topbar">
