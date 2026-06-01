@@ -3148,6 +3148,108 @@ a {
 .demo-action-row {
   @apply mt-[18px];
 }
+.super-admin-grid {
+  @apply grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[18px] mb-[20px];
+}
+.super-admin-card {
+  @apply relative overflow-hidden [background:linear-gradient(145deg,#ffffff,#f4f8ff)] border border-[rgba(212,226,251,0.95)] shadow-[0_24px_64px_rgba(17,46,114,0.14)] p-[20px] rounded-[22px] border-solid transition-all duration-200;
+}
+.super-admin-card::after {
+  content: "";
+  @apply absolute inset-x-0 top-0 h-[4px] [background:linear-gradient(90deg,#2563eb,#0ea5e9,#10b981)];
+}
+.super-admin-card:hover {
+  @apply -translate-y-[4px] shadow-[0_32px_82px_rgba(17,46,114,0.2)];
+}
+.super-admin-card-head {
+  @apply flex items-center gap-[12px] mb-[16px];
+}
+.super-admin-card-head span {
+  @apply grid place-items-center w-[42px] h-[42px] shrink-0 [background:linear-gradient(135deg,#e8f1ff,#dff7ff)] text-[color:var(--portal-blue-deep)] text-[0.78rem] font-extrabold uppercase rounded-[14px];
+}
+.super-admin-card-head h2 {
+  @apply text-[1.05rem] mt-0 mb-0;
+}
+.super-admin-metric-list {
+  @apply grid grid-cols-2 gap-[10px];
+}
+.super-admin-metric-list div {
+  @apply [background:rgba(255,255,255,0.78)] border border-[#e2ebfb] p-[12px] rounded-[14px] border-solid;
+}
+.super-admin-metric-list span {
+  @apply block text-[0.76rem] leading-[1.25] text-[color:var(--portal-muted)] font-bold;
+}
+.super-admin-metric-list strong {
+  @apply block text-[1.2rem] mt-[6px];
+}
+.super-admin-command-grid {
+  @apply grid grid-cols-[1.35fr_0.9fr] gap-[20px] mb-[20px];
+}
+.super-admin-flow {
+  @apply flex flex-wrap gap-[10px];
+}
+.super-admin-flow span {
+  @apply relative inline-flex items-center min-h-[36px] [background:#eef7ff] text-[color:var(--portal-blue-deep)] text-[0.82rem] font-extrabold px-[13px] py-0 rounded-[999px];
+}
+.super-admin-flow span:not(:last-child)::after {
+  content: ">";
+  @apply ml-[10px] text-blue-400;
+}
+.super-admin-queue {
+  @apply grid gap-[10px];
+}
+.super-admin-queue div {
+  @apply flex items-center justify-between gap-[12px] border px-[14px] py-[12px] rounded-[16px] border-solid;
+}
+.super-admin-queue span {
+  @apply text-[0.9rem] font-semibold text-[color:var(--portal-muted)];
+}
+.super-admin-queue strong {
+  @apply text-[1.25rem];
+}
+.super-admin-queue .warning {
+  @apply [background:#fff7ed] border-orange-200;
+}
+.super-admin-queue .danger {
+  @apply [background:#fff1f2] border-rose-200;
+}
+.super-admin-queue .success {
+  @apply [background:#ecfdf3] border-emerald-200;
+}
+.super-admin-module-links {
+  @apply max-h-[360px] overflow-y-auto pr-[4px];
+}
+.super-admin-module-links a {
+  @apply [background:linear-gradient(135deg,#eef5ff,#ffffff)] border border-[#dce8fb] shadow-[0_10px_22px_rgba(17,46,114,0.08)] border-solid;
+}
+.super-admin-audit-list {
+  @apply grid gap-[12px];
+}
+.super-admin-audit-list div {
+  @apply grid grid-cols-[82px_1fr] gap-x-[12px] gap-y-[2px] [background:linear-gradient(135deg,#f9fbff,#eef5ff)] border border-[#dce8fb] px-[14px] py-[12px] rounded-[16px] border-solid;
+}
+.super-admin-audit-list time {
+  @apply row-span-2 text-[0.78rem] font-extrabold text-[color:var(--portal-blue-deep)] pt-[2px];
+}
+.super-admin-audit-list strong {
+  @apply text-[0.95rem];
+}
+.super-admin-audit-list span {
+  @apply text-[0.82rem] text-[color:var(--portal-muted)] font-semibold;
+}
+.module-command-card {
+  @apply overflow-hidden;
+}
+.module-flow-row span,
+.module-action-grid span {
+  @apply rounded-[12px];
+}
+.module-detail-strip {
+  @apply flex flex-wrap gap-[8px] mt-[16px];
+}
+.module-detail-strip span {
+  @apply inline-flex items-center min-h-[30px] [background:#f8fafc] border border-[#e2e8f0] text-slate-600 text-[0.78rem] font-bold px-[10px] py-0 rounded-[999px] border-solid;
+}
 @media (max-width: 1100px) {
   .portal-layout,
   .portal-grid-4,
@@ -3155,6 +3257,8 @@ a {
   .portal-hero-banner,
   .portal-hero-grid,
   .portal-metric-pair,
+  .super-admin-grid,
+  .super-admin-command-grid,
   .demo-role-layout,
   .demo-workspace-hero,
   .demo-workspace-content {
@@ -3199,6 +3303,15 @@ a {
   }
   .demo-workspace-card {
     @apply min-h-0;
+  }
+  .super-admin-metric-list {
+    @apply grid-cols-1;
+  }
+  .super-admin-audit-list div {
+    @apply grid-cols-1;
+  }
+  .super-admin-audit-list time {
+    @apply row-auto;
   }
   .demo-entry-page .portal-main {
     padding: 18px 16px;

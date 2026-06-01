@@ -8,24 +8,40 @@
   </section>
 
   <section class="demo-workspace-content">
-    <article class="portal-card">
-      <h2>Workflow Preview</h2>
-      <div class="demo-step-row">
-        <span>Open Module</span>
-        <span>Review Data</span>
-        <span>Create or Edit</span>
-        <span>Generate Report</span>
+    <article class="portal-card module-command-card">
+      <div class="portal-card-head">
+        <div>
+          <h2>Workflow Preview</h2>
+          <p class="portal-muted">{{ $module['description'] }}</p>
+        </div>
+        <span class="portal-badge active">Ready</span>
+      </div>
+      <div class="demo-step-row module-flow-row">
+        @foreach (($module['workflow'] ?? ['Open Module', 'Review Data', 'Create or Edit', 'Generate Report']) as $step)
+          <span>{{ $step }}</span>
+        @endforeach
       </div>
     </article>
 
-    <article class="portal-card">
-      <h2>Permissions</h2>
-      <div class="demo-permission-grid">
-        <span>View Records</span>
-        <span>Create Records</span>
-        <span>Edit Records</span>
-        <span>Generate Reports</span>
+    <article class="portal-card module-command-card">
+      <div class="portal-card-head">
+        <div>
+          <h2>Available Actions</h2>
+          <p class="portal-muted">Actions enabled for {{ $workspace['shortName'] }} access.</p>
+        </div>
       </div>
+      <div class="demo-permission-grid module-action-grid">
+        @foreach (($module['actions'] ?? ['View Records', 'Create Records', 'Edit Records', 'Generate Reports']) as $action)
+          <span>{{ $action }}</span>
+        @endforeach
+      </div>
+      @isset($module['details'])
+        <div class="module-detail-strip">
+          @foreach ($module['details'] as $detail)
+            <span>{{ $detail }}</span>
+          @endforeach
+        </div>
+      @endisset
       <div class="portal-restricted">Delete, system configuration, subscription settings, and licensing changes are restricted.</div>
     </article>
   </section>
@@ -59,9 +75,9 @@
     </table>
 
     <div class="demo-action-row">
-      <button class="portal-button" type="button">Create Record</button>
-      <button class="portal-button-ghost" type="button">Edit Record</button>
-      <button class="portal-button-ghost" type="button">Generate Report</button>
+      <button class="portal-button" type="button">{{ $module['actions'][0] ?? 'Create Record' }}</button>
+      <button class="portal-button-ghost" type="button">{{ $module['actions'][1] ?? 'Edit Record' }}</button>
+      <button class="portal-button-ghost" type="button">{{ $module['actions'][2] ?? 'Generate Report' }}</button>
       <button class="portal-button-danger portal-disabled" type="button">Delete Record</button>
     </div>
   </section>
