@@ -11,12 +11,12 @@
       <section class="portal-auth-card demo-login-card">
         <div class="portal-auth-brand">
           <span class="demo-login-logo-wrap">
-            <img class="portal-auth-logo demo-login-logo" src="{{ asset('assets/cmpus.png') }}" alt="CampusEdgePro">
+            <img class="portal-auth-logo demo-login-logo" src="{{ asset('assets/camplogo.png') }}" alt="CampusEdgePro">
           </span>
           <span>CampusEdgePro Demo Access</span>
         </div>
         <h1>Demo ERP Login</h1>
-        <p>Use the credentials sent to your email after approval. Access is available for seven days from approval.</p>
+      
 
         @if ($errors->any())
           <div class="portal-error-list">
