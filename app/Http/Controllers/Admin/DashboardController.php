@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DemoRequest;
+use App\Models\User;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
@@ -18,6 +19,7 @@ class DashboardController extends Controller
                 'rejected' => DemoRequest::where('status', 'Rejected')->count(),
             ],
             'recentRequests' => DemoRequest::latest()->take(6)->get(),
+            'adminUsers' => User::where('is_admin', true)->latest()->get(),
         ]);
     }
 }

@@ -2746,8 +2746,38 @@ a {
 .portal-profile-chip {
   @apply flex items-center gap-[14px] [background:linear-gradient(135deg,#ffffff,#edf5ff)] border shadow-[0_20px_36px_rgba(17,46,114,0.1)] px-[16px] py-[12px] rounded-[20px] border-solid border-[rgba(212,226,251,0.95)];
 }
+.portal-profile-menu {
+  @apply relative;
+}
+.portal-profile-menu summary {
+  @apply cursor-pointer [list-style:none];
+}
+.portal-profile-menu summary::-webkit-details-marker {
+  @apply hidden;
+}
+.portal-profile-menu[open] .portal-profile-chip {
+  @apply shadow-[0_20px_44px_rgba(17,46,114,0.16)] border-[rgba(37,99,235,0.24)];
+}
+.portal-profile-caret {
+  @apply text-[1.15rem] leading-none text-[color:var(--portal-blue-deep)] ml-[2px];
+}
+.portal-profile-panel {
+  @apply absolute right-0 top-[calc(100%+10px)] z-20 w-[340px] grid gap-[14px] [background:#fff] border shadow-[0_28px_60px_rgba(15,23,42,0.16)] p-[18px] rounded-[20px] border-solid border-[#dce8fb];
+}
+.portal-profile-panel::before {
+  @apply content-[''] absolute right-[28px] top-[-7px] w-[14px] h-[14px] [background:#fff] border-l border-t border-[#dce8fb] rotate-45;
+}
+.portal-profile-panel-details div {
+  @apply px-[12px] py-[10px] rounded-[14px];
+}
+.portal-profile-logout {
+  @apply w-full;
+}
 .portal-avatar {
   @apply w-[48px] h-[48px] inline-flex items-center justify-center [background:linear-gradient(135deg,var(--portal-blue),#7fb4ff)] text-white font-extrabold tracking-[0.04em] rounded-[16px];
+}
+.portal-avatar-small {
+  @apply w-[38px] h-[38px] rounded-[12px] text-[0.9rem];
 }
 .portal-profile-copy {
   @apply grid gap-[2px];
@@ -2902,6 +2932,12 @@ a {
 }
 .portal-profile-meta {
   @apply grid gap-[4px];
+}
+.portal-admin-users-card {
+  @apply mt-[20px] overflow-x-auto;
+}
+.portal-admin-user-cell {
+  @apply flex items-center gap-[12px];
 }
 .portal-key-value {
   @apply grid gap-[12px];
@@ -3287,6 +3323,14 @@ a {
   }
   .portal-topbar {
     @apply items-start flex-col;
+  }
+  .portal-profile-menu,
+  .portal-profile-chip,
+  .portal-profile-panel {
+    @apply w-full;
+  }
+  .portal-profile-panel {
+    @apply left-0 right-auto;
   }
   .portal-actions {
     @apply grid-cols-[1fr];

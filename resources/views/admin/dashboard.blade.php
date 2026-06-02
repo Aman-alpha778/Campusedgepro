@@ -52,6 +52,7 @@
       <div class="portal-card-actions">
         <a class="portal-button portal-uniform-button" href="{{ route('admin.demo-requests.index') }}">Open request management</a>
         <a class="portal-button-ghost portal-uniform-button" href="#admin-profile">View admin profile</a>
+        <a class="portal-button-ghost portal-uniform-button" href="#admin-users">View admin users</a>
       </div>
     </article>
 
@@ -158,5 +159,45 @@
         <a class="portal-button-ghost portal-uniform-button" href="#top">Back to top</a>
       </div>
     </article>
+  </section>
+
+  <section class="portal-card portal-admin-users-card" id="admin-users">
+    <div class="portal-card-head">
+      <div>
+        <h2>Admin users</h2>
+        <p class="portal-muted">Administrator accounts with access to this control center.</p>
+      </div>
+      <span class="portal-badge active">{{ $adminUsers->count() }} active</span>
+    </div>
+
+    <table class="portal-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        @forelse ($adminUsers as $adminUser)
+          <tr>
+            <td>
+              <div class="portal-admin-user-cell">
+                <span class="portal-avatar portal-avatar-small">{{ strtoupper(substr($adminUser->name ?? 'A', 0, 1)) }}</span>
+                <strong>{{ $adminUser->name }}</strong>
+              </div>
+            </td>
+            <td class="portal-table-email">{{ $adminUser->email }}</td>
+            <td><span class="portal-badge active">Administrator</span></td>
+            <td class="portal-table-nowrap">{{ $adminUser->created_at?->format('d M Y') ?? 'Not available' }}</td>
+          </tr>
+        @empty
+          <tr>
+            <td colspan="4">No admin users found.</td>
+          </tr>
+        @endforelse
+      </tbody>
+    </table>
   </section>
 @endsection
