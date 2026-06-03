@@ -24,7 +24,7 @@ RUN npm install
 
 RUN npm run build
 
-RUN chmod -R 777 storage bootstrap/cache
+RUN chmod -R 777 backend/storage backend/bootstrap/cache
 
 EXPOSE 10000
 
