@@ -18,6 +18,8 @@ use Illuminate\View\View;
 
 class DemoRequestController extends Controller
 {
+    private const DEMO_ACCESS_DAYS = 3;
+
     public function index(Request $request): View
     {
         $search = trim((string) $request->query('search'));
@@ -158,7 +160,7 @@ class DemoRequestController extends Controller
             if ($demoUser) {
                 $demoUser->update([
                     'password' => Hash::make($plainPassword),
-                    'expiry_date' => now()->addDays(7),
+                    'expiry_date' => now()->addDays(self::DEMO_ACCESS_DAYS),
                     'status' => 'Active',
                 ]);
             } else {
@@ -166,7 +168,7 @@ class DemoRequestController extends Controller
                     'request_id' => $demoRequest->id,
                     'username' => $this->generateUniqueUsername($demoRequest->college_name),
                     'password' => Hash::make($plainPassword),
-                    'expiry_date' => now()->addDays(7),
+                    'expiry_date' => now()->addDays(self::DEMO_ACCESS_DAYS),
                     'status' => 'Active',
                 ]);
             }

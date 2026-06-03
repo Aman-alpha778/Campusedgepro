@@ -45,7 +45,7 @@
         </div>
         <div class="portal-mini-stat">
           <span class="portal-muted">Approval workflow</span>
-          <strong>7-day demo cycle</strong>
+          <strong>3-day demo cycle</strong>
         </div>
       </div>
 

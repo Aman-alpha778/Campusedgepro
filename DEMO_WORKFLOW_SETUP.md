@@ -23,7 +23,7 @@
 5. Approval flow:
    - New requests are stored from the public demo page.
    - Admin approves requests from `/admin/demo-requests`.
-   - Approval creates credentials, hashes the password, sets a 7-day expiry window, and sends email credentials automatically.
+   - Approval creates credentials, hashes the password, sets a 3-day expiry window, and sends email credentials automatically.
 
 6. Security:
    - Admin routes require authenticated admin users.

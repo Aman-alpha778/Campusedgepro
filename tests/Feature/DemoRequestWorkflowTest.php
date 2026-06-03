@@ -71,7 +71,7 @@ class DemoRequestWorkflowTest extends TestCase
         $this->assertSame('Approved', $demoRequest->status);
         $this->assertNotNull($demoUser);
         $this->assertSame('Active', $demoUser->status);
-        $this->assertTrue($demoUser->expiry_date->greaterThan(now()->addDays(6)));
+        $this->assertTrue($demoUser->expiry_date->between(now()->addDays(2), now()->addDays(3)->addMinute()));
 
         Mail::assertSent(DemoAccessApproved::class, function (DemoAccessApproved $mail) use ($demoRequest, $demoUser): bool {
             return $mail->demoRequest->is($demoRequest)
@@ -104,7 +104,7 @@ class DemoRequestWorkflowTest extends TestCase
             'request_id' => $matchingRequest->id,
             'username' => 'demo_silver_oak',
             'password' => 'secret123',
-            'expiry_date' => now()->addWeek(),
+            'expiry_date' => now()->addDays(3),
             'status' => 'Active',
         ]);
 
@@ -177,6 +177,9 @@ class DemoRequestWorkflowTest extends TestCase
         $response->assertSessionHas('admin_success');
 
         $demoUser->refresh();
+
+        $this->assertSame('Active', $demoUser->status);
+        $this->assertTrue($demoUser->expiry_date->between(now()->addDays(2), now()->addDays(3)->addMinute()));
 
         Mail::assertSent(DemoAccessApproved::class, function (DemoAccessApproved $mail) use ($demoRequest, $demoUser): bool {
             return $mail->demoRequest->is($demoRequest)
