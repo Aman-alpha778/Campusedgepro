@@ -13,7 +13,7 @@
   <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <img class="brand-logo" src="/assets/camplogo.png" alt="CampusEdgePro">
+      <img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions">
     </a>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -71,7 +71,7 @@
     <div class="container footer-inner">
       <div>
         <strong>CampusEdgePro</strong>
-        <p class="mini">CampusEdgePro – Smart College ERP by Sortiq Solutions</p>
+        <p class="mini">CampusEdgePro ï¿½ Smart College ERP by Sortiq Solutions</p>
       </div>
       <div class="footer-links">
         <a href="contact.html">Contact</a>

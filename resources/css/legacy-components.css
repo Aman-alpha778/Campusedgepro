@@ -23,7 +23,7 @@ body.landing-page .brand {
   @apply inline-flex items-center;
 }
 body.landing-page .brand-logo {
-  @apply block w-auto h-[120px];
+  @apply block w-auto h-[64px];
 }
 body.landing-page .brand-mark {
   @apply text-[1.35rem] font-extrabold tracking-[0.02em];
@@ -380,7 +380,7 @@ img {
   @apply inline-flex items-center gap-[12px] font-extrabold tracking-[0] min-w-max text-[color:var(--ink)];
 }
 .brand-logo {
-  @apply block w-auto h-[94px];
+  @apply block w-auto h-[58px];
 }
 .brand-mark {
   @apply w-[40px] h-[40px] grid place-items-center [background:var(--brand)] text-[color:var(--white)] font-black shadow-none rounded-[6px];
@@ -1669,7 +1669,7 @@ h3 {
   @apply max-w-[280px];
 }
 .footer-brand-block .brand-logo {
-  @apply h-[88px] w-auto;
+  @apply h-[54px] w-auto;
 }
 .footer-brand-block h3 {
   @apply text-[#f7f7f7] text-[1.7rem] leading-[1.1] mt-0 mb-[10px] mx-0;

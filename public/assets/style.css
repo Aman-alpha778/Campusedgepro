@@ -71,7 +71,7 @@ img {
 .brand-logo {
   display: block;
   width: auto;
-  height: 120px;
+  height: 64px;
 }
 
 .brand-mark {
@@ -522,7 +522,7 @@ textarea {
 }
 
 .footer-brand-block .brand-logo {
-  height: 58px;
+  height: 54px;
   width: auto;
 }
 

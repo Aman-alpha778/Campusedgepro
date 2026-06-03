@@ -114,7 +114,7 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo footer-logo" src="/assets/cmpus.png" alt="CampusEdgePro">
+            <img class="brand-logo footer-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions">
           </a>
           <h3>CampusEdgePro</h3>
           <p>A modern college ERP for admissions, academics, attendance, fees, and reporting in one connected platform.</p>
