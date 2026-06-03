@@ -23,7 +23,7 @@ body.landing-page .brand {
   @apply inline-flex items-center;
 }
 body.landing-page .brand-logo {
-  @apply block w-auto h-[64px];
+  @apply block w-auto h-[48px];
 }
 body.landing-page .brand-mark {
   @apply text-[1.35rem] font-extrabold tracking-[0.02em];
@@ -262,7 +262,7 @@ body.landing-page .footer a {
   @apply text-[rgba(233,241,243,0.78)];
 }
 body.landing-page .footer-brand-block .brand-logo {
-  @apply h-[58px] w-auto;
+  @apply h-[42px] w-auto;
 }
 body.landing-page .footer-kicker {
   @apply text-[rgba(241,241,241,0.86)] text-[0.72rem] font-bold tracking-[0.08em] uppercase mt-[0.55rem] mb-3 mx-0;
@@ -380,7 +380,7 @@ img {
   @apply inline-flex items-center gap-[12px] font-extrabold tracking-[0] min-w-max text-[color:var(--ink)];
 }
 .brand-logo {
-  @apply block w-auto h-[58px];
+  @apply block w-auto h-[44px];
 }
 .brand-mark {
   @apply w-[40px] h-[40px] grid place-items-center [background:var(--brand)] text-[color:var(--white)] font-black shadow-none rounded-[6px];
@@ -1669,7 +1669,7 @@ h3 {
   @apply max-w-[280px];
 }
 .footer-brand-block .brand-logo {
-  @apply h-[54px] w-auto;
+  @apply h-[40px] w-auto;
 }
 .footer-brand-block h3 {
   @apply text-[#f7f7f7] text-[1.7rem] leading-[1.1] mt-0 mb-[10px] mx-0;
@@ -2550,7 +2550,7 @@ a {
   @apply flex flex-col items-center gap-[14px] text-center font-bold mb-[24px];
 }
 .portal-auth-logo {
-  @apply w-[min(250px,100%)] h-auto block [filter:drop-shadow(0_22px_38px_rgba(16,32,61,0.18))];
+  @apply w-[min(190px,100%)] h-auto block [filter:drop-shadow(0_18px_30px_rgba(16,32,61,0.16))];
 }
 .demo-login-page {
   @apply min-h-screen overflow-x-hidden [background:radial-gradient(circle_at_15%_12%,rgba(37,99,235,0.2),transparent_30%),radial-gradient(circle_at_85%_18%,rgba(14,165,233,0.18),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(15,159,110,0.1),transparent_34%),linear-gradient(135deg,#eaf3ff_0%,#dbeafe_46%,#f8fbff_100%)];
@@ -2590,13 +2590,13 @@ a {
   @apply text-[color:var(--portal-blue-deep)];
 }
 .demo-login-logo-wrap {
-  @apply grid place-items-center w-[260px] max-w-full h-[132px] [background:linear-gradient(145deg,#ffffff,#eef6ff)] border border-[rgba(212,226,251,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_24px_54px_rgba(17,46,114,0.16)] rounded-[28px] border-solid transition-transform duration-300;
+  @apply grid place-items-center w-[210px] max-w-full h-[104px] [background:linear-gradient(145deg,#ffffff,#eef6ff)] border border-[rgba(212,226,251,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_20px_42px_rgba(17,46,114,0.14)] rounded-[24px] border-solid transition-transform duration-300;
 }
 .demo-login-card:hover .demo-login-logo-wrap {
   @apply -translate-y-[4px] scale-[1.03];
 }
 .demo-login-logo {
-  @apply w-[220px] max-w-[86%] [filter:drop-shadow(0_18px_24px_rgba(2,8,23,0.28))];
+  @apply w-[176px] max-w-[84%] [filter:drop-shadow(0_14px_20px_rgba(2,8,23,0.24))];
 }
 .demo-login-card .portal-field span {
   @apply text-[color:var(--portal-text)];
@@ -2636,7 +2636,7 @@ a {
   }
 }
 .portal-brand-logo {
-  @apply w-[190px] max-w-full h-auto object-contain block;
+  @apply w-[145px] max-w-full h-auto object-contain block;
 }
 .portal-auth-brand small,
 .portal-brand small {
@@ -2992,7 +2992,7 @@ a {
   @apply relative z-[1] grid place-items-center justify-self-end w-[310px] h-[310px] [background:rgba(255,255,255,0.18)] border border-[rgba(255,255,255,0.34)] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_24px_56px_rgba(8,35,91,0.24)] rounded-[34px] border-solid [backdrop-filter:blur(16px)];
 }
 .demo-hero-logo img {
-  @apply block w-[260px] max-w-[86%] h-auto drop-shadow-[0_18px_24px_rgba(8,35,91,0.26)];
+  @apply block w-[210px] max-w-[82%] h-auto drop-shadow-[0_14px_20px_rgba(8,35,91,0.22)];
 }
 .demo-role-hero h1,
 .demo-workspace-hero h1 {

@@ -85,15 +85,15 @@ a {
 }
 
 .portal-auth-logo {
-  width: min(250px, 100%);
+  width: min(190px, 100%);
   height: auto;
   display: block;
-  filter: drop-shadow(0 22px 38px rgba(16, 32, 61, 0.18));
+  filter: drop-shadow(0 18px 30px rgba(16, 32, 61, 0.16));
 }
 
 .portal-brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 145px;
+  height: auto;
   object-fit: contain;
   display: block;
 }
