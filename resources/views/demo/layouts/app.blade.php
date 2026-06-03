@@ -15,6 +15,7 @@
       @unless ($isDemoEntry)
         <aside class="portal-sidebar demo-role-sidebar">
           <a class="portal-brand" href="{{ route('demo.dashboard') }}">
+            <img class="portal-brand-logo" src="/assets/logt.png" alt="CampusEdgePro">
             <span>{{ $workspace['shortName'] ?? 'CampusEdgePro Demo ERP' }}</span>
           </a>
           <nav>

@@ -13,6 +13,7 @@
     <div class="portal-layout">
       <aside class="portal-sidebar">
         <a class="portal-brand" href="{{ route('admin.dashboard') }}">
+          <img class="portal-brand-logo" src="/assets/logt.png" alt="CampusEdgePro">
           <span class="portal-brand-copy">
             <span>CampusEdgePro Admin</span>
             <small>Control Center</small>

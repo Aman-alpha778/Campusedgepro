@@ -114,7 +114,7 @@ const renderSharedFooter = () => {
       <div class="footer-inner footer-reference-inner">
         <div class="footer-brand-block">
           <a class="brand footer-brand" href="${prefix}index.html">
-            <img class="brand-logo footer-logo" src="/assets/cmplg.png" alt="CampusEdgePro">
+            <img class="brand-logo footer-logo" src="/assets/logt.png" alt="CampusEdgePro">
           </a>
           <h3>CampusEdgePro</h3>
           <p>A modern college ERP for admissions, academics, attendance, fees, and reporting in one connected platform.</p>
@@ -137,23 +137,20 @@ const renderSharedFooter = () => {
           <div class="footer-column footer-column-social">
             <strong>Social</strong>
             <div class="footer-social-icons" aria-label="Social links">
-              <a class="footer-social-icon" href="https://www.facebook.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <a class="footer-social-icon" href="https://www.facebook.com/SortiqSolutions/" target="_blank" rel="noreferrer" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.2c0-.8.2-1.4 1.4-1.4H16V5.2c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.2v1.8H9v2.9h2.4v7z" fill="currentColor"/></svg>
               </a>
-              <a class="footer-social-icon" href="https://twitter.com/SortiqSolutions" target="_blank" rel="noreferrer" aria-label="Twitter">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 7.2c.8-.1 1.5-.5 2-.9-.3.8-.9 1.4-1.7 1.8.8 0 1.4-.2 2-.5-.5.7-1.1 1.3-1.8 1.7v.5c0 5.4-4.1 11.6-11.6 11.6-2.3 0-4.4-.7-6.2-1.8.3 0 .7.1 1 .1 1.9 0 3.6-.6 5-1.8-1.7 0-3.2-1.2-3.7-2.8.3 0 .5.1.8.1.4 0 .8-.1 1.1-.2-1.8-.4-3.2-2-3.2-4v-.1c.5.3 1.1.5 1.8.5-1.1-.7-1.8-1.9-1.8-3.3 0-.7.2-1.4.6-2 2 2.5 5 4.1 8.4 4.3-.1-.3-.1-.6-.1-1 0-2.3 1.9-4.1 4.1-4.1 1.2 0 2.2.5 3 1.3z" fill="currentColor"/></svg>
-              </a>
-              <a class="footer-social-icon" href="https://www.linkedin.com/company/sortiqsolutions" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a class="footer-social-icon" href="https://www.linkedin.com/company/sortiq-solutions/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.9 8.4a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM5.4 9.7h3v9.9h-3zm4.7 0h2.9V11c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.7 2 3.7 4.7v5.6h-3v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7v5.1h-3z" fill="currentColor"/></svg>
               </a>
-              <a class="footer-social-icon" href="mailto:hello@sortiqsolutions.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm0 1.8v.2l8 5.2 8-5.2v-.2zm16 7.4v-5.1l-7.5 4.9a1 1 0 0 1-1.1 0L4 10.6v5.1z" fill="currentColor"/></svg>
+              <a class="footer-social-icon" href="https://www.instagram.com/sortiqsolutions/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2m0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2M12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85m0 1.8A3.35 3.35 0 1 0 15.35 12 3.35 3.35 0 0 0 12 8.65" fill="currentColor"/></svg>
               </a>
-              <a class="footer-social-icon" href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube">
+              <a class="footer-social-icon" href="https://www.youtube.com/@SortiqSolutions" target="_blank" rel="noreferrer" aria-label="YouTube">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2c.4-1.8.4-4.8.4-4.8s0-3-.4-4.8zM9.7 15.1V8.9l5.4 3.1z" fill="currentColor"/></svg>
               </a>
-              <a class="footer-social-icon" href="https://in.pinterest.com/" target="_blank" rel="noreferrer" aria-label="Pinterest">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 4 6.6 4 10.5c0 2.5 1.3 4.6 3.5 5.4.3.1.5 0 .5-.2.1-.2.3-1 .3-1.3 0-.2-.1-.3-.3-.5-.7-.8-1.2-1.9-1.2-3.4 0-2.8 2.1-5.4 5.9-5.4 3.2 0 5 2 5 4.7 0 3.5-1.6 6.5-3.8 6.5-1.3 0-2.2-1.1-1.9-2.3.4-1.5 1.1-3.2 1.1-4.3 0-1-.5-1.9-1.7-1.9-1.4 0-2.5 1.4-2.5 3.3 0 1.2.4 2 .4 2l-1.6 6.8c-.2.8 0 1.9.1 2.7.8.3 1.7.4 2.7.4 5 0 8.8-4.1 8.8-9.6C21 6.9 17.2 3 12 3z" fill="currentColor"/></svg>
+              <a class="footer-social-icon" href="mailto:sortiqsolutions@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm0 1.8v.2l8 5.2 8-5.2v-.2zm16 7.4v-5.1l-7.5 4.9a1 1 0 0 1-1.1 0L4 10.6v5.1z" fill="currentColor"/></svg>
               </a>
             </div>
           </div>

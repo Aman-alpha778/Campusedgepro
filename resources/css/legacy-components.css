@@ -2590,13 +2590,13 @@ a {
   @apply text-[color:var(--portal-blue-deep)];
 }
 .demo-login-logo-wrap {
-  @apply grid place-items-center w-[170px] h-[126px] [background:linear-gradient(145deg,#ffffff,#eef6ff)] border border-[rgba(212,226,251,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_24px_54px_rgba(17,46,114,0.16)] rounded-[28px] border-solid transition-transform duration-300;
+  @apply grid place-items-center w-[260px] max-w-full h-[132px] [background:linear-gradient(145deg,#ffffff,#eef6ff)] border border-[rgba(212,226,251,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_24px_54px_rgba(17,46,114,0.16)] rounded-[28px] border-solid transition-transform duration-300;
 }
 .demo-login-card:hover .demo-login-logo-wrap {
   @apply -translate-y-[4px] scale-[1.03];
 }
 .demo-login-logo {
-  @apply w-[132px] max-w-[78%] [filter:drop-shadow(0_18px_24px_rgba(2,8,23,0.28))];
+  @apply w-[220px] max-w-[86%] [filter:drop-shadow(0_18px_24px_rgba(2,8,23,0.28))];
 }
 .demo-login-card .portal-field span {
   @apply text-[color:var(--portal-text)];
@@ -2636,7 +2636,7 @@ a {
   }
 }
 .portal-brand-logo {
-  @apply w-[86px] h-[86px] object-contain block;
+  @apply w-[190px] max-w-full h-auto object-contain block;
 }
 .portal-auth-brand small,
 .portal-brand small {
@@ -2712,7 +2712,7 @@ a {
   @apply [background:linear-gradient(180deg,#0d2b6b_0%,#0a1f4e_100%)] text-blue-50 sticky h-screen shadow-[28px_0_60px_rgba(10,31,78,0.35)] px-[22px] py-[28px] border-r-[rgba(73,120,214,0.28)] border-r border-solid top-0;
 }
 .portal-brand {
-  @apply flex items-center gap-[12px] text-[1.1rem] font-bold mb-[28px];
+  @apply flex flex-col items-start gap-[10px] text-[1.1rem] font-bold mb-[28px];
 }
 .portal-brand-copy {
   @apply grid gap-[2px];
@@ -2992,7 +2992,7 @@ a {
   @apply relative z-[1] grid place-items-center justify-self-end w-[310px] h-[310px] [background:rgba(255,255,255,0.18)] border border-[rgba(255,255,255,0.34)] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_24px_56px_rgba(8,35,91,0.24)] rounded-[34px] border-solid [backdrop-filter:blur(16px)];
 }
 .demo-hero-logo img {
-  @apply block w-[240px] max-w-[82%] h-auto drop-shadow-[0_18px_24px_rgba(8,35,91,0.26)];
+  @apply block w-[260px] max-w-[86%] h-auto drop-shadow-[0_18px_24px_rgba(8,35,91,0.26)];
 }
 .demo-role-hero h1,
 .demo-workspace-hero h1 {

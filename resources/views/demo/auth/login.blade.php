@@ -11,7 +11,7 @@
       <section class="portal-auth-card demo-login-card">
         <div class="portal-auth-brand">
           <span class="demo-login-logo-wrap">
-            <img class="portal-auth-logo demo-login-logo" src="{{ asset('assets/camplogo.png') }}" alt="CampusEdgePro">
+            <img class="portal-auth-logo demo-login-logo" src="{{ asset('assets/logt.png') }}" alt="CampusEdgePro">
           </span>
           <span>CampusEdgePro Demo Access</span>
         </div>

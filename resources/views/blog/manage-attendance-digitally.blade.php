@@ -2,7 +2,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" href="/favicon-192.png"><title>How to Manage Attendance Digitally | CampusEdgePro</title><meta name="description" content="Learn how colleges can manage student and staff attendance digitally with ERP software.">@vite(['resources/css/app.css', 'resources/js/app.js'])</head><body><header class="topbar">
   <nav class="nav">
-    <a class="brand" href="../index.html"><img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro"></a>
+    <a class="brand" href="../index.html"><img class="brand-logo" src="/assets/logt.png" alt="CampusEdgePro"></a>
     <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
     <div class="nav-links" data-nav-links>
       <a href="../index.html">Home</a>

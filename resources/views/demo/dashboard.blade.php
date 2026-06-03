@@ -8,7 +8,7 @@
       <p>Explore the ERP platform through different institutional roles. Select a workspace to experience how each stakeholder interacts with the system.</p>
     </div>
     <div class="demo-hero-logo" aria-hidden="true">
-      <img src="{{ asset('assets/cmpus.png') }}" alt="">
+      <img src="{{ asset('assets/logt.png') }}" alt="">
     </div>
   </section>
 
