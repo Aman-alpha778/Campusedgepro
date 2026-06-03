@@ -10,7 +10,7 @@ if (toggle && links) {
 
 const normalizeNavLayout = () => {
   const path = window.location.pathname.replace(/\\/g, "/");
-  const nested = ["/blog/", "/modules/", "/docs/"].some((segment) => path.includes(segment));
+  const nested = ["/blog/", "/modules/", "/docs/", "/documentation/"].some((segment) => path.includes(segment));
   const prefix = nested ? "../" : "";
 
   const desiredNavItems = [
@@ -20,7 +20,7 @@ const normalizeNavLayout = () => {
     { href: `${prefix}features.html`, label: "Product Features" },
     { href: `${prefix}pricing.html`, label: "Pricing" },
     { href: `${prefix}blog.html`, label: "Blogs" },
-    { href: "/docs", label: "Documentation" },
+    { href: `${prefix}documentation.html`, label: "Documentation" },
     { href: `${prefix}contact.html`, label: "Contact Us" },
   ];
 
@@ -46,6 +46,7 @@ const normalizeNavLayout = () => {
           text.includes("documentation") ||
           text.includes("docs") ||
           /\/docs\//.test(href) ||
+          /\/documentation/.test(href) ||
           (path.includes("/docs/") && href === "index.html")
         );
       case "Contact Us":
@@ -104,9 +105,23 @@ const normalizeNavLayout = () => {
 
 normalizeNavLayout();
 
-const renderSharedFooter = () => {
+const isPortalPage = () => {
   const path = window.location.pathname.replace(/\\/g, "/");
-  const nested = ["/blog/", "/modules/", "/docs/"].some((segment) => path.includes(segment));
+
+  return (
+    document.body?.classList.contains("portal-body") ||
+    path.startsWith("/admin") ||
+    path.startsWith("/demo-portal")
+  );
+};
+
+const renderSharedFooter = () => {
+  if (isPortalPage()) {
+    return;
+  }
+
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const nested = ["/blog/", "/modules/", "/docs/", "/documentation/"].some((segment) => path.includes(segment));
   const prefix = nested ? "../" : "";
 
   const footerMarkup = `
@@ -130,7 +145,7 @@ const renderSharedFooter = () => {
           <div class="footer-column">
             <strong>About</strong>
             <a href="${prefix}about.html">About Us</a>
-            <a href="/docs">Documentation</a>
+            <a href="${prefix}documentation.html">Documentation</a>
             <a href="${prefix}contact.html">Contact Us</a>
             <a href="${prefix}blog.html">Blogs</a>
           </div>
