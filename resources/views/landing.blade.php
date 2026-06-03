@@ -13,7 +13,7 @@
   <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions">
+      <img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro">
     </a>
     <nav class="nav">
       <a href="index.html">Home</a>

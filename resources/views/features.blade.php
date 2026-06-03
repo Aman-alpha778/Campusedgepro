@@ -12,7 +12,7 @@
   <body>
     <header class="topbar">
   <nav class="nav">
-    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions"></a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro"></a>
     <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
     <div class="nav-links" data-nav-links>
       <a href="index.html">Home</a>
@@ -99,7 +99,7 @@
       </section>
     </main>
     <footer class="footer"><div class="footer-inner">
-      <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions"></a><p>Smart College ERP by Sortiq Solutions.</p>
+      <div><a class="brand" href="index.html"><img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro"></a><p>Smart College ERP by Sortiq Solutions.</p>
       </div><div class="footer-links"><div><strong>Website</strong><a href="features.html">Features</a>
         <a href="modules.html">Modules</a><a href="pricing.html">Pricing</a>
       </div><div><strong>Resources</strong><a href="blog.html">Blog</a><a href="/docs">Documentation</a>

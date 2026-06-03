@@ -4,7 +4,7 @@
    initial-scale=1"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"><link rel="apple-touch-icon" href="/favicon-192.png"><title>Book Demo | CampusEdgePro</title><meta name="description" content="Book a live demo or explore CampusEdgePro screenshots for college ERP workflows.">@vite(['resources/css/app.css', 'resources/js/app.js'])</head>
   <body class="demo-page"><header class="topbar">
   <nav class="nav">
-    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions"></a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro"></a>
     <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
     <div class="nav-links" data-nav-links>
       <a href="index.html">Home</a>
@@ -124,7 +124,7 @@
     <div class="footer-inner">
       <div>
         <a class="brand" href="index.html">
-          <img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions">
+          <img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro">
         </a>
         <p>Smart College ERP by Sortiq Solutions.</p>
       </div>

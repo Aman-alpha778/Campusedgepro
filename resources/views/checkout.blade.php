@@ -12,7 +12,7 @@
   <body class="checkout-page">
     <header class="topbar">
   <nav class="nav">
-    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/sortiqsolutions-logo.png" alt="Sortiq Solutions"></a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="/assets/cmplg.png" alt="CampusEdgePro"></a>
     <button class="menu-toggle" data-menu-toggle aria-label="Open menu">&#9776;</button>
     <div class="nav-links" data-nav-links>
       <a href="index.html">Home</a>
