@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index(): View
     {
         return view('admin.courses.index', [
-            'courses' => Course::with('department.campus')->withCount('students')->latest()->paginate(15)->withQueryString(),
+            'courses' => Course::with('department')->withCount('students')->latest()->paginate(15)->withQueryString(),
             'departments' => Department::orderBy('name')->get(),
         ]);
     }
@@ -48,7 +48,7 @@ class CourseController extends Controller
 
     private function validated(Request $request, ?int $id = null): array
     {
-        return $request->validate([
+        $data = $request->validate([
             'department_id' => ['required', 'exists:departments,id'],
             'name' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max:80', 'unique:courses,code,'.$id],
@@ -56,5 +56,9 @@ class CourseController extends Controller
             'total_semesters' => ['required', 'integer', 'min:1', 'max:20'],
             'status' => ['required', 'in:active,inactive'],
         ]);
+
+        $data['semester_count'] = $data['total_semesters'];
+
+        return $data;
     }
 }

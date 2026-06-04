@@ -10,12 +10,21 @@ class Department extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['campus_id', 'name', 'code', 'hod_id', 'status'];
-
-    public function campus()
-    {
-        return $this->belongsTo(Campus::class);
-    }
+    protected $fillable = [
+        'name',
+        'code',
+        'slug',
+        'description',
+        'email',
+        'phone',
+        'location',
+        'hod_id',
+        'established_year',
+        'total_intake',
+        'status',
+        'created_by',
+        'updated_by',
+    ];
 
     public function hod()
     {
@@ -30,5 +39,40 @@ class Department extends Model
     public function faculty()
     {
         return $this->hasMany(Faculty::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
+    public function hodHistory()
+    {
+        return $this->hasMany(DepartmentHodHistory::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+    public function scopeInactive($query)
+    {
+        return $query->where('status', 'inactive');
+    }
+
+    public function scopeSearch($query, ?string $search)
+    {
+        return $query->when($search, fn ($query) => $query->where(function ($query) use ($search): void {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('code', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
+                ->orWhere('location', 'like', "%{$search}%");
+        }));
     }
 }

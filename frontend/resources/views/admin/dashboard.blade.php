@@ -162,27 +162,60 @@
 
   <section class="portal-grid-2 super-admin-dashboard-panels">
     <article class="portal-card super-admin-table-card">
-      <div class="portal-card-head"><div><h2>Recent Students</h2><p>Latest admission records.</p></div></div>
-      <table class="portal-table">
-        <thead><tr><th>Student</th><th>Campus</th><th>Course</th><th>Date</th></tr></thead>
+      <div class="portal-card-head">
+        <div><h2>Recent Students</h2><p>Latest admission records.</p></div>
+        <a class="super-admin-table-link" href="{{ route(($adminRoutePrefix ?? 'admin').'.students.index') }}">View all</a>
+      </div>
+      <table class="portal-table super-admin-data-table">
+        <thead><tr><th>Student</th><th>Campus</th><th>Course</th><th>Status</th><th>Date</th></tr></thead>
         <tbody>
           @forelse ($recentStudents as $student)
-            <tr><td>{{ $student->user->name }}</td><td>{{ $student->campus->name }}</td><td>{{ $student->course->name }}</td><td>{{ $student->admission_date?->format('d M Y') }}</td></tr>
+            <tr>
+              <td>
+                <div class="super-admin-table-person">
+                  <span>{{ strtoupper(substr($student->user->name, 0, 1)) }}</span>
+                  <div>
+                    <strong>{{ $student->user->name }}</strong>
+                    <small>{{ $student->registration_number }}</small>
+                  </div>
+                </div>
+              </td>
+              <td><span class="super-admin-table-muted">{{ $student->campus->name }}</span></td>
+              <td><strong class="super-admin-table-main">{{ $student->course->name }}</strong></td>
+              <td><span class="super-admin-table-badge">{{ ucfirst($student->status) }}</span></td>
+              <td><time>{{ $student->admission_date?->format('d M Y') }}</time></td>
+            </tr>
           @empty
-            <tr><td colspan="4">No students found.</td></tr>
+            <tr><td class="super-admin-empty-row" colspan="5">No students found.</td></tr>
           @endforelse
         </tbody>
       </table>
     </article>
     <article class="portal-card super-admin-table-card">
-      <div class="portal-card-head"><div><h2>Recent Payments</h2><p>Latest fee collection activity.</p></div></div>
-      <table class="portal-table">
+      <div class="portal-card-head">
+        <div><h2>Recent Payments</h2><p>Latest fee collection activity.</p></div>
+        <a class="super-admin-table-link" href="{{ route(($adminRoutePrefix ?? 'admin').'.fees.index') }}">View all</a>
+      </div>
+      <table class="portal-table super-admin-data-table">
         <thead><tr><th>Student</th><th>Amount</th><th>Method</th><th>Date</th></tr></thead>
         <tbody>
           @forelse ($recentPayments as $payment)
-            <tr><td>{{ $payment->fee->student->user->name }}</td><td>&#8377;{{ number_format($payment->amount, 2) }}</td><td>{{ $payment->payment_method }}</td><td>{{ $payment->payment_date?->format('d M Y') }}</td></tr>
+            <tr>
+              <td>
+                <div class="super-admin-table-person">
+                  <span>{{ strtoupper(substr($payment->fee->student->user->name, 0, 1)) }}</span>
+                  <div>
+                    <strong>{{ $payment->fee->student->user->name }}</strong>
+                    <small>{{ $payment->fee->fee_type }}</small>
+                  </div>
+                </div>
+              </td>
+              <td><strong class="super-admin-table-amount">&#8377;{{ number_format($payment->amount, 2) }}</strong></td>
+              <td><span class="super-admin-table-badge">{{ $payment->payment_method }}</span></td>
+              <td><time>{{ $payment->payment_date?->format('d M Y') }}</time></td>
+            </tr>
           @empty
-            <tr><td colspan="4">No payments found.</td></tr>
+            <tr><td class="super-admin-empty-row" colspan="4">No payments found.</td></tr>
           @endforelse
         </tbody>
       </table>

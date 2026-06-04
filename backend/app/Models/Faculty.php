@@ -12,7 +12,7 @@ class Faculty extends Model
 
     protected $table = 'faculty';
 
-    protected $fillable = ['user_id', 'department_id', 'employee_id', 'qualification', 'experience', 'joining_date', 'salary', 'status'];
+    protected $fillable = ['user_id', 'department_id', 'employee_id', 'designation', 'qualification', 'experience', 'joining_date', 'salary', 'status'];
 
     protected function casts(): array
     {

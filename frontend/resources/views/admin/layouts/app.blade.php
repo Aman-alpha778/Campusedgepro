@@ -43,16 +43,14 @@
               ['Courses', 'courses.index', 'courses.*'],
               ['Students', 'students.index', 'students.*'],
               ['Faculty', 'faculty.index', 'faculty.*'],
-              ['Admissions', 'reports.index', 'reports.*'],
+              ['Attendance', 'reports.index', 'reports.*', ['type' => 'attendance']],
+              ['Exams', 'reports.index', 'reports.*', ['type' => 'exams']],
               ['Fees', 'fees.index', 'fees.*'],
-              ['Notices', 'notices.index', 'notices.*'],
               ['Reports', 'reports.index', 'reports.*'],
-              ['Users', 'users.index', 'users.*'],
-              ['Roles', 'roles.index', 'roles.*'],
               ['Settings', 'settings.index', 'settings.*'],
-              ['Activity Logs', 'activity-logs.index', 'activity-logs.*'],
-            ] as [$label, $route, $active])
-              <a class="portal-nav-link {{ request()->routeIs($adminRoutePrefix.'.'.$active) ? 'active' : '' }}" href="{{ route($adminRoutePrefix.'.'.$route, $label === 'Admissions' ? ['type' => 'admissions'] : []) }}">{{ $label }}</a>
+            ] as $item)
+              @php [$label, $route, $active] = $item; $params = $item[3] ?? []; @endphp
+              <a class="portal-nav-link {{ request()->routeIs($adminRoutePrefix.'.'.$active) ? 'active' : '' }}" href="{{ route($adminRoutePrefix.'.'.$route, $params) }}">{{ $label }}</a>
             @endforeach
           @else
             <a class="portal-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>

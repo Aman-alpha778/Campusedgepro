@@ -162,7 +162,9 @@ Route::prefix('admin')->group(function (): void {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('campuses', CampusController::class)->except(['create', 'edit'])->names('admin.campuses');
         Route::post('/campuses/{campus}/toggle-status', [CampusController::class, 'toggle'])->name('admin.campuses.toggle');
-        Route::resource('departments', DepartmentController::class)->except(['create', 'edit', 'show'])->names('admin.departments');
+        Route::post('/departments/{department}/assign-hod', [DepartmentController::class, 'assignHod'])->name('admin.departments.assign-hod');
+        Route::patch('/departments/{department}/status', [DepartmentController::class, 'changeStatus'])->name('admin.departments.status');
+        Route::resource('departments', DepartmentController::class)->except(['create', 'edit'])->names('admin.departments');
         Route::resource('courses', CourseController::class)->except(['create', 'edit', 'show'])->names('admin.courses');
         Route::resource('students', StudentController::class)->except(['create', 'edit'])->names('admin.students');
         Route::post('/students/{student}/documents', [StudentController::class, 'uploadDocument'])->name('admin.students.documents.store');
@@ -198,7 +200,9 @@ Route::middleware(['auth:demo', 'demo.active'])->prefix('demo-portal')->group(fu
     Route::prefix('super-admin')->name('demo.super-admin.')->group(function (): void {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [DemoAuthController::class, 'destroy'])->name('logout');
-        Route::resource('departments', DepartmentController::class)->except(['create', 'edit', 'show'])->names('departments');
+        Route::post('/departments/{department}/assign-hod', [DepartmentController::class, 'assignHod'])->name('departments.assign-hod');
+        Route::patch('/departments/{department}/status', [DepartmentController::class, 'changeStatus'])->name('departments.status');
+        Route::resource('departments', DepartmentController::class)->except(['create', 'edit'])->names('departments');
         Route::resource('courses', CourseController::class)->except(['create', 'edit', 'show'])->names('courses');
         Route::resource('students', StudentController::class)->except(['create', 'edit'])->names('students');
         Route::post('/students/{student}/documents', [StudentController::class, 'uploadDocument'])->name('students.documents.store');

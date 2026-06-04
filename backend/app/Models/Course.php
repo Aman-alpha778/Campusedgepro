@@ -10,7 +10,7 @@ class Course extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['department_id', 'name', 'code', 'duration', 'total_semesters', 'status'];
+    protected $fillable = ['department_id', 'name', 'code', 'duration', 'semester_count', 'total_semesters', 'status'];
 
     public function department()
     {

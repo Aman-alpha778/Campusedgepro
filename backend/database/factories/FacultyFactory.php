@@ -14,6 +14,7 @@ class FacultyFactory extends Factory
             'user_id' => User::factory(),
             'department_id' => Department::factory(),
             'employee_id' => 'FAC'.strtoupper(substr($this->faker->unique()->uuid(), 0, 8)),
+            'designation' => $this->faker->randomElement(['Professor', 'Associate Professor', 'Assistant Professor', 'Lecturer']),
             'qualification' => $this->faker->randomElement(['M.Tech', 'Ph.D', 'MBA', 'M.Sc', 'M.Com']),
             'experience' => $this->faker->numberBetween(1, 20),
             'joining_date' => $this->faker->dateTimeBetween('-8 years', '-1 month'),

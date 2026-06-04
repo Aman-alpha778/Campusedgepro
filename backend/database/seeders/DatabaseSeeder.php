@@ -37,6 +37,12 @@ class DatabaseSeeder extends Seeder
             ['Faculty View', 'faculty.view', 'Faculty Management'],
             ['Faculty Update', 'faculty.update', 'Faculty Management'],
             ['Faculty Delete', 'faculty.delete', 'Faculty Management'],
+            ['Department View', 'department.view', 'Department Management'],
+            ['Department Create', 'department.create', 'Department Management'],
+            ['Department Update', 'department.update', 'Department Management'],
+            ['Department Delete', 'department.delete', 'Department Management'],
+            ['Department Assign HOD', 'department.assign_hod', 'Department Management'],
+            ['Department Export', 'department.export', 'Department Management'],
             ['Fee Manage', 'fee.manage', 'Finance'],
             ['Payment View', 'payment.view', 'Finance'],
             ['Report View', 'report.view', 'Reports'],
@@ -105,16 +111,26 @@ class DatabaseSeeder extends Seeder
             return;
         }
 
-        $campusIds = Campus::pluck('id');
-        DB::table('departments')->insert(collect(range(1, $missing))->map(fn ($index) => [
-            'campus_id' => $campusIds->random(),
-            'name' => fake()->unique()->words(2, true).' Department',
-            'code' => 'DEP'.strtoupper(Str::random(8)),
+        $names = collect(['Computer Science', 'Information Technology', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Business Administration', 'Commerce', 'Science', 'Arts', 'Education']);
+        DB::table('departments')->insert(collect(range(1, $missing))->map(function ($index) use ($names, $now): array {
+            $name = $names->get(($index - 1) % $names->count()).($index > $names->count() ? ' '.Str::upper(Str::random(3)) : '');
+
+            return [
+            'name' => $name,
+            'code' => Str::upper(Str::slug($name, '')),
+            'slug' => Str::slug($name),
+            'description' => "Academic department for {$name}.",
+            'email' => Str::slug($name).'.department@campusedge.test',
+            'phone' => fake()->phoneNumber(),
+            'location' => fake()->randomElement(['Academic Block A', 'Academic Block B', 'Main Building', 'Innovation Wing']),
             'hod_id' => null,
+            'established_year' => fake()->numberBetween(1998, 2022),
+            'total_intake' => fake()->randomElement([60, 120, 180, 240]),
             'status' => 'active',
             'created_at' => $now,
             'updated_at' => $now,
-        ])->all());
+            ];
+        })->all());
     }
 
     private function fillCourses(Carbon $now): void
@@ -131,6 +147,7 @@ class DatabaseSeeder extends Seeder
             'name' => fake()->unique()->words(3, true),
             'code' => 'CRS'.strtoupper(Str::random(8)),
             'duration' => fake()->randomElement(['2 Years', '3 Years', '4 Years']),
+            'semester_count' => fake()->randomElement([4, 6, 8]),
             'total_semesters' => fake()->randomElement([4, 6, 8]),
             'status' => 'active',
             'created_at' => $now,
@@ -171,6 +188,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $userId,
             'department_id' => $departmentIds->random(),
             'employee_id' => 'FAC'.strtoupper(Str::random(8)),
+            'designation' => fake()->randomElement(['Professor', 'Associate Professor', 'Assistant Professor', 'Lecturer', 'HOD']),
             'qualification' => fake()->randomElement(['M.Tech', 'Ph.D', 'MBA', 'M.Sc', 'M.Com']),
             'experience' => fake()->numberBetween(1, 20),
             'joining_date' => fake()->dateTimeBetween('-8 years', '-1 month')->format('Y-m-d'),
@@ -220,10 +238,11 @@ class DatabaseSeeder extends Seeder
 
             return [
                 'user_id' => $userId,
-                'campus_id' => $course->department->campus_id,
+                'campus_id' => Campus::query()->value('id'),
                 'department_id' => $course->department_id,
                 'course_id' => $course->id,
                 'roll_number' => 'ROLL'.strtoupper(Str::random(8)),
+                'semester' => fake()->numberBetween(1, max(1, (int) $course->total_semesters)),
                 'registration_number' => 'REG'.strtoupper(Str::random(8)),
                 'dob' => fake()->dateTimeBetween('-24 years', '-17 years')->format('Y-m-d'),
                 'gender' => fake()->randomElement(['Male', 'Female', 'Other']),
@@ -326,6 +345,19 @@ class DatabaseSeeder extends Seeder
 
     private function fillSettings(): void
     {
+        Setting::updateOrCreate(
+            ['key' => 'institution'],
+            [
+                'value' => null,
+                'college_name' => 'CampusEdge Demo University',
+                'logo' => '/assets/logoas.png',
+                'email' => 'admin@campusedge.test',
+                'phone' => '+91 90000 00000',
+                'address' => 'Knowledge Park, Bengaluru, Karnataka',
+                'website' => 'https://campusedge.test',
+            ]
+        );
+
         collect([
             'college_name' => 'CampusEdge Demo University',
             'logo' => '/assets/logoas.png',

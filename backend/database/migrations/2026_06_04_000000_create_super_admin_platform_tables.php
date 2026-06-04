@@ -71,13 +71,30 @@ return new class extends Migration
 
         Schema::create('departments', function (Blueprint $table): void {
             $table->id();
-            $table->foreignId('campus_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('code')->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('location')->nullable();
             $table->foreignId('hod_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->unsignedSmallInteger('established_year')->nullable();
+            $table->unsignedInteger('total_intake')->default(0);
             $table->string('status')->default('active')->index();
+            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('department_hod_history', function (Blueprint $table): void {
+            $table->id();
+            $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('old_hod')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('new_hod')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('changed_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->timestamp('created_at')->useCurrent();
         });
 
         Schema::create('courses', function (Blueprint $table): void {
@@ -86,10 +103,20 @@ return new class extends Migration
             $table->string('name');
             $table->string('code')->unique();
             $table->string('duration');
+            $table->unsignedTinyInteger('semester_count')->default(1);
             $table->unsignedTinyInteger('total_semesters')->default(1);
             $table->string('status')->default('active')->index();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('subjects', function (Blueprint $table): void {
+            $table->id();
+            $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->string('status')->default('active')->index();
+            $table->timestamps();
         });
 
         Schema::create('faculty', function (Blueprint $table): void {
@@ -97,6 +124,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('department_id')->constrained()->cascadeOnDelete();
             $table->string('employee_id')->unique();
+            $table->string('designation')->nullable();
             $table->string('qualification')->nullable();
             $table->unsignedTinyInteger('experience')->default(0);
             $table->date('joining_date')->nullable();
@@ -113,6 +141,7 @@ return new class extends Migration
             $table->foreignId('department_id')->constrained()->cascadeOnDelete();
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->string('roll_number')->unique();
+            $table->unsignedTinyInteger('semester')->nullable();
             $table->string('registration_number')->unique();
             $table->date('dob')->nullable();
             $table->string('gender')->nullable();
@@ -179,6 +208,12 @@ return new class extends Migration
             $table->id();
             $table->string('key')->unique();
             $table->text('value')->nullable();
+            $table->text('college_name')->nullable();
+            $table->text('logo')->nullable();
+            $table->text('email')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->text('website')->nullable();
             $table->timestamps();
         });
 
@@ -204,7 +239,9 @@ return new class extends Migration
         Schema::dropIfExists('student_documents');
         Schema::dropIfExists('students');
         Schema::dropIfExists('faculty');
+        Schema::dropIfExists('subjects');
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('department_hod_history');
         Schema::dropIfExists('departments');
         Schema::dropIfExists('campuses');
         Schema::dropIfExists('permission_role');

@@ -18,6 +18,7 @@ class StudentFactory extends Factory
             'department_id' => Department::factory(),
             'course_id' => Course::factory(),
             'roll_number' => 'ROLL'.strtoupper(substr($this->faker->unique()->uuid(), 0, 8)),
+            'semester' => $this->faker->numberBetween(1, 8),
             'registration_number' => 'REG'.strtoupper(substr($this->faker->unique()->uuid(), 0, 8)),
             'dob' => $this->faker->dateTimeBetween('-24 years', '-17 years'),
             'gender' => $this->faker->randomElement(['Male', 'Female', 'Other']),
