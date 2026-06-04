@@ -13,10 +13,27 @@
   </section>
 
   <section class="demo-workspace-grid">
+    <article class="demo-workspace-card blue">
+      <div class="demo-workspace-top">
+        <span>01</span>
+        <strong>Super Admin Experience</strong>
+      </div>
+      <p>Open the live, database-driven Super Admin dashboard with real CRUD modules, RBAC, fees, reports, settings, and activity logs.</p>
+      <div class="demo-highlight-list">
+        <span>Database Dashboard</span>
+        <span>Department CRUD</span>
+        <span>Student CRUD</span>
+        <span>RBAC</span>
+        <span>Reports</span>
+        <span>Settings</span>
+      </div>
+      <a class="portal-button" href="{{ route('demo.super-admin.dashboard') }}">Launch Super Admin Workspace</a>
+    </article>
+
     @foreach ($workspaces as $key => $workspace)
       <article class="demo-workspace-card {{ $workspace['accent'] }}">
         <div class="demo-workspace-top">
-          <span>{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+          <span>{{ str_pad((string) ($loop->iteration + 1), 2, '0', STR_PAD_LEFT) }}</span>
           <strong>{{ $workspace['name'] }}</strong>
         </div>
         <p>{{ $workspace['description'] }}</p>

@@ -24,8 +24,12 @@ class DemoPortalController extends Controller
         ]);
     }
 
-    public function workspace(string $workspace): View
+    public function workspace(string $workspace): View|RedirectResponse
     {
+        if ($workspace === 'super-admin') {
+            return redirect()->route('demo.super-admin.dashboard');
+        }
+
         $workspaceData = $this->workspaceOrFail($workspace);
 
         return view('demo.workspace', [
@@ -56,17 +60,17 @@ class DemoPortalController extends Controller
     public function module(string $module): RedirectResponse
     {
         $legacyMap = [
-            'students' => 'students',
-            'attendance' => 'attendance',
-            'fees' => 'fees',
-            'faculty' => 'staff',
-            'reports' => 'reports',
+            'students' => 'demo.super-admin.students.index',
+            'attendance' => 'demo.super-admin.reports.index',
+            'fees' => 'demo.super-admin.fees.index',
+            'faculty' => 'demo.super-admin.faculty.index',
+            'reports' => 'demo.super-admin.reports.index',
         ];
 
-        return redirect()->route('demo.workspace.module', [
-            'workspace' => 'super-admin',
-            'module' => $legacyMap[$module] ?? 'dashboard',
-        ]);
+        $route = $legacyMap[$module] ?? 'demo.super-admin.dashboard';
+        $parameters = $module === 'attendance' ? ['type' => 'attendance'] : [];
+
+        return redirect()->route($route, $parameters);
     }
 
     protected function workspaceOrFail(string $workspace): array
@@ -81,92 +85,6 @@ class DemoPortalController extends Controller
     protected function workspaces(): array
     {
         return [
-            'super-admin' => [
-                'name' => 'Super Admin Experience',
-                'shortName' => 'Super Admin',
-                'objective' => 'Real-time institution command center.',
-                'description' => 'Control admissions, students, academics, attendance, finance, HR, payroll, communication, access, audit logs, and institutional settings from one polished workspace.',
-                'action' => 'Launch Super Admin Workspace',
-                'accent' => 'blue',
-                'highlights' => ['Live Institution Overview', 'Admission Workflow', 'Student Lifecycle', 'Academic Setup', 'Finance Control', 'Attendance Alerts', 'HR & Payroll', 'Audit & Settings'],
-                'widgets' => [
-                    ['label' => 'Total Students', 'value' => '5,248', 'note' => '412 new admissions'],
-                    ['label' => 'Active Faculty', 'value' => '186', 'note' => '24 pending leaves'],
-                    ['label' => 'Collected Fees', 'value' => 'Rs 2.36 Cr', 'note' => 'Rs 44 L outstanding'],
-                    ['label' => 'Student Attendance', 'value' => '91.8%', 'note' => '126 absent today'],
-                    ['label' => 'Active Users', 'value' => '1,284', 'note' => '438 logins today'],
-                    ['label' => 'Pending Tasks', 'value' => '37', 'note' => '12 require approval'],
-                ],
-                'dashboardGroups' => [
-                    [
-                        'title' => 'Students',
-                        'items' => [
-                            ['label' => 'Total Students', 'value' => '5,248'],
-                            ['label' => 'New Admissions', 'value' => '412'],
-                            ['label' => 'Active Students', 'value' => '4,982'],
-                            ['label' => 'Graduated Students', 'value' => '266'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Staff',
-                        'items' => [
-                            ['label' => 'Total Faculty', 'value' => '186'],
-                            ['label' => 'Teaching Staff', 'value' => '148'],
-                            ['label' => 'Non-Teaching Staff', 'value' => '74'],
-                            ['label' => 'Pending Leaves', 'value' => '24'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Academics',
-                        'items' => [
-                            ['label' => 'Departments', 'value' => '20'],
-                            ['label' => 'Courses', 'value' => '54'],
-                            ['label' => 'Subjects', 'value' => '318'],
-                            ['label' => 'Classes', 'value' => '96'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Finance',
-                        'items' => [
-                            ['label' => 'Total Revenue', 'value' => 'Rs 2.8 Cr'],
-                            ['label' => 'Collected Fees', 'value' => 'Rs 2.36 Cr'],
-                            ['label' => 'Outstanding Fees', 'value' => 'Rs 44 L'],
-                            ['label' => 'Monthly Revenue', 'value' => 'Rs 31.5 L'],
-                        ],
-                    ],
-                    [
-                        'title' => 'Attendance',
-                        'items' => [
-                            ['label' => 'Student Attendance', 'value' => '91.8%'],
-                            ['label' => 'Teacher Attendance', 'value' => '96.4%'],
-                            ['label' => 'Absent Students', 'value' => '126'],
-                            ['label' => 'Below 75%', 'value' => '43'],
-                        ],
-                    ],
-                    [
-                        'title' => 'System',
-                        'items' => [
-                            ['label' => 'Active Users', 'value' => '1,284'],
-                            ['label' => "Today's Logins", 'value' => '438'],
-                            ['label' => 'Notifications', 'value' => '18'],
-                            ['label' => 'Pending Tasks', 'value' => '37'],
-                        ],
-                    ],
-                ],
-                'dailyWorkflow' => ['Login', 'View Dashboard', 'Review Admissions', 'Monitor Attendance', 'Check Fee Collection', 'Review Reports', 'Approve Leave Requests', 'Send Notices', 'Logout'],
-                'priorityQueue' => [
-                    ['label' => 'Admissions pending review', 'value' => '18', 'tone' => 'warning'],
-                    ['label' => 'Fee defaulters to notify', 'value' => '43', 'tone' => 'danger'],
-                    ['label' => 'Leave approvals waiting', 'value' => '24', 'tone' => 'warning'],
-                    ['label' => 'Reports ready for review', 'value' => '9', 'tone' => 'success'],
-                ],
-                'auditTrail' => [
-                    ['time' => '10:30 AM', 'event' => 'Teacher created assignment', 'actor' => 'Dr. Meera Pillai'],
-                    ['time' => '11:15 AM', 'event' => 'Student paid fee', 'actor' => 'Aarav Sharma'],
-                    ['time' => '01:20 PM', 'event' => 'Principal generated report', 'actor' => 'Principal Office'],
-                ],
-                'modules' => $this->moduleSet(['admissions', 'students', 'academics', 'faculty', 'attendance', 'examinations', 'fees', 'employees', 'payroll', 'communication', 'reports', 'users-access', 'audit-logs', 'institution-settings']),
-            ],
             'principal' => [
                 'name' => 'Principal Experience',
                 'shortName' => 'Principal',

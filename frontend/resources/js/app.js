@@ -224,18 +224,28 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
 
 document.querySelectorAll("[data-counter-target]").forEach((counter) => {
   const target = Number(counter.dataset.counterTarget || 0);
+  const prefix = counter.dataset.counterPrefix || "";
   const suffix = counter.dataset.counterSuffix || "";
+  const decimals = Number(counter.dataset.counterDecimals || 0);
+  const useSeparator = counter.dataset.counterSeparator === "true";
   const duration = 2200;
   let started = false;
-  let lastValue = -1;
+  let lastValue = "";
 
   const renderValue = (value) => {
-    if (value === lastValue) {
+    const formattedValue = value.toLocaleString("en-IN", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+      useGrouping: useSeparator,
+    });
+    const displayValue = `${prefix}${formattedValue}${suffix}`;
+
+    if (displayValue === lastValue) {
       return;
     }
 
-    lastValue = value;
-    counter.textContent = `${value}${suffix}`;
+    lastValue = displayValue;
+    counter.textContent = displayValue;
   };
 
   const startCounter = () => {
@@ -249,7 +259,8 @@ document.querySelectorAll("[data-counter-target]").forEach((counter) => {
     const tick = (now) => {
       const progress = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 4);
-      const value = Math.round(target * eased);
+      const rawValue = target * eased;
+      const value = decimals > 0 ? Number(rawValue.toFixed(decimals)) : Math.round(rawValue);
 
       renderValue(value);
 
@@ -277,6 +288,65 @@ document.querySelectorAll("[data-counter-target]").forEach((counter) => {
   );
 
   observer.observe(counter);
+});
+
+document.querySelectorAll("[data-live-height], [data-live-width]").forEach((bar) => {
+  const targetHeight = Number(bar.dataset.liveHeight || 0);
+  const targetWidth = Number(bar.dataset.liveWidth || 0);
+  const duration = 1200;
+  let started = false;
+
+  const startBar = () => {
+    if (started) {
+      return;
+    }
+
+    started = true;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      if (bar.dataset.liveHeight !== undefined) {
+        bar.style.height = `${targetHeight * eased}%`;
+      }
+
+      if (bar.dataset.liveWidth !== undefined) {
+        bar.style.width = `${targetWidth * eased}%`;
+      }
+
+      if (progress < 1) {
+        window.requestAnimationFrame(tick);
+      }
+    };
+
+    if (bar.dataset.liveHeight !== undefined) {
+      bar.style.height = "0%";
+    }
+
+    if (bar.dataset.liveWidth !== undefined) {
+      bar.style.width = "0%";
+    }
+
+    window.requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        startBar();
+        observer.disconnect();
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(bar);
 });
 
 document.querySelectorAll(".contact-inquiry-type").forEach((group) => {

@@ -1,0 +1,1 @@
+<!doctype html><html><head><meta charset="utf-8"><title>{{ Str::headline($type) }} Report</title></head><body><h1>{{ Str::headline($type) }} Report</h1><table border="1" cellspacing="0" cellpadding="6">@foreach($rows as $row)<tr>@foreach($row->toArray() as $value)<td>{{ is_array($value) ? json_encode($value) : $value }}</td>@endforeach</tr>@endforeach</table></body></html>

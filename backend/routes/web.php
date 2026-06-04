@@ -1,8 +1,20 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\ActivityLogController;
+use App\Http\Controllers\Admin\CampusController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DemoRequestController as AdminDemoRequestController;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\FacultyController;
+use App\Http\Controllers\Admin\FeeController;
+use App\Http\Controllers\Admin\NoticeController;
+use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DemoAuthController;
 use App\Http\Controllers\DemoPortalController;
@@ -148,6 +160,26 @@ Route::prefix('admin')->group(function (): void {
 
     Route::middleware(['auth', 'admin'])->group(function (): void {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::resource('campuses', CampusController::class)->except(['create', 'edit'])->names('admin.campuses');
+        Route::post('/campuses/{campus}/toggle-status', [CampusController::class, 'toggle'])->name('admin.campuses.toggle');
+        Route::resource('departments', DepartmentController::class)->except(['create', 'edit', 'show'])->names('admin.departments');
+        Route::resource('courses', CourseController::class)->except(['create', 'edit', 'show'])->names('admin.courses');
+        Route::resource('students', StudentController::class)->except(['create', 'edit'])->names('admin.students');
+        Route::post('/students/{student}/documents', [StudentController::class, 'uploadDocument'])->name('admin.students.documents.store');
+        Route::resource('faculty', FacultyController::class)->except(['create', 'edit', 'show'])->names('admin.faculty');
+        Route::resource('fees', FeeController::class)->except(['create', 'edit', 'show', 'update'])->names('admin.fees');
+        Route::post('/fees/{fee}/payments', [FeeController::class, 'payment'])->name('admin.fees.payments.store');
+        Route::get('/fees/{fee}/receipt', [FeeController::class, 'receipt'])->name('admin.fees.receipt');
+        Route::resource('notices', NoticeController::class)->except(['create', 'edit', 'show', 'update'])->names('admin.notices');
+        Route::post('/notices/{notice}/publish', [NoticeController::class, 'publish'])->name('admin.notices.publish');
+        Route::resource('users', UserController::class)->except(['create', 'edit', 'show'])->names('admin.users');
+        Route::post('/users/{user}/reset-password', [UserController::class, 'resetPassword'])->name('admin.users.reset-password');
+        Route::resource('roles', RoleController::class)->except(['create', 'edit', 'show'])->names('admin.roles');
+        Route::get('/settings', [SettingController::class, 'index'])->name('admin.settings.index');
+        Route::post('/settings', [SettingController::class, 'update'])->name('admin.settings.update');
+        Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('admin.activity-logs.index');
+        Route::get('/reports', [ReportController::class, 'index'])->name('admin.reports.index');
+        Route::get('/reports/export', [ReportController::class, 'export'])->name('admin.reports.export');
         Route::get('/demo-requests', [AdminDemoRequestController::class, 'index'])->name('admin.demo-requests.index');
         Route::post('/demo-requests/{demoRequest}/approve', [AdminDemoRequestController::class, 'approve'])->name('admin.demo-requests.approve');
         Route::post('/demo-requests/{demoRequest}/resend-access', [AdminDemoRequestController::class, 'resendAccess'])->name('admin.demo-requests.resend-access');
@@ -163,6 +195,28 @@ Route::post('/demo-portal/login', [DemoAuthController::class, 'store'])->name('d
 
 Route::middleware(['auth:demo', 'demo.active'])->prefix('demo-portal')->group(function (): void {
     Route::get('/dashboard', [DemoPortalController::class, 'dashboard'])->name('demo.dashboard');
+    Route::prefix('super-admin')->name('demo.super-admin.')->group(function (): void {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::post('/logout', [DemoAuthController::class, 'destroy'])->name('logout');
+        Route::resource('departments', DepartmentController::class)->except(['create', 'edit', 'show'])->names('departments');
+        Route::resource('courses', CourseController::class)->except(['create', 'edit', 'show'])->names('courses');
+        Route::resource('students', StudentController::class)->except(['create', 'edit'])->names('students');
+        Route::post('/students/{student}/documents', [StudentController::class, 'uploadDocument'])->name('students.documents.store');
+        Route::resource('faculty', FacultyController::class)->except(['create', 'edit', 'show'])->names('faculty');
+        Route::resource('fees', FeeController::class)->except(['create', 'edit', 'show', 'update'])->names('fees');
+        Route::post('/fees/{fee}/payments', [FeeController::class, 'payment'])->name('fees.payments.store');
+        Route::get('/fees/{fee}/receipt', [FeeController::class, 'receipt'])->name('fees.receipt');
+        Route::resource('notices', NoticeController::class)->except(['create', 'edit', 'show', 'update'])->names('notices');
+        Route::post('/notices/{notice}/publish', [NoticeController::class, 'publish'])->name('notices.publish');
+        Route::resource('users', UserController::class)->except(['create', 'edit', 'show'])->names('users');
+        Route::post('/users/{user}/reset-password', [UserController::class, 'resetPassword'])->name('users.reset-password');
+        Route::resource('roles', RoleController::class)->except(['create', 'edit', 'show'])->names('roles');
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+        Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
+        Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+        Route::get('/reports/export', [ReportController::class, 'export'])->name('reports.export');
+    });
     Route::get('/workspace/{workspace}', [DemoPortalController::class, 'workspace'])->name('demo.workspace');
     Route::get('/workspace/{workspace}/{module}', [DemoPortalController::class, 'workspaceModule'])->name('demo.workspace.module');
     Route::get('/students', [DemoPortalController::class, 'module'])->defaults('module', 'students')->name('demo.students');

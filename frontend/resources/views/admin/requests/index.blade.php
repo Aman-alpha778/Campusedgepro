@@ -7,7 +7,7 @@
   </section>
 
   <section class="portal-card" style="margin-bottom: 18px;">
-    <form class="portal-filter-form" method="get" action="{{ route('admin.demo-requests.index') }}">
+    <form class="portal-filter-form" method="get" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.index') }}">
       <label class="portal-field">
         <span>Search</span>
         <input type="text" name="search" value="{{ $filters['search'] }}" placeholder="College, admin, email, phone">
@@ -26,7 +26,7 @@
         <div>
           <button class="portal-button portal-uniform-button" type="submit">Search</button>
           @if ($filters['search'] !== '' || $filters['status'] !== '')
-            <a class="portal-button-ghost portal-uniform-button" href="{{ route('admin.demo-requests.index') }}">Reset</a>
+            <a class="portal-button-ghost portal-uniform-button" href="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.index') }}">Reset</a>
           @endif
         </div>
       </div>
@@ -69,12 +69,12 @@
               @if ($demoRequest->demoUser)
                 <div><strong>{{ $demoRequest->demoUser->username }}</strong></div>
                 <div class="portal-table-note">Expires {{ $demoRequest->demoUser->expiry_date->format('d M Y') }}</div>
-                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
+                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
                   @csrf
                   <button class="portal-button-ghost portal-button-small" type="submit">Resend Access</button>
                 </form>
               @elseif ($demoRequest->status === 'Approved')
-                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate demo credentials and resend access details?');">
+                <form class="portal-inline-form portal-resend-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate demo credentials and resend access details?');">
                   @csrf
                   <button class="portal-button-ghost portal-button-small" type="submit">Resend Access</button>
                 </form>
@@ -89,7 +89,7 @@
                 @elseif ($demoRequest->status === 'Rejected')
                   <button class="portal-button portal-button-muted" type="button" disabled>Approve</button>
                 @else
-                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.approve', $demoRequest) }}" onsubmit="return confirm('Approve this demo request and send credentials?');">
+                  <form class="portal-inline-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.approve', $demoRequest) }}" onsubmit="return confirm('Approve this demo request and send credentials?');">
                     @csrf
                     <button class="portal-button" type="submit">Approve</button>
                   </form>
@@ -99,18 +99,18 @@
                 @elseif ($demoRequest->status === 'Approved')
                   <button class="portal-button-ghost portal-button-muted" type="button" disabled>Reject</button>
                 @else
-                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.reject', $demoRequest) }}" onsubmit="return confirm('Reject this demo request and notify the user?');">
+                  <form class="portal-inline-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.reject', $demoRequest) }}" onsubmit="return confirm('Reject this demo request and notify the user?');">
                     @csrf
                     <button class="portal-button-ghost" type="submit">Reject</button>
                   </form>
                 @endif
                 @if ($canResendAccess)
-                  <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
+                  <form class="portal-inline-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.resend-access', $demoRequest) }}" onsubmit="return confirm('Generate a new temporary password and resend access details?');">
                     @csrf
                     <button class="portal-button-ghost" type="submit">Resend Access</button>
                   </form>
                 @endif
-                <form class="portal-inline-form" method="post" action="{{ route('admin.demo-requests.destroy', $demoRequest) }}" onsubmit="return confirm('Delete this demo request permanently?');">
+                <form class="portal-inline-form" method="post" action="{{ route(($adminRoutePrefix ?? 'admin').'.demo-requests.destroy', $demoRequest) }}" onsubmit="return confirm('Delete this demo request permanently?');">
                   @csrf
                   @method('delete')
                   <button class="portal-button-danger" type="submit">Delete</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\ActivityLogService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,8 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
+    public function __construct(private ActivityLogService $logs) {}
+
     public function create(): View|RedirectResponse
     {
         if (Auth::check()) {
@@ -27,7 +30,7 @@ class AuthController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        if (Auth::check() && Auth::user()?->is_admin) {
+        if (Auth::check() && (Auth::user()?->is_admin || Auth::user()?->hasRole('Super Admin'))) {
             return redirect()->route('admin.dashboard');
         }
 
@@ -44,7 +47,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        if (! Auth::user()?->is_admin) {
+        if (! Auth::user()?->is_admin && ! Auth::user()?->hasRole('Super Admin')) {
             Auth::logout();
 
             $request->session()->invalidate();
@@ -55,11 +58,15 @@ class AuthController extends Controller
                 ->withErrors(['email' => 'You do not have access to the admin dashboard.']);
         }
 
+        $this->logs->record('login', 'Auth', 'Admin login successful', $request);
+
         return redirect()->route('admin.dashboard');
     }
 
     public function destroy(Request $request): RedirectResponse
     {
+        $this->logs->record('logout', 'Auth', 'Admin logout', $request);
+
         Auth::logout();
 
         $request->session()->invalidate();

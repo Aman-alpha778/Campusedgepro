@@ -1,203 +1,191 @@
-@extends('admin.layouts.app', ['title' => 'Dashboard'])
+@extends('admin.layouts.app', ['title' => 'Super Admin Dashboard'])
+
+@php
+  $maxAdmission = max(1, collect($admissionChart)->max('value'));
+  $maxFee = max(1, collect($feeChart)->max('value'));
+  $formatDashboardValue = function (float $value, string $type = 'number'): string {
+    if ($type === 'currency') {
+      return '&#8377;'.number_format($value, 0);
+    }
+
+    if ($type === 'percent') {
+      return number_format($value, 1).'%';
+    }
+
+    return number_format($value, 0);
+  };
+@endphp
 
 @section('content')
-  <section class="portal-page-head">
-    <h1>DEMO REQUEST DASHBOARD</h1>
-    <p>Track incoming requests, monitor approval progress, and manage live demo access from one place.</p>
+  <section class="super-admin-dashboard-hero">
+    <div>
+      <span class="super-admin-eyebrow">Welcome back</span>
+      <h1>Super Admin Dashboard</h1>
+      <p>Real-time academic, finance, and attendance intelligence from your database.</p>
+    </div>
+    <div class="super-admin-hero-status">
+      <span>Database synced</span>
+      <strong>{{ now()->format('d M Y') }}</strong>
+    </div>
   </section>
 
-  <section class="portal-grid-4">
-    <article class="portal-stat">
-      <span class="portal-stat-label">Total Requests</span>
-      <strong>{{ $stats['total'] }}</strong>
-      <div class="portal-stat-note">All inbound demo submissions across the system.</div>
-    </article>
-    <article class="portal-stat">
-      <span class="portal-stat-label">Pending</span>
-      <strong>{{ $stats['pending'] }}</strong>
-      <div class="portal-stat-note">Waiting for review and approval action.</div>
-    </article>
-    <article class="portal-stat">
-      <span class="portal-stat-label">Approved</span>
-      <strong>{{ $stats['approved'] }}</strong>
-      <div class="portal-stat-note">Credentials generated and access granted.</div>
-    </article>
-    <article class="portal-stat">
-      <span class="portal-stat-label">Rejected</span>
-      <strong>{{ $stats['rejected'] }}</strong>
-      <div class="portal-stat-note">Closed requests that were not approved.</div>
-    </article>
+  <section class="portal-grid-4 super-admin-stat-grid">
+    @foreach ($cards as $card)
+      @php
+        $counterPrefix = ($card['format'] ?? null) === 'currency' ? '&#8377;' : '';
+        $counterSuffix = $card['suffix'] ?? '';
+        $counterDecimals = $card['decimals'] ?? 0;
+        $cardIcon = collect(explode(' ', $card['label']))
+          ->map(fn ($word) => strtoupper(substr($word, 0, 1)))
+          ->take(2)
+          ->join('');
+        $sparkPoints = count($card['details'] ?? []) > 0 ? $card['details'] : [['label' => 'No data', 'value' => 0, 'format' => 'number']];
+        $sparkMax = max(1, collect($sparkPoints)->max('value'));
+      @endphp
+      <article class="portal-stat super-admin-stat-card tone-{{ $card['tone'] ?? 'blue' }}">
+        <div class="super-admin-stat-top">
+          <span class="super-admin-stat-icon">{{ $cardIcon }}</span>
+          <span class="portal-stat-label">{{ $card['label'] }}</span>
+        </div>
+        <strong
+          data-counter-target="{{ $card['value'] }}"
+          data-counter-prefix="{!! $counterPrefix !!}"
+          data-counter-suffix="{{ $counterSuffix }}"
+          data-counter-decimals="{{ $counterDecimals }}"
+          data-counter-separator="true"
+        >{!! $counterPrefix !!}0{{ $counterSuffix }}</strong>
+        <div class="super-admin-mini-chart" aria-hidden="true">
+          @foreach ($sparkPoints as $point)
+            <i data-live-height="{{ $point['value'] > 0 ? max(8, ($point['value'] / $sparkMax) * 100) : 0 }}" style="height: 0"></i>
+          @endforeach
+        </div>
+        <div class="super-admin-card-details">
+          @foreach ($sparkPoints as $point)
+            @php
+              $detailValue = ($point['format'] ?? 'number') === 'currency'
+                ? '&#8377;'.number_format($point['value'], 0)
+                : number_format($point['value'], 0);
+              $detailWidth = $point['value'] > 0 ? ($point['value'] / $sparkMax) * 100 : 0;
+            @endphp
+            <div class="super-admin-card-detail-row">
+              <span>{{ $point['label'] }}</span>
+              <div><i data-live-width="{{ $detailWidth }}" style="width: 0"></i></div>
+              <strong>{!! $detailValue !!}</strong>
+            </div>
+          @endforeach
+        </div>
+        <div class="portal-stat-note">{{ $card['note'] }}</div>
+      </article>
+    @endforeach
   </section>
 
-  <section class="portal-hero-grid">
-    <article class="portal-card portal-anchor-card">
-      <div class="portal-card-head">
-        <div>
-          <h2>Operations overview</h2>
-          <p class="portal-muted">Review platform activity, prioritize pending requests, and move quickly through approvals.</p>
-        </div>
+  <section class="portal-grid-2 super-admin-dashboard-panels">
+    <article class="portal-card super-admin-chart-card">
+      <div class="portal-card-head"><div><h2>Student Admission Chart</h2><p>Monthly admission count from student records.</p></div></div>
+      <div class="super-admin-live-chart">
+        <div class="super-admin-chart-scale"><span>{{ number_format($maxAdmission) }}</span><span>0</span></div>
+        <div class="portal-chart"><div class="portal-chart-bars">
+          @foreach ($admissionChart as $point)
+            @php $height = $point['value'] > 0 ? max(8, ($point['value'] / $maxAdmission) * 100) : 0; @endphp
+            <div class="super-admin-bar-wrap">
+              <span class="super-admin-bar-value">{{ number_format($point['value']) }}</span>
+              <div title="{{ $point['label'] }}: {{ number_format($point['value']) }}" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
+              <span class="super-admin-bar-label">{{ $point['label'] }}</span>
+            </div>
+          @endforeach
+        </div></div>
       </div>
-
-      <div class="portal-metric-pair">
-        <div class="portal-mini-stat">
-          <span class="portal-muted">Fastest win</span>
-          <strong>{{ $stats['pending'] > 0 ? 'Review pending approvals' : 'Queue is clear' }}</strong>
-        </div>
-        <div class="portal-mini-stat">
-          <span class="portal-muted">Approval workflow</span>
-          <strong>3-day demo cycle</strong>
-        </div>
-      </div>
-
-      <div class="portal-card-actions">
-        <a class="portal-button portal-uniform-button" href="{{ route('admin.demo-requests.index') }}">Open request management</a>
-        <a class="portal-button-ghost portal-uniform-button" href="#admin-profile">View admin profile</a>
-        <a class="portal-button-ghost portal-uniform-button" href="#admin-users">View admin users</a>
-      </div>
-    </article>
-
-    <article class="portal-card portal-anchor-card">
-      <div class="portal-card-head">
-        <div>
-          <h2>Workflow standards</h2>
-          <p class="portal-muted">Keep responses consistent every time a demo request is reviewed.</p>
-        </div>
-      </div>
-
-      <ul class="portal-list">
-        <li class="portal-list-item">
-          <div>
-            <strong>Approval</strong>
-            <span class="portal-muted">Generate credentials, set expiry, and email the access details.</span>
+      <div class="super-admin-progress-list">
+        @foreach ($admissionChart as $point)
+          @php $width = $point['value'] > 0 ? ($point['value'] / $maxAdmission) * 100 : 0; @endphp
+          <div class="super-admin-progress-row">
+            <span>{{ $point['label'] }}</span>
+            <div><i data-live-width="{{ $width }}" style="width: 0"></i></div>
+            <strong>{{ number_format($point['value']) }}</strong>
           </div>
-          <span class="portal-badge approved">Automated</span>
-        </li>
-        <li class="portal-list-item">
-          <div>
-            <strong>Contact follow-up</strong>
-            <span class="portal-muted">Mark requests as contacted when the team reaches out before approval.</span>
+        @endforeach
+      </div>
+    </article>
+    <article class="portal-card super-admin-chart-card">
+      <div class="portal-card-head"><div><h2>Fee Collection Chart</h2><p>Monthly paid amount from payment records.</p></div></div>
+      <div class="super-admin-live-chart">
+        <div class="super-admin-chart-scale"><span>{!! $formatDashboardValue($maxFee, 'currency') !!}</span><span>&#8377;0</span></div>
+        <div class="portal-chart"><div class="portal-chart-bars">
+          @foreach ($feeChart as $point)
+            @php $height = $point['value'] > 0 ? max(8, ($point['value'] / $maxFee) * 100) : 0; @endphp
+            <div class="super-admin-bar-wrap">
+              <span class="super-admin-bar-value">{!! $formatDashboardValue($point['value'], 'currency') !!}</span>
+              <div title="{{ $point['label'] }}: Rs {{ number_format($point['value'], 2) }}" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
+              <span class="super-admin-bar-label">{{ $point['label'] }}</span>
+            </div>
+          @endforeach
+        </div></div>
+      </div>
+      <div class="super-admin-progress-list">
+        @foreach ($feeChart as $point)
+          @php $width = $point['value'] > 0 ? ($point['value'] / $maxFee) * 100 : 0; @endphp
+          <div class="super-admin-progress-row">
+            <span>{{ $point['label'] }}</span>
+            <div><i data-live-width="{{ $width }}" style="width: 0"></i></div>
+            <strong>{!! $formatDashboardValue($point['value'], 'currency') !!}</strong>
           </div>
-          <span class="portal-badge contacted">Tracked</span>
-        </li>
-      </ul>
-
-      <div class="portal-restricted">
-        Demo restrictions remain active across the portal: delete records, report exports, payment tools, and settings changes stay locked for demo users.
+        @endforeach
       </div>
     </article>
   </section>
 
-  <section class="portal-grid-2">
-    <article class="portal-card">
-      <div class="portal-card-head">
-        <div>
-          <h2>Recent requests</h2>
-          <p class="portal-muted">Latest demo submissions arriving from the website form.</p>
+  <section class="portal-card super-admin-chart-card super-admin-attendance-panel">
+    <div class="portal-card-head"><div><h2>Attendance Percentage Chart</h2><p>Daily present percentage from attendance records.</p></div></div>
+    <div class="super-admin-live-chart">
+      <div class="super-admin-chart-scale"><span>100%</span><span>0%</span></div>
+      <div class="portal-chart"><div class="portal-chart-bars">
+        @foreach ($attendanceChart as $point)
+          @php $height = $point['value'] > 0 ? max(8, min(100, $point['value'])) : 0; @endphp
+          <div class="super-admin-bar-wrap">
+            <span class="super-admin-bar-value">{{ number_format($point['value'], 1) }}%</span>
+            <div title="{{ $point['label'] }}: {{ $point['value'] }}%" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
+            <span class="super-admin-bar-label">{{ $point['label'] }}</span>
+          </div>
+        @endforeach
+      </div></div>
+    </div>
+    <div class="super-admin-progress-list super-admin-progress-list-compact">
+      @foreach ($attendanceChart as $point)
+        <div class="super-admin-progress-row">
+          <span>{{ $point['label'] }}</span>
+          <div><i data-live-width="{{ min(100, max(0, $point['value'])) }}" style="width: 0"></i></div>
+          <strong>{{ number_format($point['value'], 1) }}%</strong>
         </div>
-        <a class="portal-button-ghost" href="{{ route('admin.demo-requests.index') }}">View all</a>
-      </div>
+      @endforeach
+    </div>
+  </section>
 
+  <section class="portal-grid-2 super-admin-dashboard-panels">
+    <article class="portal-card super-admin-table-card">
+      <div class="portal-card-head"><div><h2>Recent Students</h2><p>Latest admission records.</p></div></div>
       <table class="portal-table">
-        <thead>
-          <tr>
-            <th>College</th>
-            <th>Admin</th>
-            <th>Status</th>
-            <th>Date</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Student</th><th>Campus</th><th>Course</th><th>Date</th></tr></thead>
         <tbody>
-          @forelse ($recentRequests as $request)
-            <tr>
-              <td>
-                <strong>{{ $request->college_name }}</strong>
-                <div class="portal-table-note">{{ $request->email }}</div>
-              </td>
-              <td>{{ $request->admin_name }}</td>
-              <td><span class="portal-badge {{ strtolower($request->status) }}">{{ $request->status }}</span></td>
-              <td>{{ $request->created_at->format('d M Y') }}</td>
-            </tr>
+          @forelse ($recentStudents as $student)
+            <tr><td>{{ $student->user->name }}</td><td>{{ $student->campus->name }}</td><td>{{ $student->course->name }}</td><td>{{ $student->admission_date?->format('d M Y') }}</td></tr>
           @empty
-            <tr>
-              <td colspan="4">No requests submitted yet.</td>
-            </tr>
+            <tr><td colspan="4">No students found.</td></tr>
           @endforelse
         </tbody>
       </table>
     </article>
-
-    <article class="portal-card portal-profile-card" id="admin-profile">
-      <div class="portal-card-head">
-        <div>
-          <h2>Admin profile</h2>
-          <p class="portal-muted">Primary administrator for the CampusEdgePro approval workflow.</p>
-        </div>
-      </div>
-      <div class="portal-profile-row">
-        <span class="portal-avatar" style="width: 64px; height: 64px; border-radius: 20px;">{{ strtoupper(substr(auth()->user()?->name ?? 'A', 0, 1)) }}</span>
-        <div class="portal-profile-meta">
-          <strong>{{ auth()->user()?->name }}</strong>
-          <span class="portal-muted">{{ auth()->user()?->email }}</span>
-        </div>
-      </div>
-      <div class="portal-key-value">
-        <div>
-          <strong>Name</strong>
-          <span>{{ auth()->user()?->name }}</span>
-        </div>
-        <div>
-          <strong>Email</strong>
-          <span>{{ auth()->user()?->email }}</span>
-        </div>
-        <div>
-          <strong>Role</strong>
-          <span>{{ auth()->user()?->is_admin ? 'Administrator' : 'User' }}</span>
-        </div>
-      </div>
-      <div class="portal-card-actions">
-        <a class="portal-button portal-uniform-button" href="{{ route('admin.demo-requests.index') }}">Review pending requests</a>
-        <a class="portal-button-ghost portal-uniform-button" href="#top">Back to top</a>
-      </div>
+    <article class="portal-card super-admin-table-card">
+      <div class="portal-card-head"><div><h2>Recent Payments</h2><p>Latest fee collection activity.</p></div></div>
+      <table class="portal-table">
+        <thead><tr><th>Student</th><th>Amount</th><th>Method</th><th>Date</th></tr></thead>
+        <tbody>
+          @forelse ($recentPayments as $payment)
+            <tr><td>{{ $payment->fee->student->user->name }}</td><td>&#8377;{{ number_format($payment->amount, 2) }}</td><td>{{ $payment->payment_method }}</td><td>{{ $payment->payment_date?->format('d M Y') }}</td></tr>
+          @empty
+            <tr><td colspan="4">No payments found.</td></tr>
+          @endforelse
+        </tbody>
+      </table>
     </article>
-  </section>
-
-  <section class="portal-card portal-admin-users-card" id="admin-users">
-    <div class="portal-card-head">
-      <div>
-        <h2>Admin users</h2>
-        <p class="portal-muted">Administrator accounts with access to this control center.</p>
-      </div>
-      <span class="portal-badge active">{{ $adminUsers->count() }} active</span>
-    </div>
-
-    <table class="portal-table">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Added</th>
-        </tr>
-      </thead>
-      <tbody>
-        @forelse ($adminUsers as $adminUser)
-          <tr>
-            <td>
-              <div class="portal-admin-user-cell">
-                <span class="portal-avatar portal-avatar-small">{{ strtoupper(substr($adminUser->name ?? 'A', 0, 1)) }}</span>
-                <strong>{{ $adminUser->name }}</strong>
-              </div>
-            </td>
-            <td class="portal-table-email">{{ $adminUser->email }}</td>
-            <td><span class="portal-badge active">Administrator</span></td>
-            <td class="portal-table-nowrap">{{ $adminUser->created_at?->format('d M Y') ?? 'Not available' }}</td>
-          </tr>
-        @empty
-          <tr>
-            <td colspan="4">No admin users found.</td>
-          </tr>
-        @endforelse
-      </tbody>
-    </table>
   </section>
 @endsection

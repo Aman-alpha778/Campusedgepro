@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnsureUserIsAdmin
@@ -13,7 +14,14 @@ class EnsureUserIsAdmin
     {
         $user = Auth::user();
 
-        if (! $user || ! $user->is_admin) {
+        $statusAllowsAccess = ! Schema::hasColumn('users', 'status') || ! isset($user->status) || $user->status === 'active';
+        $hasAdminAccess = (bool) $user?->is_admin;
+
+        if (! $hasAdminAccess && Schema::hasTable('roles')) {
+            $hasAdminAccess = $user?->hasRole('Super Admin') ?? false;
+        }
+
+        if (! $user || ! $statusAllowsAccess || ! $hasAdminAccess) {
             Auth::logout();
 
             $request->session()->invalidate();
