@@ -1,10 +1,16 @@
-<dialog class="portal-modal" id="{{ $dialogId }}">
-  <div class="portal-modal-body">
-    <div class="portal-card-head">
-      <div><h2>{{ $department ? 'Edit department' : 'Create department' }}</h2><p>Single institution department setup.</p></div>
-      <button class="portal-button-ghost" type="button" onclick="this.closest('dialog').close()">Close</button>
+<dialog class="portal-modal department-modal" id="{{ $dialogId }}">
+  <div class="portal-modal-body department-modal-body">
+    <div class="department-modal-head">
+      <div class="department-modal-title">
+        <span>{{ $department ? 'ED' : 'ND' }}</span>
+        <div>
+          <h2>{{ $department ? 'Edit department' : 'Create department' }}</h2>
+          <p>Single institution department setup with HOD ownership and academic capacity.</p>
+        </div>
+      </div>
+      <button class="department-modal-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close department form">&times;</button>
     </div>
-    <form class="portal-form-grid" method="post" action="{{ $action }}">
+    <form class="portal-form-grid department-modal-form" method="post" action="{{ $action }}">
       @csrf
       @if($method !== 'post') @method($method) @endif
       <label class="portal-field"><span>Department Name</span><input name="name" value="{{ old('name', $department?->name) }}" required></label>
@@ -17,7 +23,10 @@
       <label class="portal-field"><span>Intake Capacity</span><input type="number" name="total_intake" min="0" value="{{ old('total_intake', $department?->total_intake ?? 0) }}"></label>
       <label class="portal-field"><span>Assign HOD</span><select name="hod_id"><option value="">Unassigned</option>@foreach($hodUsers as $user)<option value="{{ $user->id }}" @selected(old('hod_id', $department?->hod_id) == $user->id)>{{ $user->name }}</option>@endforeach</select></label>
       <label class="portal-field"><span>Status</span><select name="status"><option value="active" @selected(old('status', $department?->status ?? 'active') === 'active')>Active</option><option value="inactive" @selected(old('status', $department?->status) === 'inactive')>Inactive</option></select></label>
-      <div class="full"><button class="portal-button">Save department</button></div>
+      <div class="department-modal-actions full">
+        <button type="button" class="portal-button-ghost" onclick="this.closest('dialog').close()">Cancel</button>
+        <button class="portal-button">{{ $department ? 'Update department' : 'Create department' }}</button>
+      </div>
     </form>
   </div>
 </dialog>

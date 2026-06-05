@@ -105,32 +105,93 @@ class DatabaseSeeder extends Seeder
 
     private function fillDepartments(Carbon $now): void
     {
-        $missing = 10 - DB::table('departments')->count();
+        DB::transaction(function () use ($now): void {
+            $departmentIds = $this->syncIndianCollegeDepartments($now);
+            $oldDepartmentIds = DB::table('departments')
+                ->whereNotIn('id', $departmentIds)
+                ->pluck('id');
 
-        if ($missing <= 0) {
-            return;
-        }
+            if ($oldDepartmentIds->isEmpty()) {
+                $this->assignDepartmentHods($departmentIds);
+                return;
+            }
 
-        $names = collect(['Computer Science', 'Information Technology', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Business Administration', 'Commerce', 'Science', 'Arts', 'Education']);
-        DB::table('departments')->insert(collect(range(1, $missing))->map(function ($index) use ($names, $now): array {
-            $name = $names->get(($index - 1) % $names->count()).($index > $names->count() ? ' '.Str::upper(Str::random(3)) : '');
+            $this->redistributeDepartmentRecords('courses', $oldDepartmentIds, $departmentIds);
+            $this->redistributeDepartmentRecords('faculty', $oldDepartmentIds, $departmentIds);
+            $this->redistributeDepartmentRecords('subjects', $oldDepartmentIds, $departmentIds);
 
-            return [
-            'name' => $name,
-            'code' => Str::upper(Str::slug($name, '')),
-            'slug' => Str::slug($name),
-            'description' => "Academic department for {$name}.",
-            'email' => Str::slug($name).'.department@campusedge.test',
-            'phone' => fake()->phoneNumber(),
-            'location' => fake()->randomElement(['Academic Block A', 'Academic Block B', 'Main Building', 'Innovation Wing']),
-            'hod_id' => null,
-            'established_year' => fake()->numberBetween(1998, 2022),
-            'total_intake' => fake()->randomElement([60, 120, 180, 240]),
-            'status' => 'active',
-            'created_at' => $now,
-            'updated_at' => $now,
-            ];
-        })->all());
+            DB::statement('update students set department_id = courses.department_id from courses where students.course_id = courses.id');
+            DB::table('department_hod_history')->whereIn('department_id', $oldDepartmentIds)->delete();
+            DB::table('departments')->whereIn('id', $oldDepartmentIds)->delete();
+            $this->assignDepartmentHods($departmentIds);
+        });
+    }
+
+    private function syncIndianCollegeDepartments(Carbon $now): array
+    {
+        $departments = collect([
+            ['Computer Science Engineering', 'CSE', 'Advanced computing, AI, software engineering, and data systems.', 'cse', 'Block A - First Floor', 1998, 180],
+            ['Information Technology', 'IT', 'Information systems, cloud platforms, cybersecurity, and enterprise applications.', 'it', 'Block A - Second Floor', 2001, 120],
+            ['Electronics and Communication Engineering', 'ECE', 'Embedded systems, VLSI, communication networks, and signal processing.', 'ece', 'Block B - First Floor', 2003, 120],
+            ['Mechanical Engineering', 'ME', 'Design, manufacturing, thermal engineering, robotics, and industrial systems.', 'me', 'Workshop Block', 1996, 120],
+            ['Business Administration', 'MBA', 'Management studies, finance, marketing, HR, operations, and entrepreneurship.', 'mba', 'Management Block', 2008, 90],
+            ['Pharmaceutical Sciences', 'BPHARM', 'Pharmaceutics, pharmacology, medicinal chemistry, and clinical pharmacy.', 'pharmacy', 'Pharmacy Block', 2012, 100],
+        ]);
+
+        return $departments->map(function (array $department) use ($now): int {
+            [$name, $code, $description, $emailPrefix, $location, $year, $intake] = $department;
+
+            $model = Department::withTrashed()->updateOrCreate(
+                ['code' => $code],
+                [
+                    'name' => $name,
+                    'slug' => Str::slug($name),
+                    'description' => $description,
+                    'email' => "{$emailPrefix}.department@campusedge.test",
+                    'phone' => '+91 80 '.fake()->numerify('#### ####'),
+                    'location' => $location,
+                    'established_year' => $year,
+                    'total_intake' => $intake,
+                    'status' => 'active',
+                    'updated_at' => $now,
+                ]
+            );
+
+            if ($model->trashed()) {
+                $model->restore();
+            }
+
+            return $model->id;
+        })->all();
+    }
+
+    private function redistributeDepartmentRecords(string $table, $oldDepartmentIds, array $targetDepartmentIds): void
+    {
+        DB::table($table)
+            ->whereIn('department_id', $oldDepartmentIds)
+            ->orderBy('id')
+            ->pluck('id')
+            ->values()
+            ->each(function ($id, int $index) use ($table, $targetDepartmentIds): void {
+                DB::table($table)
+                    ->where('id', $id)
+                    ->update(['department_id' => $targetDepartmentIds[$index % count($targetDepartmentIds)]]);
+            });
+    }
+
+    private function assignDepartmentHods(array $departmentIds): void
+    {
+        collect($departmentIds)->each(function (int $departmentId): void {
+            $hodUserId = DB::table('faculty')
+                ->where('department_id', $departmentId)
+                ->whereNull('deleted_at')
+                ->orderBy('id')
+                ->value('user_id');
+
+            DB::table('departments')
+                ->where('id', $departmentId)
+                ->update(['hod_id' => $hodUserId]);
+        });
     }
 
     private function fillCourses(Carbon $now): void

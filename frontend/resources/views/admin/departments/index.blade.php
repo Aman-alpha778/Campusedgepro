@@ -1,6 +1,19 @@
 @extends('admin.layouts.app', ['title' => 'Departments'])
 
 @section('content')
+  @php
+    $departmentCards = [
+      ['label' => 'Total Departments', 'value' => $stats['total_departments'], 'note' => 'Academic units in this institution.', 'tone' => 'blue', 'icon' => 'TD'],
+      ['label' => 'Active Departments', 'value' => $stats['active_departments'], 'note' => 'Available for allocation.', 'tone' => 'emerald', 'icon' => 'AD'],
+      ['label' => 'Inactive Departments', 'value' => $stats['inactive_departments'], 'note' => 'Temporarily paused.', 'tone' => 'amber', 'icon' => 'ID'],
+      ['label' => 'Total Faculty', 'value' => $stats['total_faculty'], 'note' => 'Faculty linked to departments.', 'tone' => 'violet', 'icon' => 'TF'],
+      ['label' => 'Total Students', 'value' => $stats['total_students'], 'note' => 'Students linked to departments.', 'tone' => 'cyan', 'icon' => 'TS'],
+      ['label' => 'Total Courses', 'value' => $stats['total_courses'], 'note' => 'Courses mapped to departments.', 'tone' => 'rose', 'icon' => 'TC'],
+      ['label' => 'Assigned HODs', 'value' => $stats['assigned_hods'], 'note' => 'Departments with HOD ownership.', 'tone' => 'indigo', 'icon' => 'HD'],
+      ['label' => 'Intake Capacity', 'value' => $stats['total_intake'], 'note' => 'Total approved seats.', 'tone' => 'slate', 'icon' => 'IC'],
+    ];
+  @endphp
+
   <section class="portal-page-head department-page-head">
     <div>
       <span class="department-kicker">Single Institution ERP</span>
@@ -11,10 +24,20 @@
   </section>
 
   <section class="portal-grid-4 department-stat-grid">
-    <article class="portal-stat department-stat-card"><span class="portal-stat-label">Total Departments</span><strong>{{ $stats['total_departments'] }}</strong><div class="portal-stat-note">All academic units.</div></article>
-    <article class="portal-stat department-stat-card"><span class="portal-stat-label">Active</span><strong>{{ $stats['active_departments'] }}</strong><div class="portal-stat-note">Available for allocation.</div></article>
-    <article class="portal-stat department-stat-card"><span class="portal-stat-label">Inactive</span><strong>{{ $stats['inactive_departments'] }}</strong><div class="portal-stat-note">Temporarily paused.</div></article>
-    <article class="portal-stat department-stat-card"><span class="portal-stat-label">Faculty / Students</span><strong>{{ $stats['total_faculty'] }} / {{ $stats['total_students'] }}</strong><div class="portal-stat-note">Linked people records.</div></article>
+    @foreach ($departmentCards as $card)
+      <article class="portal-stat department-stat-card tone-{{ $card['tone'] }}">
+        <div class="department-stat-top">
+          <span class="department-stat-icon">{{ $card['icon'] }}</span>
+          <span class="portal-stat-label">{{ $card['label'] }}</span>
+        </div>
+        <strong
+          data-counter-target="{{ $card['value'] }}"
+          data-counter-decimals="0"
+          data-counter-separator="true"
+        >0</strong>
+        <div class="portal-stat-note">{{ $card['note'] }}</div>
+      </article>
+    @endforeach
   </section>
 
   <section class="portal-card department-directory-card">

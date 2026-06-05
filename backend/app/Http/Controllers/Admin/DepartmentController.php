@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\DepartmentHodHistory;
 use App\Models\Faculty;
+use App\Models\Course;
+use App\Models\Student;
 use App\Services\ActivityLogService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -36,7 +39,10 @@ class DepartmentController extends Controller
                 'active_departments' => Department::active()->count(),
                 'inactive_departments' => Department::inactive()->count(),
                 'total_faculty' => Faculty::count(),
-                'total_students' => \App\Models\Student::count(),
+                'total_students' => Student::count(),
+                'total_courses' => Course::count(),
+                'assigned_hods' => Department::whereNotNull('hod_id')->count(),
+                'total_intake' => Department::sum('total_intake'),
             ],
             'hodUsers' => $this->hodUsers(),
         ]);
@@ -123,7 +129,7 @@ class DepartmentController extends Controller
     {
         return $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'code' => ['required', 'string', 'max:40', 'unique:departments,code,'.$id],
+            'code' => ['required', 'string', 'max:40', Rule::unique('departments', 'code')->ignore($id)],
             'description' => ['nullable', 'string'],
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:30'],

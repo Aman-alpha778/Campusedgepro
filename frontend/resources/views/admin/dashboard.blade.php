@@ -1,8 +1,6 @@
 @extends('admin.layouts.app', ['title' => 'Super Admin Dashboard'])
 
 @php
-  $maxAdmission = max(1, collect($admissionChart)->max('value'));
-  $maxFee = max(1, collect($feeChart)->max('value'));
   $formatDashboardValue = function (float $value, string $type = 'number'): string {
     if ($type === 'currency') {
       return '&#8377;'.number_format($value, 0);
@@ -13,6 +11,23 @@
     }
 
     return number_format($value, 0);
+  };
+  $dashboardGraphColors = ['#00897b', '#f7b313', '#42b8c2', '#ef476f', '#053b52', '#665fb6', '#22c55e', '#f97316', '#2563eb', '#9333ea', '#14b8a6', '#e11d48'];
+  $makeDashboardGraphSeries = function ($points, string $fallbackFormat = 'number') use ($dashboardGraphColors) {
+    return collect($points)
+      ->values()
+      ->map(function ($point, int $index) use ($dashboardGraphColors, $fallbackFormat) {
+        $name = $point['name'] ?? $point['label'] ?? 'No data';
+
+        return [
+          'label' => $point['label'] ?? $name,
+          'name' => $name,
+          'total' => (float) ($point['total'] ?? $point['value'] ?? 0),
+          'format' => $point['format'] ?? $fallbackFormat,
+          'color' => $point['color'] ?? $dashboardGraphColors[$index % count($dashboardGraphColors)],
+        ];
+      })
+      ->all();
   };
 @endphp
 
@@ -41,11 +56,32 @@
           ->join('');
         $sparkPoints = count($card['details'] ?? []) > 0 ? $card['details'] : [['label' => 'No data', 'value' => 0, 'format' => 'number']];
         $sparkMax = max(1, collect($sparkPoints)->max('value'));
+        $isDepartmentListCard = ($card['label'] ?? '') === 'Total Departments';
+        $usesDepartmentCombo = ! empty($card['comboChart']['series']);
+        $cardGraphSeries = $usesDepartmentCombo
+          ? $makeDashboardGraphSeries($card['comboChart']['series'], $card['format'] ?? 'number')
+          : $makeDashboardGraphSeries($sparkPoints, $card['format'] ?? 'number');
+        $cardGraphMax = max(1, collect($cardGraphSeries)->max('total'));
       @endphp
-      <article class="portal-stat super-admin-stat-card tone-{{ $card['tone'] ?? 'blue' }}">
+      <article class="portal-stat super-admin-stat-card tone-{{ $card['tone'] ?? 'blue' }} stat-{{ \Illuminate\Support\Str::slug($card['label'] ?? 'card') }}" style="--bar-count: {{ max(1, count($cardGraphSeries)) }}">
         <div class="super-admin-stat-top">
           <span class="super-admin-stat-icon">{{ $cardIcon }}</span>
           <span class="portal-stat-label">{{ $card['label'] }}</span>
+          @if (! $isDepartmentListCard && ! empty($cardGraphSeries))
+            <div class="super-admin-stat-top-values" aria-label="{{ $card['label'] }} by department">
+              @foreach ($cardGraphSeries as $series)
+                <span style="--dept-color: {{ $series['color'] }}">
+                  <strong
+                    data-counter-target="{{ $series['total'] }}"
+                    data-counter-prefix="{{ ($series['format'] ?? 'number') === 'currency' ? '&#8377;' : '' }}"
+                    data-counter-suffix="{{ ($series['format'] ?? 'number') === 'percent' ? '%' : '' }}"
+                    data-counter-decimals="{{ ($series['format'] ?? 'number') === 'percent' ? 1 : 0 }}"
+                    data-counter-separator="true"
+                  >{!! ($series['format'] ?? 'number') === 'currency' ? '&#8377;' : '' !!}0{{ ($series['format'] ?? 'number') === 'percent' ? '%' : '' }}</strong>
+                </span>
+              @endforeach
+            </div>
+          @endif
         </div>
         <strong
           data-counter-target="{{ $card['value'] }}"
@@ -54,12 +90,40 @@
           data-counter-decimals="{{ $counterDecimals }}"
           data-counter-separator="true"
         >{!! $counterPrefix !!}0{{ $counterSuffix }}</strong>
-        <div class="super-admin-mini-chart" aria-hidden="true">
-          @foreach ($sparkPoints as $point)
-            <i data-live-height="{{ $point['value'] > 0 ? max(8, ($point['value'] / $sparkMax) * 100) : 0 }}" style="height: 0"></i>
-          @endforeach
-        </div>
-        <div class="super-admin-card-details">
+        @if (! $isDepartmentListCard)
+          <div class="student-combo-card" style="--bar-count: {{ max(1, count($cardGraphSeries)) }}">
+            <div class="student-combo-visual">
+              <div class="student-combo-scale" aria-hidden="true">
+                @foreach ([100, 80, 60, 40, 20, 0] as $tick)
+                  <span>{!! $formatDashboardValue(($cardGraphMax * $tick) / 100, $cardGraphSeries[0]['format'] ?? 'number') !!}</span>
+                @endforeach
+              </div>
+              <div class="student-combo-grid-lines" aria-hidden="true">
+                @foreach ([100, 80, 60, 40, 20, 0] as $tick)
+                  <i style="top: {{ 100 - $tick }}%"></i>
+                @endforeach
+              </div>
+              <div class="student-combo-bars">
+                @foreach ($cardGraphSeries as $series)
+                  @php
+                    $barHeight = $series['total'] > 0 ? max(12, ($series['total'] / $cardGraphMax) * 100) : 0;
+                    $seriesValue = $formatDashboardValue($series['total'], $series['format']);
+                  @endphp
+                  <div class="student-combo-bar-item" title="{{ $series['name'] }}: {{ strip_tags($seriesValue) }}">
+                    <i data-live-height="{{ $barHeight }}" style="--dept-color: {{ $series['color'] }}; height: 0"></i>
+                    <small>{{ $series['label'] }}</small>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+            <div class="student-combo-legend">
+              @foreach ($cardGraphSeries as $series)
+                <span><i style="background: {{ $series['color'] }}"></i>{{ $series['name'] }}</span>
+              @endforeach
+            </div>
+          </div>
+        @endif
+        <div class="super-admin-card-details {{ $isDepartmentListCard ? 'is-department-list' : '' }}">
           @foreach ($sparkPoints as $point)
             @php
               $detailValue = ($point['format'] ?? 'number') === 'currency'
@@ -67,97 +131,22 @@
                 : number_format($point['value'], 0);
               $detailWidth = $point['value'] > 0 ? ($point['value'] / $sparkMax) * 100 : 0;
             @endphp
-            <div class="super-admin-card-detail-row">
-              <span>{{ $point['label'] }}</span>
-              <div><i data-live-width="{{ $detailWidth }}" style="width: 0"></i></div>
-              <strong>{!! $detailValue !!}</strong>
-            </div>
+            @if ($isDepartmentListCard)
+              <div class="super-admin-department-list-row">
+                <span>{{ $point['label'] }}</span>
+              </div>
+            @else
+              <div class="super-admin-card-detail-row">
+                <span>{{ $point['label'] }}</span>
+                <div><i data-live-width="{{ $detailWidth }}" style="width: 0"></i></div>
+                <strong>{!! $detailValue !!}</strong>
+              </div>
+            @endif
           @endforeach
         </div>
         <div class="portal-stat-note">{{ $card['note'] }}</div>
       </article>
     @endforeach
-  </section>
-
-  <section class="portal-grid-2 super-admin-dashboard-panels">
-    <article class="portal-card super-admin-chart-card">
-      <div class="portal-card-head"><div><h2>Student Admission Chart</h2><p>Monthly admission count from student records.</p></div></div>
-      <div class="super-admin-live-chart">
-        <div class="super-admin-chart-scale"><span>{{ number_format($maxAdmission) }}</span><span>0</span></div>
-        <div class="portal-chart"><div class="portal-chart-bars">
-          @foreach ($admissionChart as $point)
-            @php $height = $point['value'] > 0 ? max(8, ($point['value'] / $maxAdmission) * 100) : 0; @endphp
-            <div class="super-admin-bar-wrap">
-              <span class="super-admin-bar-value">{{ number_format($point['value']) }}</span>
-              <div title="{{ $point['label'] }}: {{ number_format($point['value']) }}" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
-              <span class="super-admin-bar-label">{{ $point['label'] }}</span>
-            </div>
-          @endforeach
-        </div></div>
-      </div>
-      <div class="super-admin-progress-list">
-        @foreach ($admissionChart as $point)
-          @php $width = $point['value'] > 0 ? ($point['value'] / $maxAdmission) * 100 : 0; @endphp
-          <div class="super-admin-progress-row">
-            <span>{{ $point['label'] }}</span>
-            <div><i data-live-width="{{ $width }}" style="width: 0"></i></div>
-            <strong>{{ number_format($point['value']) }}</strong>
-          </div>
-        @endforeach
-      </div>
-    </article>
-    <article class="portal-card super-admin-chart-card">
-      <div class="portal-card-head"><div><h2>Fee Collection Chart</h2><p>Monthly paid amount from payment records.</p></div></div>
-      <div class="super-admin-live-chart">
-        <div class="super-admin-chart-scale"><span>{!! $formatDashboardValue($maxFee, 'currency') !!}</span><span>&#8377;0</span></div>
-        <div class="portal-chart"><div class="portal-chart-bars">
-          @foreach ($feeChart as $point)
-            @php $height = $point['value'] > 0 ? max(8, ($point['value'] / $maxFee) * 100) : 0; @endphp
-            <div class="super-admin-bar-wrap">
-              <span class="super-admin-bar-value">{!! $formatDashboardValue($point['value'], 'currency') !!}</span>
-              <div title="{{ $point['label'] }}: Rs {{ number_format($point['value'], 2) }}" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
-              <span class="super-admin-bar-label">{{ $point['label'] }}</span>
-            </div>
-          @endforeach
-        </div></div>
-      </div>
-      <div class="super-admin-progress-list">
-        @foreach ($feeChart as $point)
-          @php $width = $point['value'] > 0 ? ($point['value'] / $maxFee) * 100 : 0; @endphp
-          <div class="super-admin-progress-row">
-            <span>{{ $point['label'] }}</span>
-            <div><i data-live-width="{{ $width }}" style="width: 0"></i></div>
-            <strong>{!! $formatDashboardValue($point['value'], 'currency') !!}</strong>
-          </div>
-        @endforeach
-      </div>
-    </article>
-  </section>
-
-  <section class="portal-card super-admin-chart-card super-admin-attendance-panel">
-    <div class="portal-card-head"><div><h2>Attendance Percentage Chart</h2><p>Daily present percentage from attendance records.</p></div></div>
-    <div class="super-admin-live-chart">
-      <div class="super-admin-chart-scale"><span>100%</span><span>0%</span></div>
-      <div class="portal-chart"><div class="portal-chart-bars">
-        @foreach ($attendanceChart as $point)
-          @php $height = $point['value'] > 0 ? max(8, min(100, $point['value'])) : 0; @endphp
-          <div class="super-admin-bar-wrap">
-            <span class="super-admin-bar-value">{{ number_format($point['value'], 1) }}%</span>
-            <div title="{{ $point['label'] }}: {{ $point['value'] }}%" class="portal-chart-bar" data-live-height="{{ $height }}" style="height: 0"></div>
-            <span class="super-admin-bar-label">{{ $point['label'] }}</span>
-          </div>
-        @endforeach
-      </div></div>
-    </div>
-    <div class="super-admin-progress-list super-admin-progress-list-compact">
-      @foreach ($attendanceChart as $point)
-        <div class="super-admin-progress-row">
-          <span>{{ $point['label'] }}</span>
-          <div><i data-live-width="{{ min(100, max(0, $point['value'])) }}" style="width: 0"></i></div>
-          <strong>{{ number_format($point['value'], 1) }}%</strong>
-        </div>
-      @endforeach
-    </div>
   </section>
 
   <section class="portal-grid-2 super-admin-dashboard-panels">
