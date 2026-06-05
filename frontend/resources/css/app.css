@@ -1269,3 +1269,13 @@ body.super-admin-ui {
     width: 100%;
   }
 }
+
+.demo-login-card .demo-login-logo-wrap {
+  height: 78px;
+  width: 156px;
+}
+
+.demo-login-card .demo-login-logo {
+  max-width: 118px;
+  width: 118px;
+}
