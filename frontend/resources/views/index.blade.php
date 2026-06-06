@@ -55,7 +55,7 @@
     <main>
       <section class="section hero">
         <div>
-          <p class="eyebrow">CampusEdgePro - Smart College ERP by Sortiq Solutions</p>
+          <p class="eyebrow hero-eyebrow-main">CampusEdgePro - Smart College ERP by Sortiq Solutions</p>
           <h1>All-in-One College ERP Software</h1>
           <p class="lead">Manage students, staff, attendance, fees and admissions in one platform built for colleges that want cleaner operations and faster decisions.</p>
           <div class="hero-actions">

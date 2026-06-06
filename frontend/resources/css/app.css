@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 @import './legacy-components.css';
 
@@ -210,7 +211,7 @@
 }
 
 .super-admin-stat-grid {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
 }
 
 .super-admin-stat-card {
@@ -222,6 +223,7 @@
   border-color: color-mix(in srgb, var(--stat-a) 22%, #d4e2fb);
   box-shadow: 0 24px 64px rgba(17, 46, 114, 0.12);
   min-height: 178px;
+  min-width: 0;
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
@@ -543,7 +545,7 @@ body.super-admin-ui {
 
 .super-admin-ui .super-admin-stat-grid {
   gap: 16px;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   margin-bottom: 18px;
 }
 
@@ -555,8 +557,10 @@ body.super-admin-ui {
     0 26px 58px rgba(15, 23, 42, 0.18),
     0 8px 18px rgba(15, 23, 42, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  max-width: 100%;
   min-height: auto;
-  overflow: visible;
+  min-width: 0;
+  overflow: hidden;
   padding: 16px;
 }
 
@@ -587,12 +591,13 @@ body.super-admin-ui {
   display: flex;
   gap: 12px;
   margin-left: 74px;
+  max-width: 100%;
   min-width: 0;
   overflow-x: auto;
   padding-top: 4px;
   scrollbar-color: rgba(37, 99, 235, 0.45) rgba(226, 232, 240, 0.9);
   scrollbar-width: thin;
-  width: max(calc(100% - 92px), calc(var(--bar-count, 1) * 116px));
+  width: 100%;
 }
 
 .super-admin-stat-top-values {
@@ -684,6 +689,8 @@ body.super-admin-ui {
   display: grid;
   gap: 7px;
   margin-top: 12px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .super-admin-card-detail-row {
@@ -731,6 +738,11 @@ body.super-admin-ui {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.stat-total-departments .super-admin-card-details.is-department-list {
+  display: flex;
+  overflow-x: auto;
+}
+
 .super-admin-department-list-row {
   align-items: center;
   background: linear-gradient(135deg, #f8fbff, #ffffff);
@@ -743,6 +755,10 @@ body.super-admin-ui {
   line-height: 1.25;
   min-height: 42px;
   padding: 10px 12px;
+}
+
+.stat-total-departments .super-admin-department-list-row {
+  flex: 0 0 220px;
 }
 
 .super-admin-mini-chart {
@@ -771,6 +787,8 @@ body.super-admin-ui {
   display: grid;
   gap: 10px;
   margin-top: 12px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .student-combo-card.is-panel-chart {
@@ -787,6 +805,8 @@ body.super-admin-ui {
   border: 1px solid #edf0f8;
   border-radius: 12px;
   height: 215px;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
@@ -879,17 +899,17 @@ body.super-admin-ui {
   left: 74px;
   position: absolute;
   top: 24px;
-  width: max(calc(100% - 92px), calc(var(--bar-count, 1) * 116px));
+  min-width: max(calc(100% - 92px), calc(var(--bar-count, 1) * 116px));
   z-index: 4;
 }
 
 .student-combo-bar-item {
   align-items: center;
   display: grid;
-  flex: 1;
+  flex: 1 0 104px;
   grid-template-rows: 22px 1fr 24px;
   height: 100%;
-  min-width: 0;
+  min-width: 104px;
   position: relative;
 }
 
@@ -969,7 +989,9 @@ body.super-admin-ui {
 .stat-total-faculty .student-combo-bar-item,
 .stat-total-courses .student-combo-bar-item,
 .stat-total-departments .student-combo-bar-item {
+  flex-basis: 116px;
   grid-template-rows: 1fr 42px;
+  min-width: 116px;
 }
 
 .stat-total-students .student-combo-bar-item small,
@@ -1620,12 +1642,6 @@ body.super-admin-ui {
   line-height: 1;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   width: 40px;
-}
-
-.department-modal-close:hover {
-  background: #f8fbff;
-  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
-  transform: translateY(-2px);
 }
 
 .department-modal-form {

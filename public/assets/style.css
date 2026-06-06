@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   --bg: #f4f7f2;
@@ -25,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: linear-gradient(180deg, #f7faf5 0%, #edf5ea 100%);
   color: var(--text);
   line-height: 1.6;
@@ -106,7 +106,7 @@ img {
   font-weight: 600;
 }
 
-.nav a:hover,
+.nav a:not(.btn, .btn-secondary, .btn-outline, .button):hover,
 .nav a.active {
   color: var(--brand-dark);
 }
@@ -140,10 +140,67 @@ img {
   color: var(--brand-dark);
 }
 
-.btn:hover,
-.btn-secondary:hover,
-.btn-outline:hover {
-  transform: translateY(-2px);
+:is(button, .button, .btn, .btn-secondary, .btn-outline) {
+  --button-liquid: var(--accent, #f4b860);
+  --button-liquid-deep: #e98c00;
+  border-color: transparent !important;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline) > * {
+  position: relative;
+  z-index: 1;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline)::before,
+:is(button, .button, .btn, .btn-secondary, .btn-outline)::after {
+  content: "";
+  inset: auto -24% -185%;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline)::before {
+  background:
+    radial-gradient(circle at 26% 22%, rgba(255, 255, 255, 0.38) 0 8%, transparent 9%),
+    linear-gradient(135deg, var(--button-liquid), var(--button-liquid-deep));
+  border-radius: 43% 47% 39% 45%;
+  height: 240%;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: bottom 0.55s ease, opacity 0.22s ease, transform 0.55s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline)::after {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 48%;
+  height: 190%;
+  opacity: 0;
+  transform: translateY(16%) rotate(18deg);
+  transition: bottom 0.65s ease, opacity 0.2s ease, transform 0.65s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline):hover {
+  border-color: transparent !important;
+  box-shadow: 0 12px 28px rgba(233, 140, 0, 0.24), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline):hover::before {
+  bottom: -88%;
+  opacity: 1;
+  transform: rotate(12deg);
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline):hover::after {
+  bottom: -106%;
+  opacity: 1;
+  transform: translateY(0) rotate(195deg);
 }
 
 .hero,
@@ -177,7 +234,7 @@ img {
 h1,
 h2,
 h3 {
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   margin: 0 0 1rem;
   line-height: 1.15;
 }

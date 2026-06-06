@@ -147,9 +147,7 @@ class DashboardController extends Controller
             ->selectRaw('departments.id, departments.name, departments.code, count(students.id) as students_count')
             ->groupBy('departments.id', 'departments.name', 'departments.code')
             ->orderByDesc('students_count')
-            ->limit(6)
             ->get()
-            ->filter(fn ($department) => (int) $department->students_count > 0)
             ->values();
 
         $departmentIds = $departments->pluck('id');
@@ -211,9 +209,7 @@ class DashboardController extends Controller
             ->selectRaw('departments.id, departments.name, departments.code, count(faculty.id) as faculty_count')
             ->groupBy('departments.id', 'departments.name', 'departments.code')
             ->orderByDesc('faculty_count')
-            ->limit(6)
             ->get()
-            ->filter(fn ($department) => (int) $department->faculty_count > 0)
             ->values();
 
         $series = $departments->values()->map(fn ($department, int $index): array => [
@@ -252,9 +248,7 @@ class DashboardController extends Controller
             ->selectRaw('departments.id, departments.name, departments.code, count(courses.id) as courses_count')
             ->groupBy('departments.id', 'departments.name', 'departments.code')
             ->orderByDesc('courses_count')
-            ->limit(6)
             ->get()
-            ->filter(fn ($department) => (int) $department->courses_count > 0)
             ->values();
 
         return $this->departmentSeriesResponse($departments, 'courses_count', $colors);
@@ -268,7 +262,6 @@ class DashboardController extends Controller
             ->whereNull('deleted_at')
             ->selectRaw('id, name, code, 1 as departments_count')
             ->orderBy('name')
-            ->limit(6)
             ->get()
             ->values();
 

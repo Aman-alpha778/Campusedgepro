@@ -1,7 +1,7 @@
 
 /* Landing page Tailwind components: migrated from public/assets/style.css */
 body.landing-page {
-  @apply [--bg:#f4f7f2] [--surface:#ffffff] [--surface-alt:#eef5ea] [--text:#163020] [--muted:#56705f] [--brand:#116466] [--brand-dark:#0b3c49] [--accent:#f4b860] [--border:#d8e3d4] [--shadow:0_18px_40px_rgba(17,100,102,0.12)] [--radius:20px] [--max-width:1180px] box-border scroll-smooth [font-family:"Segoe_UI",Tahoma,Geneva,Verdana,sans-serif] [background:linear-gradient(180deg,#f7faf5_0%,#edf5ea_100%)] text-[color:var(--text)] leading-[1.6] m-0;
+  @apply [--bg:#f4f7f2] [--surface:#ffffff] [--surface-alt:#eef5ea] [--text:#163020] [--muted:#56705f] [--brand:#116466] [--brand-dark:#0b3c49] [--accent:#f4b860] [--border:#d8e3d4] [--shadow:0_18px_40px_rgba(17,100,102,0.12)] [--radius:20px] [--max-width:1180px] box-border scroll-smooth [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] [background:linear-gradient(180deg,#f7faf5_0%,#edf5ea_100%)] text-[color:var(--text)] leading-[1.6] m-0;
 }
 body.landing-page a {
   @apply text-inherit no-underline;
@@ -43,7 +43,7 @@ body.landing-page .nav .button {
 body.landing-page .nav a {
   @apply text-[color:var(--muted)] font-semibold;
 }
-body.landing-page .nav a:hover,
+body.landing-page .nav a:not(.btn, .btn-secondary, .btn-outline, .button):hover,
 body.landing-page .nav a.active {
   @apply text-[color:var(--brand-dark)];
 }
@@ -61,11 +61,6 @@ body.landing-page .btn-secondary {
 body.landing-page .btn-outline {
   @apply border border-[color:var(--border)] [background:rgba(255,255,255,0.7)] text-[color:var(--brand-dark)] border-solid;
 }
-body.landing-page .btn:hover,
-body.landing-page .btn-secondary:hover,
-body.landing-page .btn-outline:hover {
-  @apply translate-y-[-2px];
-}
 body.landing-page .hero,
 body.landing-page .page-hero {
   @apply pt-[5.5rem] pb-16 px-0;
@@ -82,7 +77,7 @@ body.landing-page .eyebrow {
 body.landing-page h1,
 body.landing-page h2,
 body.landing-page h3 {
-  @apply [font-family:"Roboto",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] leading-[1.15] mt-0 mb-4 mx-0;
+  @apply [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] leading-[1.15] mt-0 mb-4 mx-0;
 }
 body.landing-page h1 {
   @apply text-[clamp(2.5rem,6vw,4.6rem)];
@@ -374,13 +369,13 @@ img {
   @apply sticky z-20 border-b-[color:var(--line)] [background:rgba(255,255,255,0.96)] backdrop-blur-md border-b border-solid top-0;
 }
 .nav {
-  @apply w-[min(1180px,calc(100%_-_32px))] min-h-[60px] grid grid-cols-[auto_1fr_auto] items-center gap-[20px] mx-auto my-0;
+  @apply w-[min(1180px,calc(100%_-_32px))] min-h-[88px] grid grid-cols-[auto_1fr_auto] items-center gap-[22px] mx-auto my-0;
 }
 .brand {
   @apply inline-flex items-center gap-[12px] font-extrabold tracking-[0] min-w-max text-[color:var(--ink)];
 }
 .brand-logo {
-  @apply block w-auto h-[44px];
+  @apply block w-auto h-[60px];
 }
 .brand-mark {
   @apply w-[40px] h-[40px] grid place-items-center [background:var(--brand)] text-[color:var(--white)] font-black shadow-none rounded-[6px];
@@ -389,16 +384,16 @@ img {
   @apply flex items-center justify-center gap-[22px] text-[0.88rem] text-[color:var(--muted)] [background:transparent] p-0 rounded-none border-0;
 }
 .nav-links a {
-  @apply inline-flex items-center relative min-h-[44px] font-bold transition-[color] duration-[160ms] ease-[ease] p-0 rounded-none;
+  @apply inline-flex items-center relative min-h-[60px] font-bold transition-[color] duration-[160ms] ease-[ease] p-0 rounded-none;
 }
 .nav-cta {
-  @apply min-h-[42px] justify-self-end px-[16px] py-0 rounded-[18px] hover:text-[color:var(--white)];
+  @apply min-h-[54px] justify-self-end px-[20px] py-0 rounded-[18px];
 }
 .menu-toggle {
   @apply hidden w-[42px] h-[42px] border border-[color:var(--line)] [background:var(--white)] text-[color:var(--ink)] text-[1.3rem] rounded-[16px] border-solid;
 }
 .button {
-  @apply inline-flex items-center justify-center min-h-[46px] border [background:var(--brand)] text-[color:var(--white)] text-[0.92rem] font-[750] cursor-pointer [transition:transform_160ms_ease,box-shadow_160ms_ease,background_160ms_ease] px-[18px] py-0 rounded-[20px] border-solid border-transparent hover:-translate-y-px hover:shadow-[0_10px_24px_rgba(9,107,103,0.18)];
+  @apply inline-flex items-center justify-center min-h-[46px] border [background:var(--brand)] text-[color:var(--white)] text-[0.92rem] font-[750] cursor-pointer [transition:transform_160ms_ease,box-shadow_160ms_ease,background_160ms_ease] px-[18px] py-0 rounded-[20px] border-solid border-transparent;
 }
 .button.secondary {
   @apply [background:var(--white)] border-[color:var(--line)] text-[color:var(--ink)];
@@ -418,10 +413,13 @@ img {
 .eyebrow {
   @apply inline-flex items-center gap-[8px] text-[color:var(--brand)] font-extrabold uppercase text-[0.72rem] mt-0 mb-[14px] mx-0;
 }
+.hero-eyebrow-main {
+  @apply text-[0.86rem] leading-[1.35];
+}
 h1,
 h2,
 h3 {
-  @apply [font-family:"Roboto",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif];
+  @apply [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif];
 }
 h1,
 h2,
@@ -1548,7 +1546,7 @@ h3 {
 .footer li,
 .footer input,
 .footer button {
-  @apply text-[12px] [font-family:"Roboto",Arial,sans-serif];
+  @apply text-[12px] [font-family:Inter,ui-sans-serif,system-ui,sans-serif];
 }
 .footer-panel {
   @apply p-0;
@@ -1569,7 +1567,7 @@ h3 {
   @apply w-[min(170px,58%)] max-w-full h-auto object-contain object-[left_center] block mb-[28px];
 }
 .footer h6 {
-  @apply relative text-[#f1f1f1] [font-family:Georgia,"Times_New_Roman",serif] text-[1.1rem] font-bold mt-0 mb-[32px] mx-0 after:absolute after:content-[""] after:w-[52px] after:h-px after:bottom-[-16px] after:[background:rgba(255,255,255,0.28)] after:left-0;
+  @apply relative text-[#f1f1f1] [font-family:Inter,ui-sans-serif,system-ui,sans-serif] text-[1.1rem] font-bold mt-0 mb-[32px] mx-0 after:absolute after:content-[""] after:w-[52px] after:h-px after:bottom-[-16px] after:[background:rgba(255,255,255,0.28)] after:left-0;
 }
 .footer p {
   @apply text-[#9d9d9d] leading-[1.8] mb-[12px];
@@ -1577,7 +1575,6 @@ h3 {
 .btn-footer {
   @apply inline-flex items-center justify-center min-h-[38px] border text-[#c4c4c4] ml-0 mr-[12px] mt-[8px] mb-0 px-[22px] py-0 rounded-[999px] border-solid border-[rgba(255,255,255,0.24)];
 }
-.btn-footer:hover,
 .btn-footer:focus-visible,
 .footer ul li a:hover,
 .footer ul li a:focus-visible,
@@ -2516,7 +2513,7 @@ h3 {
   @apply box-border;
 }
 body.portal-body {
-  @apply [font-family:"Segoe_UI",Arial,sans-serif] [background:radial-gradient(circle_at_top_left,rgba(37,99,235,0.12),transparent_30%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent_26%),linear-gradient(180deg,#ffffff_0%,var(--portal-bg)_52%,var(--portal-bg-deep)_100%)] text-[color:var(--portal-text)] m-0;
+  @apply [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] [background:radial-gradient(circle_at_top_left,rgba(37,99,235,0.12),transparent_30%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent_26%),linear-gradient(180deg,#ffffff_0%,var(--portal-bg)_52%,var(--portal-bg-deep)_100%)] text-[color:var(--portal-text)] m-0;
 }
 a {
   @apply text-inherit no-underline;
@@ -2613,9 +2610,6 @@ a {
 .demo-login-card .portal-button {
   @apply min-h-[50px] [background:linear-gradient(135deg,#1d4ed8,#0ea5e9)] text-white shadow-[0_22px_44px_rgba(37,99,235,0.28)] transition-all duration-300;
 }
-.demo-login-card .portal-button:hover {
-  @apply -translate-y-[3px] shadow-[0_30px_60px_rgba(37,99,235,0.34)];
-}
 @keyframes demoCardIn {
   from {
     opacity: 0;
@@ -2696,13 +2690,7 @@ a {
 .portal-button-danger {
   @apply [background:#fff5f5] border-red-200 text-[color:var(--portal-danger)];
 }
-.portal-button:hover,
-.portal-button-ghost:hover,
-.portal-button-danger:hover {
-  @apply -translate-y-px;
-}
-.portal-button-muted,
-.portal-button-muted:hover {
+.portal-button-muted {
   @apply opacity-60 cursor-not-allowed translate-y-0 shadow-none;
 }
 .portal-layout {
@@ -2732,7 +2720,7 @@ a {
   @apply [background:linear-gradient(135deg,rgba(255,255,255,0.16),rgba(147,197,253,0.14))] text-white;
 }
 .portal-sidebar .portal-button-ghost {
-  @apply [background:rgba(255,255,255,0.08)] text-blue-50 border-[rgba(191,219,254,0.28)] hover:[background:rgba(255,255,255,0.15)];
+  @apply [background:rgba(255,255,255,0.08)] text-blue-50 border-[rgba(191,219,254,0.28)];
 }
 .portal-sidebar-foot {
   @apply mt-[28px];
@@ -3406,7 +3394,7 @@ body.docs-page {
 .docs-page h4,
 .docs-page h5,
 .docs-page h6 {
-  @apply [font-family:"Roboto",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif];
+  @apply [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif];
 }
 .docs-page a {
   @apply text-inherit no-underline;
@@ -3456,7 +3444,7 @@ body.docs-page {
 }
 .docs-hero-copy h1,
 .docs-page-hero-copy h1 {
-  @apply [font-family:"Roboto",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] text-[clamp(2.5rem,5vw,4.6rem)] leading-[1.02] tracking-[-0.04em] mt-0 mb-[18px] mx-0;
+  @apply [font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe_UI",sans-serif] text-[clamp(2.5rem,5vw,4.6rem)] leading-[1.02] tracking-[-0.04em] mt-0 mb-[18px] mx-0;
 }
 .docs-hero-copy p,
 .docs-page-hero-copy p,
@@ -3476,7 +3464,7 @@ body.docs-page {
   @apply flex flex-wrap gap-[14px] mt-[26px];
 }
 .docs-btn {
-  @apply inline-flex items-center justify-center min-h-[52px] border [background:var(--docs-brand)] text-white font-bold shadow-[0_10px_24px_rgba(61,101,176,0.16)] [transition:transform_180ms_ease,box-shadow_180ms_ease,border-color_180ms_ease,background_180ms_ease] px-[22px] py-0 rounded-[8px] border-solid border-transparent hover:translate-y-[-2px] hover:shadow-[0_16px_28px_rgba(61,101,176,0.2)];
+  @apply inline-flex items-center justify-center min-h-[52px] border [background:var(--docs-brand)] text-white font-bold shadow-[0_10px_24px_rgba(61,101,176,0.16)] [transition:transform_180ms_ease,box-shadow_180ms_ease,border-color_180ms_ease,background_180ms_ease] px-[22px] py-0 rounded-[8px] border-solid border-transparent;
 }
 .docs-btn.secondary {
   @apply border-[color:var(--docs-line)] [background:#ffffff] text-[color:var(--docs-text)] shadow-none;
@@ -3779,6 +3767,70 @@ body.docs-page {
 .docs-page .footer-reference {
   @apply mt-[30px];
 }
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close) {
+  --button-liquid: var(--accent, #f4b860);
+  --button-liquid-deep: #e98c00;
+  border-color: transparent !important;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close) > * {
+  position: relative;
+  z-index: 1;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close)::before,
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close)::after {
+  content: "";
+  inset: auto -24% -185%;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close)::before {
+  background:
+    radial-gradient(circle at 26% 22%, rgba(255, 255, 255, 0.38) 0 8%, transparent 9%),
+    linear-gradient(135deg, var(--button-liquid), var(--button-liquid-deep));
+  border-radius: 43% 47% 39% 45%;
+  height: 240%;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: bottom 0.55s ease, opacity 0.22s ease, transform 0.55s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close)::after {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 48%;
+  height: 190%;
+  opacity: 0;
+  transform: translateY(16%) rotate(18deg);
+  transition: bottom 0.65s ease, opacity 0.2s ease, transform 0.65s ease;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close):hover {
+  border-color: transparent !important;
+  box-shadow: 0 12px 28px rgba(233, 140, 0, 0.24), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close):hover::before {
+  bottom: -88%;
+  opacity: 1;
+  transform: rotate(12deg);
+}
+
+:is(button, .button, .btn, .btn-secondary, .btn-outline, .docs-btn, .portal-button, .portal-button-ghost, .portal-button-danger, .btn-footer, .nav-cta, .menu-toggle, .checkout-method, .checkout-pay-button, .department-modal-close):hover::after {
+  bottom: -106%;
+  opacity: 1;
+  transform: translateY(0) rotate(195deg);
+}
+
 @media (max-width: 1160px) {
   .docs-grid.cards-4 {
     @apply grid-cols-2;
@@ -3838,14 +3890,6 @@ body.docs-page {
 }
 
 body :where(
-    .button,
-    .btn,
-    .btn-secondary,
-    .btn-outline,
-    .docs-btn,
-    .portal-button,
-    .portal-button-ghost,
-    .portal-button-danger,
     .nav-links a,
     .docs-topbar .nav-links a,
     .portal-nav-link,
@@ -3856,7 +3900,6 @@ body :where(
     .blog-read-link,
     .docs-anchor,
     .docs-side-link,
-    .docs-tabs button,
     .hero-actions a,
     .cta-actions a,
     .card,
@@ -3886,14 +3929,6 @@ body :where(
 }
 
 body :where(
-    .button,
-    .btn,
-    .btn-secondary,
-    .btn-outline,
-    .docs-btn,
-    .portal-button,
-    .portal-button-ghost,
-    .portal-button-danger,
     .nav-links a,
     .docs-topbar .nav-links a,
     .portal-nav-link,
@@ -3904,7 +3939,6 @@ body :where(
     .blog-read-link,
     .docs-anchor,
     .docs-side-link,
-    .docs-tabs button,
     .hero-actions a,
     .cta-actions a,
     .card,

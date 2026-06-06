@@ -22,7 +22,7 @@
 
 body.portal-body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
     radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 30%),
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 26%),
@@ -190,10 +190,67 @@ a {
   color: var(--portal-danger);
 }
 
-.portal-button:hover,
-.portal-button-ghost:hover,
-.portal-button-danger:hover {
-  transform: translateY(-1px);
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger) {
+  --button-liquid: var(--accent, #f4b860);
+  --button-liquid-deep: #e98c00;
+  border-color: transparent !important;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger) > * {
+  position: relative;
+  z-index: 1;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger)::before,
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger)::after {
+  content: "";
+  inset: auto -24% -185%;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger)::before {
+  background:
+    radial-gradient(circle at 26% 22%, rgba(255, 255, 255, 0.38) 0 8%, transparent 9%),
+    linear-gradient(135deg, var(--button-liquid), var(--button-liquid-deep));
+  border-radius: 43% 47% 39% 45%;
+  height: 240%;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: bottom 0.55s ease, opacity 0.22s ease, transform 0.55s ease;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger)::after {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 48%;
+  height: 190%;
+  opacity: 0;
+  transform: translateY(16%) rotate(18deg);
+  transition: bottom 0.65s ease, opacity 0.2s ease, transform 0.65s ease;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger):hover {
+  border-color: transparent !important;
+  box-shadow: 0 12px 28px rgba(233, 140, 0, 0.24), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger):hover::before {
+  bottom: -88%;
+  opacity: 1;
+  transform: rotate(12deg);
+}
+
+:is(button, .portal-button, .portal-button-ghost, .portal-button-danger):hover::after {
+  bottom: -106%;
+  opacity: 1;
+  transform: translateY(0) rotate(195deg);
 }
 
 .portal-layout {
@@ -254,10 +311,6 @@ a {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(191, 219, 254, 0.28);
   color: #eff6ff;
-}
-
-.portal-sidebar .portal-button-ghost:hover {
-  background: rgba(255, 255, 255, 0.15);
 }
 
 .portal-sidebar-foot {
