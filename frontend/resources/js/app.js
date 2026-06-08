@@ -164,6 +164,9 @@ const renderSharedFooter = () => {
               <a class="footer-social-icon" href="https://www.youtube.com/@SortiqSolutions" target="_blank" rel="noreferrer" aria-label="YouTube">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2c.4-1.8.4-4.8.4-4.8s0-3-.4-4.8zM9.7 15.1V8.9l5.4 3.1z" fill="currentColor"/></svg>
               </a>
+              <a class="footer-social-icon" href="https://medium.com/@sortiqsolutions" target="_blank" rel="noreferrer" aria-label="Medium">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 7.5c0-.4-.1-.7-.4-1L2.7 4.9v-.2h5.1l3.9 8.6 3.4-8.6H20v.2l-1.1 1.1c-.1.1-.2.3-.2.5v11c0 .2.1.4.2.5l1.1 1.1v.2h-6.4v-.2l1.2-1.1c.1-.1.1-.2.1-.5V8.6l-4.6 10.7H10L4.7 8.6v7.5c0 .4.1.8.4 1.1l1.5 1.8v.2H2.4V19l1.5-1.8c.3-.3.4-.7.4-1.1z" fill="currentColor"/></svg>
+              </a>
               <a class="footer-social-icon" href="mailto:sortiqsolutions@gmail.com" aria-label="Email">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm0 1.8v.2l8 5.2 8-5.2v-.2zm16 7.4v-5.1l-7.5 4.9a1 1 0 0 1-1.1 0L4 10.6v5.1z" fill="currentColor"/></svg>
               </a>
@@ -173,7 +176,7 @@ const renderSharedFooter = () => {
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p>&copy; <span data-year></span>Sortiq Solutions Pvt. Ltd. All rights reserved.</p>
+          <p>&copy; <span data-year></span>&nbsp;Sortiq Solutions Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -228,7 +231,7 @@ document.querySelectorAll("[data-counter-target]").forEach((counter) => {
   const suffix = counter.dataset.counterSuffix || "";
   const decimals = Number(counter.dataset.counterDecimals || 0);
   const useSeparator = counter.dataset.counterSeparator === "true";
-  const duration = 2200;
+  const duration = Number(counter.dataset.counterDuration || 2200);
   let started = false;
   let lastValue = "";
 
@@ -254,6 +257,7 @@ document.querySelectorAll("[data-counter-target]").forEach((counter) => {
     }
 
     started = true;
+    counter.classList.add("is-counting");
     const startTime = performance.now();
 
     const tick = (now) => {
@@ -266,6 +270,9 @@ document.querySelectorAll("[data-counter-target]").forEach((counter) => {
 
       if (progress < 1) {
         window.requestAnimationFrame(tick);
+      } else {
+        counter.classList.remove("is-counting");
+        counter.classList.add("is-complete");
       }
     };
 

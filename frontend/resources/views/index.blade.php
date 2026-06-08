@@ -55,7 +55,7 @@
     <main>
       <section class="section hero">
         <div>
-          <p class="eyebrow hero-eyebrow-main">CampusEdgePro - Smart College ERP by Sortiq Solutions</p>
+          <h5 class="eyebrow hero-eyebrow-main">CampusEdgePro - Smart College ERP by Sortiq Solutions</h5>
           <h1>All-in-One College ERP Software</h1>
           <p class="lead">Manage students, staff, attendance, fees and admissions in one platform built for colleges that want cleaner operations and faster decisions.</p>
           <div class="hero-actions">
@@ -65,7 +65,6 @@
           <div class="stats-row">
             <div class="stat"><strong data-counter-target="50" data-counter-suffix="+">0+</strong>Trusted institutes</div>
             <div class="stat"><strong data-counter-target="12">0</strong>Core ERP modules</div>
-            <div class="stat"><strong data-counter-target="24" data-counter-suffix="/7">0/7</strong>Cloud access</div>
           </div>
         </div>
         <div class="hero-panel">
@@ -92,7 +91,7 @@
         <div class="section modules-compact">
           <div class="section-head">
             <div>
-              <p class="eyebrow">ERP modules</p>
+              <h5 class="eyebrow">ERP modules</h5>
               <h2>Everything a college team needs to run daily work.</h2>
             </div>
            
@@ -218,7 +217,7 @@
                   <li>Dashboards</li>
                 </ul>
               </article>
-              <article class="module-detail-card green">
+              <article class="module-detail-card accent">
                 <h3>Finance</h3>
                 <ul class="compact-checks">
                   <li>Fee structure</li>
@@ -231,7 +230,7 @@
                   <li>Exports</li>
                 </ul>
               </article>
-              <article class="module-detail-card blue">
+              <article class="module-detail-card accent">
                 <h3>CRM Admissions</h3>
                 <ul class="compact-checks">
                   <li>Inquiry tracking</li>
@@ -251,7 +250,7 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Why teams choose us</p>
+            <h5 class="eyebrow">Why teams choose us</h5>
             <h2>Built for the real rhythm of Indian colleges.</h2>
           </div>
           <a class="button secondary" href="about.html">About Sortiq</a>
@@ -311,7 +310,7 @@
         <div class="section">
           <div class="section-head trust-section-head">
             <div>
-              <p class="eyebrow">Trust</p>
+              <h5 class="eyebrow">Trust</h5>
               <h2>Trusted by 50+ institutes.</h2>
             </div>
           </div>
@@ -321,9 +320,9 @@
               <h3>Built for teams that run the institute every day.</h3>
               <p>From front-office admissions to management reports, CampusEdgePro keeps student, staff, fee and attendance data connected across departments.</p>
               <div class="trust-metrics">
-                <div class="trust-metric"><strong>50+</strong>Institutes</div>
-                <div class="trust-metric"><strong>12</strong>ERP modules</div>
-                <div class="trust-metric"><strong>4</strong>Core teams</div>
+                <div class="trust-metric"><strong data-counter-target="50" data-counter-suffix="+" data-counter-duration="3800">0+</strong>Institutes</div>
+                <div class="trust-metric"><strong data-counter-target="12" data-counter-duration="3400">0</strong>ERP modules</div>
+                <div class="trust-metric"><strong data-counter-target="4" data-counter-duration="3000">0</strong>Core teams</div>
               </div>
             </article>
             <div>
@@ -369,7 +368,7 @@
         <section class="demo-video-card card">
           <div class="demo-video-head">
             <div>
-            <p class="eyebrow">Product walkthrough</p>
+            <h5 class="eyebrow">Product walkthrough</h5>
             <h2>See the ERP in action.</h2>
             <p>Use this temporary overview preview to showcase the platform before the live guided session.</p>
           </div>
@@ -424,16 +423,12 @@
               <input name="phone" value="{{ old('phone') }}" required>
             </label>
             <label class="field">
-              <span>College Name</span>
-              <input name="college_name" value="{{ old('college_name') }}" required>
-            </label>
-            <label class="field">
               <span>Student Strength</span>
               <input name="student_strength" value="{{ old('student_strength') }}" placeholder="e.g. 2500 students" required>
             </label>
-            <label class="field">
-              <span>Requirements</span>
-              <textarea name="requirements" data-demo-requirements placeholder="Tell us the modules, workflows, or pain points you want covered in the demo.">{{ old('requirements') }}</textarea>
+            <label class="field field-wide">
+              <span>College Name</span>
+              <input name="college_name" value="{{ old('college_name') }}" required>
             </label>
             <label class="field">
               <span>Preferred focus area</span>
@@ -444,6 +439,10 @@
                 <option value="Fee management, collections, and dues tracking review.">Fee Management</option>
                 <option value="Attendance workflow and class-level analytics review.">Attendance</option>
               </select>
+            </label>
+            <label class="field">
+              <span>Requirements</span>
+              <textarea name="requirements" data-demo-requirements placeholder="Tell us the modules, workflows, or pain points you want covered in the demo.">{{ old('requirements') }}</textarea>
             </label>
             <div class="demo-submit">
               <button class="button" type="submit">Book Live Demo</button>

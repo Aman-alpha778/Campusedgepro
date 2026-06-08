@@ -27,9 +27,7 @@
     <div class="portal-layout">
       <aside class="portal-sidebar">
         <a class="portal-brand" href="{{ route(($adminRoutePrefix ?? 'admin').'.dashboard') }}">
-          @unless ($isDemoSuperAdmin)
-            <img class="portal-brand-logo" src="/assets/logoas.png" alt="CampusEdgePro">
-          @endunless
+          <img class="portal-brand-logo" src="/assets/logoas.png" alt="CampusEdgePro">
           <span class="portal-brand-copy">
             <span>{{ $isDemoSuperAdmin ? 'Super Admin Experience' : 'CampusEdgePro Admin' }}</span>
             <small>{{ $isDemoSuperAdmin ? 'Demo Portal' : 'Control Center' }}</small>
