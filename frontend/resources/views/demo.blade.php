@@ -79,16 +79,12 @@
               <input name="phone" value="{{ old('phone') }}" required>
             </label>
             <label class="field">
-              <span>College Name</span>
-              <input name="college_name" value="{{ old('college_name') }}" required>
-            </label>
-            <label class="field">
               <span>Student Strength</span>
               <input name="student_strength" value="{{ old('student_strength') }}" placeholder="e.g. 2500 students" required>
             </label>
-            <label class="field">
-              <span>Requirements</span>
-              <textarea name="requirements" data-demo-requirements placeholder="Tell us the modules, workflows, or pain points you want covered in the demo.">{{ old('requirements') }}</textarea>
+            <label class="field field-wide">
+              <span>College Name</span>
+              <input name="college_name" value="{{ old('college_name') }}" required>
             </label>
             <label class="field">
               <span>Preferred focus area</span>
@@ -99,6 +95,10 @@
                 <option value="Fee management, collections, and dues tracking review.">Fee Management</option>
                 <option value="Attendance workflow and class-level analytics review.">Attendance</option>
               </select>
+            </label>
+            <label class="field">
+              <span>Requirements</span>
+              <textarea name="requirements" data-demo-requirements placeholder="Tell us the modules, workflows, or pain points you want covered in the demo.">{{ old('requirements') }}</textarea>
             </label>
             <div class="demo-submit">
               <button class="button" type="submit">Book Live Demo</button>

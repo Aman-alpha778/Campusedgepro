@@ -2254,6 +2254,10 @@ h3 {
   padding-top: 28px;
 }
 
+.demo-page .demo-section {
+  padding-top: 72px;
+}
+
 .demo-copy {
   max-width: 520px;
   align-self: start;

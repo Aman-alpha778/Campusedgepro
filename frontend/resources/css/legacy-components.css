@@ -1196,6 +1196,9 @@ h3 {
 .demo-section {
   @apply grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-[24px] items-stretch pt-[28px];
 }
+.demo-page .demo-section {
+  @apply pt-[72px];
+}
 .demo-copy {
   @apply max-w-[520px] [align-self:start];
 }
